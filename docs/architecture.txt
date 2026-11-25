@@ -1,0 +1,244 @@
+DRISHTI IMPLEMENTATION ARCHITECTURE
+
+1. Competition position
+
+Primary submission: Track A, Read the Planet.
+Optional extension: Track C, Guard the Nation.
+
+The Track A deliverable is a working demonstration on real satellite data. Track C is shown only after the Track A path works and remains protective: monitoring land and infrastructure, generating early warnings and evidence, and never tracking individual people.
+
+2. Product statement
+
+Drishti is a satellite-assisted audit layer for surface-visible public infrastructure. It compares reported status, spending and schedule with observable construction activity, then prioritizes locations for field verification.
+
+Drishti does not accuse a contractor and does not claim that a satellite score is an exact completion percentage. Every alert means "verify on ground" and carries its evidence, confidence, observability and data-quality limits.
+
+3. Judge-facing MVP
+
+The 12-hour MVP is intentionally narrow:
+
+- one real, surface-visible corridor;
+- 10 to 20 one-kilometre segments;
+- one known delayed or stalled case for chronological back-testing;
+- Sentinel-2 plus Sentinel-1 where usable;
+- precomputed imagery and features for demo reliability;
+- one Satellite Activity Index;
+- one transparent stall rule;
+- one Activity-Reporting Divergence Score;
+- one evidence-backed alert;
+- one dashboard path that can be demonstrated in 90 seconds.
+
+Two additional corridors, portfolio scaling and Track C are extensions, not dependencies of the MVP.
+
+4. Core measurement contract
+
+4.1 Satellite Activity Index
+
+The Satellite Activity Index (SAI) is a relative score from 0 to 100. It measures observable surface activity against a segment's own pre-construction baseline. It is not an exact percentage of engineering completion.
+
+Inputs may include:
+
+- NDVI change for vegetation clearing;
+- bare-soil and built-up indices;
+- optical brightness or texture change;
+- Sentinel-1 VV and VH backscatter change;
+- linear-feature continuity;
+- rainfall and valid-observation count as context.
+
+The first implementation uses explicit, reviewable weights. A learned model may replace the weights only when sufficient labelled examples exist.
+
+4.2 Activity-Reporting Divergence Score
+
+The MVP replaces the invalid subtraction of reported completion percentage and a relative satellite index.
+
+For each segment and date:
+
+1. Convert the planned construction curve to an expected activity percentile.
+2. Convert observed SAI history to an observed activity percentile.
+3. Compute divergence = expected_activity_percentile - observed_activity_percentile.
+4. Report the divergence with confidence, observability and observation count.
+
+No completion percentage is inferred unless a separately trained and validated calibration model exists.
+
+4.3 Stall rule
+
+A segment becomes a stall candidate when:
+
+- activity remains below its segment-specific threshold for three consecutive valid observations;
+- rainfall or missing imagery does not explain the low activity;
+- observability is medium or high.
+
+The output state is active, slowing, stall_candidate, accelerating or not_assessable.
+
+5. End-to-end data flow
+
+PROJECT REGISTRY
+  -> ALIGNMENT AND SEGMENTS
+  -> SATELLITE OBSERVATIONS
+  -> QUALITY MASKS AND PREPROCESSING
+  -> SEGMENT FEATURES
+  -> SATELLITE ACTIVITY INDEX
+  -> STALL AND DIVERGENCE ANALYSIS
+  -> DELAY-RISK BACK-TEST
+  -> EVIDENCE PACKAGE
+  -> ALERT API AND DASHBOARD
+
+All derived objects retain source identifiers, processing version and timestamps.
+
+6. Layer contracts
+
+Layer 1: Project registry
+
+Purpose: represent what the project officially claims.
+
+Required fields:
+
+- project_id and project name;
+- sector and executing ministry or agency;
+- sanctioned and latest cost;
+- start, planned end and revised end dates;
+- reported physical progress and spending;
+- source URL and source-as-of date;
+- data classification: real, synthetic or mixed.
+
+Acceptance criteria:
+
+- invalid percentages, negative money and impossible date order are rejected;
+- duplicate project IDs are rejected;
+- synthetic values can never be presented as real;
+- derived cost and expenditure percentages are reproducible;
+- normalized records export to JSON.
+
+Layer 2: Alignment and segment builder
+
+Input: authoritative alignment where available, otherwise verified OSM or Bhuvan geometry.
+Output: buffered one-kilometre segments with stable IDs, baseline period and observability class.
+
+Layer 3: Satellite observation ingestion
+
+Input: corridor bounds, time range and sensor policy.
+Output: a catalogue of source scenes and cached cloud-optimized imagery. Every observation retains scene ID, acquisition time, orbit or tile, licence and checksum.
+
+Layer 4: Preprocessing and quality
+
+Sentinel-2: surface-reflectance data, SCL cloud and shadow mask, corridor cloud fraction, and temporal composites.
+Sentinel-1: prefer analysis-ready RTC for the hackathon. If raw GRD is used, apply calibration, terrain correction, speckle handling and co-registration.
+Output: quality-controlled, co-registered observations plus valid-pixel counts.
+
+Layer 5: Feature extraction
+
+Output per segment and date: optical indices, SAR change, continuity, rainfall and quality metrics. Feature formulas and processing versions are stored with the results.
+
+Layer 6: Satellite Activity Index
+
+Normalize features against the same segment's baseline and combine them using explicit weights. Store the component contributions so judges can see why the score moved.
+
+Layer 7: Stall and divergence analysis
+
+Apply the stall rule and Activity-Reporting Divergence Score. Low-observability segments become not_assessable rather than guessed.
+
+Layer 8: Delay-risk back-test
+
+MVP: perform a chronological case-study back-test on one known delayed project. Use only observations that existed before the official delay notice. Report early-warning lead time and false alerts.
+
+Future model: gradient boosting with project-level chronological splits, calibrated probabilities and feature explanations. Do not claim general accuracy from one case study.
+
+Layer 9: Evidence package and alerts
+
+Each alert contains segment ID, dates, before and after chips, SAI chart, divergence chart, rainfall note, data quality, observability, confidence, source scene IDs and the recommended action "field verification".
+
+Layer 10: Dashboard
+
+The judge path contains one map, one time slider, one before-and-after comparison, one planned/reported/observed chart and one evidence alert. A recorded offline fallback is kept for the pitch.
+
+Layer 11: Optional Track C extension
+
+Possible protective uses are right-of-way encroachment and illegal sand-mining indicators near infrastructure. Results remain alerts for authorized verification, not identification or tracking of people.
+
+Layer 12: Business and deployment
+
+Primary buyer for the pitch: a government project-monitoring or audit cell.
+Decision changed: which segment receives field verification first.
+Commercial model: annual per-project monitoring plus separately priced evidence reports.
+
+Any market-size, project-value or savings figure must cite an official source. Savings are labelled illustrative until measured in a pilot. Buyer ROI is expressed as annual monitoring cost compared with the value of identifying one material delay or reporting discrepancy earlier.
+
+7. Validation
+
+Minimum MVP evidence:
+
+- 20 to 30 hand-reviewed segment-date examples;
+- one chronological delayed-project back-test;
+- early-warning lead time;
+- stall precision and recall where labels allow;
+- number and share of not_assessable segments;
+- sanity checks on completed and untouched segments;
+- visible component contributions for the showcased alert.
+
+8. Technology choices
+
+- Python 3.11 or newer;
+- GeoPandas, Rasterio, Xarray and STAC tooling for geospatial processing;
+- GeoParquet initially, PostGIS when multi-user serving is required;
+- scikit-learn or LightGBM for the later risk model;
+- FastAPI for service endpoints;
+- Streamlit for the hackathon dashboard;
+- ReportLab or WeasyPrint for evidence exports.
+
+9. Reliability and responsible use
+
+- open or explicitly licensed data for the live demonstration;
+- no individual tracking;
+- no automatic allegation or enforcement decision;
+- source provenance and processing version on every result;
+- confidence lowered for clouds, missing observations and low observability;
+- offline demo assets prepared before judging;
+- secrets and service credentials kept outside the repository.
+
+10. Twelve-hour build sequence
+
+Hours 0 to 2: select and verify one corridor, load its project registry record and alignment.
+Hours 2 to 4: retrieve or verify cached observations and quality masks.
+Hours 4 to 6: compute segment features and the SAI.
+Hours 6 to 7: run stall and divergence analysis.
+Hours 7 to 8: complete the chronological back-test.
+Hours 8 to 10: assemble the dashboard and one evidence alert.
+Hours 10 to 11: verify economics, citations and limitations.
+Hours 11 to 12: rehearse, time and record the fallback demo.
+
+11. Five-minute pitch
+
+0:00 to 0:30 - problem and decision Drishti improves.
+0:30 to 2:00 - real-data live demonstration.
+2:00 to 3:00 - transparent method and back-test result.
+3:00 to 3:45 - buyer, price and illustrative value.
+3:45 to 4:20 - limitations, confidence and responsible-use safeguards.
+4:20 to 4:45 - optional Track C extension.
+4:45 to 5:00 - conclusion and requested pilot.
+
+12. Judging evidence checklist
+
+Economic or strategic impact, 30 percent:
+- one primary payer;
+- one decision changed;
+- sourced market or project value;
+- buyer-level ROI example.
+
+Technical depth and AI, 30 percent:
+- real optical or SAR data;
+- reproducible feature and SAI pipeline;
+- explicit AI target and labels;
+- chronological validation and explainability.
+
+Feasibility, 20 percent:
+- one corridor completed end to end;
+- open data and a reproducible build;
+- honest not_assessable state;
+- demo runs offline.
+
+Demo and pitch, 20 percent:
+- visible before and after evidence;
+- one map, curve and alert;
+- measured back-test result;
+- complete presentation in less than five minutes.
+

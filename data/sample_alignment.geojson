@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "name": "synthetic_demo_alignment",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "DEMO-ALIGNMENT-001",
+      "properties": {
+        "alignment_id": "DEMO-ALIGNMENT-001",
+        "project_id": "DEMO-001",
+        "data_classification": "synthetic",
+        "source_url": "https://example.invalid/drishti-demo-alignment"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.5946, 12.9716],
+          [77.6020, 12.9745],
+          [77.6100, 12.9780],
+          [77.6185, 12.9815]
+        ]
+      }
+    }
+  ]
+}

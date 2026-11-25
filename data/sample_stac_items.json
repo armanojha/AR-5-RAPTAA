@@ -1,0 +1,79 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S2-DEMO-CLEAR",
+      "collection": "sentinel-2-l2a",
+      "bbox": [77.58, 12.96, 77.63, 12.99],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.58, 12.96], [77.63, 12.96], [77.63, 12.99], [77.58, 12.99], [77.58, 12.96]]]
+      },
+      "properties": {
+        "datetime": "2026-10-15T05:10:00Z",
+        "platform": "sentinel-2a",
+        "eo:cloud_cover": 12.0,
+        "drishti:valid_pixel_fraction": 0.82,
+        "license": "proprietary-placeholder"
+      },
+      "assets": {
+        "blue": {"href": "https://example.invalid/S2-DEMO-CLEAR-B02.tif", "type": "image/tiff; application=geotiff"},
+        "green": {"href": "https://example.invalid/S2-DEMO-CLEAR-B03.tif", "type": "image/tiff; application=geotiff"},
+        "red": {"href": "https://example.invalid/S2-DEMO-CLEAR-B04.tif", "type": "image/tiff; application=geotiff"},
+        "nir": {"href": "https://example.invalid/S2-DEMO-CLEAR-B08.tif", "type": "image/tiff; application=geotiff"},
+        "swir16": {"href": "https://example.invalid/S2-DEMO-CLEAR-B11.tif", "type": "image/tiff; application=geotiff"},
+        "scl": {"href": "https://example.invalid/S2-DEMO-CLEAR-SCL.tif", "type": "image/tiff; application=geotiff"}
+      },
+      "links": [{"rel": "self", "href": "https://example.invalid/stac/S2-DEMO-CLEAR"}]
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S2-DEMO-CLOUDY",
+      "collection": "sentinel-2-l2a",
+      "bbox": [77.58, 12.96, 77.63, 12.99],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.58, 12.96], [77.63, 12.96], [77.63, 12.99], [77.58, 12.99], [77.58, 12.96]]]
+      },
+      "properties": {
+        "datetime": "2026-10-20T05:10:00Z",
+        "platform": "sentinel-2b",
+        "eo:cloud_cover": 78.0,
+        "drishti:valid_pixel_fraction": 0.18
+      },
+      "assets": {
+        "blue": {"href": "https://example.invalid/cloudy-B02.tif"},
+        "green": {"href": "https://example.invalid/cloudy-B03.tif"},
+        "red": {"href": "https://example.invalid/cloudy-B04.tif"},
+        "nir": {"href": "https://example.invalid/cloudy-B08.tif"},
+        "swir16": {"href": "https://example.invalid/cloudy-B11.tif"},
+        "scl": {"href": "https://example.invalid/cloudy-SCL.tif"}
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S1-DEMO-RTC",
+      "collection": "sentinel-1-rtc",
+      "bbox": [77.58, 12.96, 77.63, 12.99],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.58, 12.96], [77.63, 12.96], [77.63, 12.99], [77.58, 12.99], [77.58, 12.96]]]
+      },
+      "properties": {
+        "datetime": "2026-10-22T00:30:00Z",
+        "platform": "sentinel-1a",
+        "sar:product_type": "RTC",
+        "sar:polarizations": ["VV", "VH"],
+        "drishti:valid_pixel_fraction": 0.95
+      },
+      "assets": {
+        "vv": {"href": "https://example.invalid/S1-DEMO-RTC-VV.tif"},
+        "vh": {"href": "https://example.invalid/S1-DEMO-RTC-VH.tif"}
+      }
+    }
+  ]
+}

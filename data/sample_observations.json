@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "synthetic",
+  "observations": [
+    {
+      "segment_id": "DEMO-001-S0001",
+      "observed_at": "2026-08-01T00:00:00Z",
+      "optical_scene_ids": ["S2-DEMO-BASELIKE"],
+      "sar_scene_ids": ["S1-DEMO-BASELIKE"],
+      "optical_bands": {
+        "blue": [[0.09, 0.10], [0.09, 0.11]],
+        "green": [[0.12, 0.13], [0.12, 0.14]],
+        "red": [[0.10, 0.11], [0.10, 0.12]],
+        "nir": [[0.39, 0.40], [0.38, 0.41]],
+        "swir16": [[0.13, 0.14], [0.13, 0.15]]
+      },
+      "sar_db": {
+        "vv": [[-11.9, -12.1], [-12.0, -11.8]],
+        "vh": [[-18.0, -18.2], [-17.9, -18.1]]
+      },
+      "valid_mask": [[true, true], [true, true]],
+      "baseline": {
+        "ndvi_mean": 0.57,
+        "bsi_mean": -0.25,
+        "ndbi_mean": -0.48,
+        "brightness_mean": 0.113,
+        "vv_mean_db": -12.0,
+        "vh_mean_db": -18.0
+      },
+      "linear_continuity": 0.08,
+      "rainfall_mm": 2.0
+    },
+    {
+      "segment_id": "DEMO-001-S0001",
+      "observed_at": "2026-09-01T00:00:00Z",
+      "optical_scene_ids": ["S2-DEMO-CLEARING"],
+      "sar_scene_ids": ["S1-DEMO-EARTHWORKS"],
+      "optical_bands": {
+        "blue": [[0.14, 0.15], [0.14, 0.16]],
+        "green": [[0.17, 0.18], [0.17, 0.19]],
+        "red": [[0.18, 0.19], [0.18, 0.20]],
+        "nir": [[0.20, 0.21], [0.19, 0.22]],
+        "swir16": [[0.34, 0.35], [0.33, 0.36]]
+      },
+      "sar_db": {
+        "vv": [[-10.0, -10.2], [-9.8, -10.1]],
+        "vh": [[-16.1, -16.0], [-15.8, -16.2]]
+      },
+      "valid_mask": [[true, true], [true, false]],
+      "baseline": {
+        "ndvi_mean": 0.57,
+        "bsi_mean": -0.25,
+        "ndbi_mean": -0.48,
+        "brightness_mean": 0.113,
+        "vv_mean_db": -12.0,
+        "vh_mean_db": -18.0
+      },
+      "linear_continuity": 0.55,
+      "rainfall_mm": 5.0
+    },
+    {
+      "segment_id": "DEMO-001-S0001",
+      "observed_at": "2026-10-01T00:00:00Z",
+      "optical_scene_ids": ["S2-DEMO-BUILDING"],
+      "sar_scene_ids": ["S1-DEMO-STRUCTURE"],
+      "optical_bands": {
+        "blue": [[0.20, 0.21], [0.20, 0.22]],
+        "green": [[0.23, 0.24], [0.23, 0.25]],
+        "red": [[0.22, 0.23], [0.22, 0.24]],
+        "nir": [[0.24, 0.25], [0.24, 0.26]],
+        "swir16": [[0.44, 0.45], [0.43, 0.46]]
+      },
+      "sar_db": {
+        "vv": [[-8.0, -8.2], [-7.8, -8.1]],
+        "vh": [[-14.0, -14.2], [-13.8, -14.1]]
+      },
+      "valid_mask": [[true, true], [true, true]],
+      "baseline": {
+        "ndvi_mean": 0.57,
+        "bsi_mean": -0.25,
+        "ndbi_mean": -0.48,
+        "brightness_mean": 0.113,
+        "vv_mean_db": -12.0,
+        "vh_mean_db": -18.0
+      },
+      "linear_continuity": 0.85,
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "DEMO-001-S0002",
+      "observed_at": "2026-08-01T00:00:00Z",
+      "sar_scene_ids": ["S1-DEMO-IDLE-1"],
+      "sar_db": {
+        "vv": [[-12.0, -11.9], [-12.1, -12.0]],
+        "vh": [[-18.0, -17.9], [-18.1, -18.0]]
+      },
+      "valid_pixel_fraction": 1.0,
+      "baseline": {"vv_mean_db": -12.0, "vh_mean_db": -18.0},
+      "linear_continuity": 0.02,
+      "rainfall_mm": 1.0
+    },
+    {
+      "segment_id": "DEMO-001-S0002",
+      "observed_at": "2026-09-01T00:00:00Z",
+      "sar_scene_ids": ["S1-DEMO-IDLE-2"],
+      "sar_db": {
+        "vv": [[-12.1, -12.0], [-12.0, -11.9]],
+        "vh": [[-18.1, -18.0], [-18.0, -17.9]]
+      },
+      "valid_pixel_fraction": 1.0,
+      "baseline": {"vv_mean_db": -12.0, "vh_mean_db": -18.0},
+      "linear_continuity": 0.02,
+      "rainfall_mm": 3.0
+    },
+    {
+      "segment_id": "DEMO-001-S0002",
+      "observed_at": "2026-10-01T00:00:00Z",
+      "sar_scene_ids": ["S1-DEMO-IDLE-3"],
+      "sar_db": {
+        "vv": [[-12.0, -12.1], [-11.9, -12.0]],
+        "vh": [[-18.0, -18.1], [-17.9, -18.0]]
+      },
+      "valid_pixel_fraction": 1.0,
+      "baseline": {"vv_mean_db": -12.0, "vh_mean_db": -18.0},
+      "linear_continuity": 0.02,
+      "rainfall_mm": 0.0
+    }
+  ]
+}

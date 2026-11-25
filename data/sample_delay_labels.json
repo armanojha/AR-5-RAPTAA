@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "case_id": "SYNTHETIC-DELAY-001",
+      "segment_id": "DEMO-001-S0002",
+      "official_delay_date": "2026-11-15",
+      "source_url": "https://example.invalid/synthetic-delay-label",
+      "data_classification": "synthetic"
+    }
+  ]
+}
