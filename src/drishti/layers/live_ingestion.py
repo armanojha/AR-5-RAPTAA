@@ -188,6 +188,76 @@ def fetch_sentinel2_window(
     }
 
 
+def build_sentinel2_median_composite(
+    items: list[dict[str, Any]],
+    wgs84_bounds: tuple[float, float, float, float],
+    *,
+    max_scenes: int = 3,
+) -> dict[str, Any]:
+    """
+    Fetch up to `max_scenes` Sentinel-2 L2A scenes in an observation window,
+    apply SCL cloud/shadow masking per scene, align grids, and compute a pixel-wise
+    temporal median composite (Layer 4 spec).
+    """
+    selected = sorted(
+        items,
+        key=lambda it: float(it.get("properties", {}).get("eo:cloud_cover") or 100.0),
+    )[:max_scenes]
+    if not selected:
+        raise ValueError("build_sentinel2_median_composite requires at least one STAC item")
+
+    scene_windows = [fetch_sentinel2_window(it, wgs84_bounds) for it in selected]
+    if len(scene_windows) == 1:
+        only = scene_windows[0]
+        only["optical_scene_ids"] = [only["scene_id"]]
+        only["composite_scene_count"] = 1
+        return only
+
+    target_shape = scene_windows[0]["bands"]["red"].shape
+    band_keys = ("blue", "green", "red", "nir", "swir16")
+    stacks: dict[str, list[np.ndarray]] = {k: [] for k in band_keys}
+    any_valid = np.zeros(target_shape, dtype=bool)
+    fallback_sums: dict[str, np.ndarray] = {k: np.zeros(target_shape, dtype=np.float32) for k in band_keys}
+
+    for win in scene_windows:
+        b = win["bands"]
+        scl = b["scl"]
+        if scl.shape != target_shape:
+            from drishti.layers.raster import resample_band
+            scl = resample_band(scl, target_shape, resampling=Resampling.nearest).astype(np.uint8)
+        valid = ~np.isin(scl, list(SCL_INVALID_CLASSES))
+        any_valid |= valid
+        for k in band_keys:
+            arr = b[k]
+            if arr.shape != target_shape:
+                from drishti.layers.raster import resample_band
+                arr = resample_band(arr, target_shape, resampling=Resampling.bilinear)
+            fallback_sums[k] += arr
+            stacks[k].append(np.where(valid, arr, np.nan))
+
+    composite_bands: dict[str, np.ndarray] = {}
+    for k in band_keys:
+        stacked = np.stack(stacks[k], axis=0)
+        with np.errstate(all="ignore"):
+            med = np.nanmedian(stacked, axis=0)
+        fallback_avg = fallback_sums[k] / len(scene_windows)
+        composite_bands[k] = np.where(any_valid & np.isfinite(med), med, fallback_avg).astype(np.float32)
+
+    # Composite SCL: 4 (clear vegetation/surface) where at least one scene was cloud-free, 9 (cloud) otherwise
+    composite_bands["scl"] = np.where(any_valid, 4, 9).astype(np.uint8)
+    clouds = [float(w["cloud_cover_pct"]) for w in scene_windows if w.get("cloud_cover_pct") is not None]
+
+    return {
+        "scene_id": scene_windows[0]["scene_id"],
+        "optical_scene_ids": [w["scene_id"] for w in scene_windows],
+        "composite_scene_count": len(scene_windows),
+        "datetime": scene_windows[0]["datetime"],
+        "cloud_cover_pct": min(clouds) if clouds else None,
+        "crs": scene_windows[0]["crs"],
+        "bands": composite_bands,
+    }
+
+
 def fetch_sentinel1_rtc_window(
     item: dict[str, Any],
     wgs84_bounds: tuple[float, float, float, float],

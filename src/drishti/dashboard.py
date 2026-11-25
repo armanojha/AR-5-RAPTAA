@@ -292,8 +292,10 @@ def build_dashboard(
         )
         ml_panel_html = (
             '<section class="panel" style="margin-top:20px;">'
-            f'<h2>AI / ML Risk & Structural Break Model ({html.escape(str(ml_summary.get("model_type", "GBDT + CUSUM")))})</h2>'
-            f'<p class="muted">Trained strictly on pre-cutoff chronological observations ({ml_summary.get("training_samples", 0)} samples) · No future leakage.</p>'
+            f'<h2>AI / ML Risk & Structural Break Model ({html.escape(str(ml_summary.get("model_type", "HistGBDT + Calibrated")))})</h2>'
+            f'<p class="muted">Trained pre-cutoff ({ml_summary.get("training_samples", 0)} samples) · '
+            f'Calibration: <strong>{html.escape(str(ml_summary.get("calibration_method", "N/A")))}</strong> · '
+            f'Brier Score: <strong>{html.escape(str(ml_summary.get("brier_score", "N/A")))}</strong> · Monotonic Physics Constraints Enabled</p>'
             f'<ul style="columns:2;font-size:14px">{imp_items or "<li>Rule-based + CUSUM active</li>"}</ul>'
             '</section>'
         )

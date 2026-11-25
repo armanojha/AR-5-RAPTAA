@@ -13,11 +13,11 @@ import numpy as np
 from drishti.layers.live_ingestion import (
     EARTH_SEARCH_STAC,
     PC_STAC,
+    build_sentinel2_median_composite,
     configure_gdal_http,
     fetch_context_layers,
     fetch_real_rainfall_window,
     fetch_sentinel1_rtc_window,
-    fetch_sentinel2_window,
     get_pc_sas_token,
     stac_search_post,
 )
@@ -241,8 +241,8 @@ def ingest_corridor(pid: str, cfg: dict[str, Any]) -> dict[str, Any]:
             if target_shape is None:
                 target_shape = bands["red"].shape
         else:
-            # Download real Sentinel-2 window
-            s2_data = fetch_sentinel2_window(s2_item, bbox)
+            # Download 15-day multi-scene Sentinel-2 median composite (up to 2 scenes)
+            s2_data = build_sentinel2_median_composite(s2_items, bbox, max_scenes=2)
             bands = s2_data["bands"]
             if target_shape is None:
                 target_shape = bands["red"].shape
@@ -289,6 +289,8 @@ def ingest_corridor(pid: str, cfg: dict[str, Any]) -> dict[str, Any]:
             "is_baseline": is_base,
             "observed_date": obs_date,
             "optical_scene_id": s2_item["id"],
+            "optical_scene_ids": s2_data.get("optical_scene_ids", [s2_item["id"]]),
+            "composite_scene_count": s2_data.get("composite_scene_count", 1),
             "optical_stac_item": {
                 "id": s2_item["id"],
                 "collection": s2_item.get("collection", "sentinel-2-l2a"),

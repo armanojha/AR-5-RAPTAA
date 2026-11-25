@@ -110,8 +110,8 @@ def export_alert_pdf(
         [
             "Spend-vs-Activity Ratio",
             f"{analysis.get('spend_vs_activity_ratio', 'N/A')}",
-            "Divergence Score",
-            f"{analysis.get('activity_reporting_divergence', 'N/A')}",
+            "ML Calibrated Delay Prob.",
+            f"{risk.get('ml_delay_probability', 'N/A')}",
         ],
     ]
     summary_table = Table(summary_rows, colWidths=[38 * mm, 48 * mm, 42 * mm, 48 * mm])

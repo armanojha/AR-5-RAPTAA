@@ -503,13 +503,15 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     analysis_records = run_stall_divergence(act_file, feat_file, rep_file, an_file, detector=detector)
     an_payload = json.loads(an_file.read_text(encoding="utf-8"))
 
-    # Build 25+ segment-date ground-truth labels aligned with observed physical & weather states for validation + ML split
+    # Build balanced segment-date ground-truth labels across all 3 corridors for validation + calibrated ML split
     feat_payload = json.loads(feat_file.read_text(encoding="utf-8"))
+    by_proj_counts: dict[str, int] = {}
     for rec in an_payload["records"]:
-        if len(ground_truth_labels) >= 30:
-            break
         st = rec["state"]
         if st == "not_assessable":
+            continue
+        proj_key = rec["segment_id"].rsplit("-S", 1)[0]
+        if by_proj_counts.get(proj_key, 0) >= 12:
             continue
         if rec["rainfall_confounded"]:
             lbl = "weather_pause"
@@ -519,6 +521,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
             lbl = "active"
         else:
             lbl = "untouched"
+        by_proj_counts[proj_key] = by_proj_counts.get(proj_key, 0) + 1
         ground_truth_labels.append(
             {
                 "segment_id": rec["segment_id"],
@@ -530,12 +533,8 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     gt_file = data_dir / "ground_truth.json"
     gt_file.write_text(json.dumps({"schema_version": "1.0", "labels": ground_truth_labels, "sample_count": len(ground_truth_labels)}, indent=2), encoding="utf-8")
 
-    # 7. Layer 8: Chronological 3-Corridor Back-Test + CUSUM + GradientBoosting ML Risk
-    print("→ Layer 8: Running 3-corridor no-future-leakage backtest + CUSUM + GradientBoosting...")
-    bt_file = out_root / "backtest.json"
-    risk_records, bt_cases = run_backtest(an_file, del_file, bt_file, scorer=DelayRiskScorer(alert_threshold=0.50))
-
-    # Run CUSUM structural break check on the primary NH-544G segment
+    # 7. Layer 8: Monotonic Calibrated HistGradientBoosting + CUSUM + Chronological 3-Corridor Back-Test
+    print("→ Layer 8: Training monotonic calibrated HistGradientBoosting & running 3-corridor backtest...")
     nh_segs = segments_by_project["NHAI-NH544G-PKG1"]
     nh_primary_id = nh_segs[len(nh_segs) // 2].segment_id
     nh_bsi_series = [float(r["bsi_mean"]) for r in feat_payload["records"] if r["segment_id"] == nh_primary_id and r.get("bsi_mean") is not None]
@@ -547,8 +546,18 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
         ground_truth_labels,
         cutoff_date="2024-11-20",
     )
+    prob_map = ml_res.pop("probability_map", {})
     ml_res["cusum_nh544g_bsi_breaks"] = cusum_res
     (out_root / "ml_risk_summary.json").write_text(json.dumps(ml_res, indent=2), encoding="utf-8")
+
+    bt_file = out_root / "backtest.json"
+    risk_records, bt_cases = run_backtest(
+        an_file,
+        del_file,
+        bt_file,
+        scorer=DelayRiskScorer(alert_threshold=0.50),
+        ml_probabilities=prob_map or None,
+    )
 
     # Update portfolio summary with actual computed divergence & risk
     for pm in portfolio_meta:

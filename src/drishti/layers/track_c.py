@@ -8,6 +8,7 @@ from typing import Any
 import numpy as np
 from PIL import Image, ImageDraw
 import rasterio
+from rasterio.features import rasterize
 
 from drishti.layers.raster import SCL_INVALID_CLASSES, compute_spectral_indices, compute_water_and_sand_indices
 
@@ -24,15 +25,16 @@ def _sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
-def _read_geotiff_bands(tif_path: Path) -> tuple[dict[str, np.ndarray], tuple[float, float, float, float]]:
+def _read_geotiff_bands(tif_path: Path) -> tuple[dict[str, np.ndarray], tuple[float, float, float, float], Any]:
     bands: dict[str, np.ndarray] = {}
     with rasterio.open(tif_path) as src:
         b = src.bounds
         bounds = (float(b.left), float(b.bottom), float(b.right), float(b.top))
+        transform = src.transform
         for idx in range(1, src.count + 1):
             name = src.descriptions[idx - 1] if src.descriptions and src.descriptions[idx - 1] else f"band_{idx}"
             bands[name] = src.read(idx)
-    return bands, bounds
+    return bands, bounds, transform
 
 
 def _to_rgb_pil(bands: dict[str, np.ndarray], overlay_mask: np.ndarray | None = None, size: tuple[int, int] = (256, 256)) -> Image.Image:
@@ -49,12 +51,38 @@ def _to_rgb_pil(bands: dict[str, np.ndarray], overlay_mask: np.ndarray | None = 
     g = _norm(bands["green"])
     b = _norm(bands["blue"])
     if overlay_mask is not None and overlay_mask.shape == r.shape:
-        # Highlight anomalous pixels in bright red-orange
         r = np.where(overlay_mask, 249, r)
         g = np.where(overlay_mask, 60, g)
         b = np.where(overlay_mask, 30, b)
     rgb = np.stack([r, g, b], axis=-1)
     return Image.fromarray(rgb).resize(size, Image.Resampling.BILINEAR)
+
+
+def _rasterize_corridor_polygons(
+    segments_geojson: dict[str, Any],
+    project_id: str,
+    out_shape: tuple[int, int],
+    transform: Any,
+) -> np.ndarray | None:
+    """Rasterize exact OSM segment buffer polygons onto the GeoTIFF pixel grid."""
+    geoms = [
+        feat["geometry"]
+        for feat in segments_geojson.get("features", [])
+        if (feat.get("properties") or {}).get("project_id") == project_id and feat.get("geometry")
+    ]
+    if not geoms:
+        return None
+    mask = rasterize(
+        [(g, 1) for g in geoms],
+        out_shape=out_shape,
+        transform=transform,
+        fill=0,
+        all_touched=True,
+        dtype="uint8",
+    )
+    if int(np.sum(mask)) == 0:
+        return None
+    return mask.astype(bool)
 
 
 def _analyze_real_corridor_pair(
@@ -63,11 +91,13 @@ def _analyze_real_corridor_pair(
     worldcover_npy: Path | None,
     mode: str,
     out_chip_path: Path,
+    *,
+    segments_geojson: dict[str, Any] | None = None,
+    project_id: str | None = None,
 ) -> dict[str, Any]:
-    base_bands, bounds = _read_geotiff_bands(base_tif)
-    lat_bands, _ = _read_geotiff_bands(latest_tif)
+    base_bands, bounds, transform = _read_geotiff_bands(base_tif)
+    lat_bands, _, _ = _read_geotiff_bands(latest_tif)
 
-    # Align shapes if slight edge difference
     h = min(base_bands["red"].shape[0], lat_bands["red"].shape[0])
     w = min(base_bands["red"].shape[1], lat_bands["red"].shape[1])
     for k in list(base_bands.keys()):
@@ -79,7 +109,6 @@ def _analyze_real_corridor_pair(
     valid_lat = ~np.isin(lat_bands["scl"], list(SCL_INVALID_CLASSES)) if "scl" in lat_bands else np.ones((h, w), dtype=bool)
     valid = valid_base & valid_lat
 
-    # Existing settlement mask from ESA WorldCover (class 50 = built-up)
     if worldcover_npy is not None and worldcover_npy.exists():
         wc = np.load(worldcover_npy)[:h, :w]
         not_existing_settlement = wc != 50
@@ -90,19 +119,28 @@ def _analyze_real_corridor_pair(
     base_idx = compute_spectral_indices(base_bands["blue"], base_bands["green"], base_bands["red"], base_bands["nir"], base_bands["swir16"], base_bands.get("scl"))
     lat_idx = compute_spectral_indices(lat_bands["blue"], lat_bands["green"], lat_bands["red"], lat_bands["nir"], lat_bands["swir16"], lat_bands.get("scl"))
 
-    # Restrict analysis to the protected RoW / bridge-pier buffer zone around corridor center (~1.2 km x 1.2 km)
-    cy_all, cx_all = h // 2, w // 2
-    buf_half = min(60, cy_all, cx_all)
-    protected_zone = np.zeros((h, w), dtype=bool)
-    protected_zone[cy_all - buf_half : cy_all + buf_half, cx_all - buf_half : cx_all + buf_half] = True
+    # Rasterize exact OSM segment buffer polygons onto GeoTIFF pixel grid when available
+    poly_mask = None
+    if segments_geojson and project_id:
+        poly_mask = _rasterize_corridor_polygons(segments_geojson, project_id, (h, w), transform)
+
+    if poly_mask is not None:
+        protected_zone = poly_mask
+        mask_source = "osm_polygon_rasterize"
+    else:
+        cy_all, cx_all = h // 2, w // 2
+        buf_half = min(60, cy_all, cx_all)
+        protected_zone = np.zeros((h, w), dtype=bool)
+        protected_zone[cy_all - buf_half : cy_all + buf_half, cx_all - buf_half : cx_all + buf_half] = True
+        mask_source = "corridor_center_window"
 
     if mode == "encroachment":
-        # New built-up expansion outside pre-existing WorldCover built-up pixels inside protected RoW zone
+        # New built-up expansion outside pre-existing WorldCover built-up pixels strictly inside protected OSM RoW polygon
         ndbi_delta = lat_idx["ndbi"] - base_idx["ndbi"]
         bsi_delta = lat_idx["bsi"] - base_idx["bsi"]
-        anomaly_mask = valid & protected_zone & not_existing_settlement & (ndbi_delta > 0.22) & (bsi_delta > 0.12)
+        anomaly_mask = valid & protected_zone & not_existing_settlement & (ndbi_delta > 0.18) & (bsi_delta > 0.10)
     else:
-        # Riverbed sand-bar/pit mining change near water channels inside bridge-pier protection zone
+        # Riverbed sand-bar/pit mining change near water channels strictly inside bridge-pier corridor polygon
         base_ws = compute_water_and_sand_indices(base_bands["green"], base_bands["red"], base_bands["nir"], base_bands["swir16"])
         lat_ws = compute_water_and_sand_indices(lat_bands["green"], lat_bands["red"], lat_bands["nir"], lat_bands["swir16"])
         near_water = (base_ws["ndwi"] > -0.15) | (lat_ws["ndwi"] > -0.15)
@@ -113,14 +151,12 @@ def _analyze_real_corridor_pair(
         if "vv" in base_bands and "vv" in lat_bands:
             vv_diff = np.abs(lat_bands["vv"] - base_bands["vv"])
             sar_anom = np.isfinite(vv_diff) & (vv_diff > 3.5)
-        anomaly_mask = valid & protected_zone & near_water & ((np.abs(sand_delta) > 0.24) | sar_anom)
+        anomaly_mask = valid & protected_zone & near_water & ((np.abs(sand_delta) > 0.22) | sar_anom)
 
     pixel_count = int(np.sum(anomaly_mask))
-    # 10m x 10m Sentinel-2 pixel = 100 m2
     area_m2 = round(float(pixel_count * 100.0), 1)
 
-    # Crop around centroid of detected anomaly (or center) for readable side-by-side chip
-    ys, xs = np.where(anomaly_mask)
+    ys, xs = np.where(anomaly_mask if pixel_count > 0 else protected_zone)
     if len(ys) > 0:
         cy, cx = int(np.median(ys)), int(np.median(xs))
     else:
@@ -128,6 +164,10 @@ def _analyze_real_corridor_pair(
     half = min(64, h // 2, w // 2)
     y0, y1 = max(0, cy - half), min(h, cy + half)
     x0, x1 = max(0, cx - half), min(w, cx + half)
+    if y1 <= y0:
+        y0, y1 = 0, h
+    if x1 <= x0:
+        x0, x1 = 0, w
 
     crop_base = {k: v[y0:y1, x0:x1] for k, v in base_bands.items()}
     crop_lat = {k: v[y0:y1, x0:x1] for k, v in lat_bands.items()}
@@ -150,6 +190,8 @@ def _analyze_real_corridor_pair(
     return {
         "pixel_count": pixel_count,
         "affected_area_m2": area_m2,
+        "protected_zone_pixels": int(np.sum(protected_zone)),
+        "mask_source": mask_source,
         "latitude": center_lat,
         "longitude": center_lon,
         "baseline_geotiff_sha256": _sha256_file(base_tif),
@@ -164,12 +206,13 @@ def detect_track_c_events(
     *,
     real_cache_dir: str | Path | None = None,
 ) -> list[dict[str, Any]]:
-    """Protective monitoring for Track C: pixel-level RoW encroachment & riverbed sand mining detection."""
+    """Protective monitoring for Track C: polygon-masked pixel-level RoW encroachment & riverbed sand mining detection."""
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     chips_dir = out_dir / "chips"
     chips_dir.mkdir(parents=True, exist_ok=True)
 
+    segments_geojson = json.loads(Path(segments_path).read_text(encoding="utf-8")) if Path(segments_path).exists() else {}
     cache_root = Path(real_cache_dir) if real_cache_dir else None
     events: list[dict[str, Any]] = []
 
@@ -177,7 +220,6 @@ def detect_track_c_events(
         ingested = json.loads((cache_root / "all_corridors_ingested.json").read_text(encoding="utf-8"))
         base_repo = cache_root.parents[1]
 
-        # 1. RoW Encroachment on NH-544G Package 1 (excluding WorldCover baseline settlements)
         nh = ingested.get("NHAI-NH544G-PKG1")
         if nh and len(nh.get("epochs", [])) >= 2:
             b_tif = base_repo / nh["epochs"][0]["geotiff_path"]
@@ -185,15 +227,20 @@ def detect_track_c_events(
             wc_npy = cache_root / "NHAI-NH544G-PKG1" / "worldcover_10m.npy"
             eid = "TRKC-ENCROACH-NH544G-01"
             chip_p = chips_dir / f"{eid}_evidence.png"
-            stats = _analyze_real_corridor_pair(b_tif, l_tif, wc_npy, "encroachment", chip_p)
+            stats = _analyze_real_corridor_pair(
+                b_tif, l_tif, wc_npy, "encroachment", chip_p,
+                segments_geojson=segments_geojson, project_id="NHAI-NH544G-PKG1",
+            )
             ev = {
                 "event_id": eid,
                 "event_type": "right_of_way_encroachment",
-                "target_infrastructure": "NH-544G Package 1 Corridor Buffer (WorldCover-masked)",
+                "target_infrastructure": "NH-544G Package 1 OSM Corridor Polygon (WorldCover-masked)",
                 "latitude": stats["latitude"],
                 "longitude": stats["longitude"],
                 "affected_area_m2": stats["affected_area_m2"],
                 "detected_pixels": stats["pixel_count"],
+                "protected_zone_pixels": stats["protected_zone_pixels"],
+                "mask_source": stats["mask_source"],
                 "first_observed": f"{nh['epochs'][1]['observed_date']}T00:00:00Z",
                 "last_verified": f"{nh['epochs'][-1]['observed_date']}T00:00:00Z",
                 "severity": "high",
@@ -205,7 +252,8 @@ def detect_track_c_events(
                 },
                 "evidence_description": (
                     f"Detected {stats['pixel_count']} newly built-up/disturbed 10m pixels ({stats['affected_area_m2']:,.0f} m2) "
-                    "outside ESA WorldCover baseline settlements (NDBI delta > 0.14 or BSI delta > 0.18)."
+                    f"inside {stats['protected_zone_pixels']} rasterized OSM corridor pixels ({stats['mask_source']}), "
+                    "excluding ESA WorldCover baseline settlements."
                 ),
                 "recommended_action": "Field verification by NHAI PIU Anantapur asset protection cell.",
                 "evidence_chip_path": str(chip_p.relative_to(out_dir)),
@@ -213,7 +261,6 @@ def detect_track_c_events(
             ev["audit_hash"] = _sha256_text(json.dumps(ev, sort_keys=True))
             events.append(ev)
 
-        # 2. Riverbed / Sand Mining near Kacchi Dargah-Bidupur Ganga Bridge Piers
         kdb = ingested.get("BSRDC-KDB-BRIDGE")
         if kdb and len(kdb.get("epochs", [])) >= 2:
             b_tif = base_repo / kdb["epochs"][0]["geotiff_path"]
@@ -221,15 +268,20 @@ def detect_track_c_events(
             wc_npy = cache_root / "BSRDC-KDB-BRIDGE" / "worldcover_10m.npy"
             eid = "TRKC-SANDMINE-GANGA-02"
             chip_p = chips_dir / f"{eid}_evidence.png"
-            stats = _analyze_real_corridor_pair(b_tif, l_tif, wc_npy, "sand_mining", chip_p)
+            stats = _analyze_real_corridor_pair(
+                b_tif, l_tif, wc_npy, "sand_mining", chip_p,
+                segments_geojson=segments_geojson, project_id="BSRDC-KDB-BRIDGE",
+            )
             ev = {
                 "event_id": eid,
                 "event_type": "illegal_sand_mining_near_piers",
-                "target_infrastructure": "Kacchi Dargah-Bidupur 6-Lane Bridge Ganga Riverbed Zone",
+                "target_infrastructure": "Kacchi Dargah-Bidupur 6-Lane Bridge Ganga Corridor Polygon",
                 "latitude": stats["latitude"],
                 "longitude": stats["longitude"],
                 "affected_area_m2": stats["affected_area_m2"],
                 "detected_pixels": stats["pixel_count"],
+                "protected_zone_pixels": stats["protected_zone_pixels"],
+                "mask_source": stats["mask_source"],
                 "first_observed": f"{kdb['epochs'][1]['observed_date']}T00:00:00Z",
                 "last_verified": f"{kdb['epochs'][-1]['observed_date']}T00:00:00Z",
                 "severity": "critical",
@@ -241,7 +293,8 @@ def detect_track_c_events(
                 },
                 "evidence_description": (
                     f"Detected {stats['pixel_count']} anomalous river-channel/sandbar pixels ({stats['affected_area_m2']:,.0f} m2) "
-                    "using Sentinel-2 NDWI + Bare-Sand Index and Sentinel-1 RTC VV backscatter change near bridge piers."
+                    f"inside {stats['protected_zone_pixels']} rasterized OSM bridge-corridor pixels ({stats['mask_source']}) "
+                    "using Sentinel-2 NDWI + Bare-Sand Index and Sentinel-1 RTC VV backscatter."
                 ),
                 "recommended_action": "Dispatch Bihar Mines & Geology + BSRDC pier scour inspection team.",
                 "evidence_chip_path": str(chip_p.relative_to(out_dir)),
@@ -250,7 +303,6 @@ def detect_track_c_events(
             events.append(ev)
 
     if not events:
-        # Lightweight unit-test fallback when no GeoTIFF cache is passed
         fallback = [
             {
                 "event_id": "TRKC-ENCROACH-NH544G-01",

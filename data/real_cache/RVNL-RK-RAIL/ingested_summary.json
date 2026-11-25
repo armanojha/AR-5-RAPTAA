@@ -378,21 +378,21 @@
       "chip_rgb_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2024-08-31_rgb.png",
       "chip_falsecolor_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2024-08-31_falsecolor.png",
       "stats": {
-        "valid_pixel_fraction": 0.9696202531645569,
-        "valid_pixels": 528540,
+        "valid_pixel_fraction": 0.9853164556962025,
+        "valid_pixels": 537096,
         "total_pixels": 545100,
-        "ndvi_median": 0.8448308706283569,
-        "ndvi_std": 0.15861541032791138,
-        "bsi_median": -0.27104294300079346,
-        "bsi_std": 0.08687249571084976,
-        "ndbi_median": -0.3054457902908325,
-        "ndbi_std": 0.08030426502227783,
-        "brightness_median": 0.04230000078678131,
-        "brightness_std": 0.026921000331640244,
-        "vv_median_db": -8.04632568359375,
-        "vv_std_db": 2.313988447189331,
-        "vh_median_db": -13.914396286010742,
-        "vh_std_db": 2.125035524368286
+        "ndvi_median": 0.8117107152938843,
+        "ndvi_std": 0.16172361373901367,
+        "bsi_median": -0.24827994406223297,
+        "bsi_std": 0.08830562233924866,
+        "ndbi_median": -0.2857719361782074,
+        "ndbi_std": 0.08443157374858856,
+        "brightness_median": 0.04346666857600212,
+        "brightness_std": 0.027173882350325584,
+        "vv_median_db": -8.058778762817383,
+        "vv_std_db": 2.313225030899048,
+        "vh_median_db": -13.924606323242188,
+        "vh_std_db": 2.1185877323150635
       },
       "rainfall": {
         "start_date": "2024-08-17",
@@ -404,7 +404,12 @@
           "NASA POWER PRECTOTCORR (GPM IMERG)",
           "Open-Meteo ERA5/CHIRPS Archive"
         ]
-      }
+      },
+      "optical_scene_ids": [
+        "S2A_44RKU_20240920_0_L2A",
+        "S2A_44RKU_20240930_0_L2A"
+      ],
+      "composite_scene_count": 2
     },
     {
       "epoch_start": "2025-01-01",
