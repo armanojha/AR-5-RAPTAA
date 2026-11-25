@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#006099", "on-tertiary-fixed": "#00201f", "on-tertiary-fixed-variant": "#00504e", "on-tertiary-container": "#f3fffd", "primary-container": "#2f79b4", "surface-container-high": "#dce9ff", "on-primary": "#ffffff", "secondary": "#2f628b", "on-primary-fixed": "#001d33", "on-background": "#031c35", "surface-container-lowest": "#ffffff", "on-surface": "#031c35", "outline-variant": "#c0c7d1", "surface-variant": "#d2e4ff", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "on-primary-container": "#fdfcff", "on-error-container": "#93000a", "primary-fixed-dim": "#98cbff", "on-error": "#ffffff", "on-secondary": "#ffffff", "error-container": "#ffdad6", "surface": "#f8f9ff", "primary-fixed": "#cfe5ff", "on-secondary-fixed-variant": "#0e4a72", "inverse-surface": "#1b324b", "tertiary-fixed": "#91f3ef", "surface-bright": "#f8f9ff", "on-primary-fixed-variant": "#004a77", "surface-container-highest": "#d2e4ff", "on-tertiary": "#ffffff", "tertiary-container": "#008280", "on-surface-variant": "#414750", "on-secondary-fixed": "#001d32", "secondary-fixed": "#cde5ff", "on-secondary-container": "#255a82", "surface-container": "#e5eeff", "surface-tint": "#03639c", "surface-dim": "#c5dcfd", "tertiary": "#006765", "secondary-fixed-dim": "#9bcbfa", "error": "#ba1a1a", "secondary-container": "#a1d1ff", "inverse-primary": "#98cbff", "outline": "#717881", "tertiary-fixed-dim": "#75d6d3", "background": "#f8f9ff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-sm": "0.5rem", "gutter-dense": "0.5rem", "space-md": "0.75rem", "space-lg": "1rem", "margin": "1.5rem", "space-xl": "1.5rem", "gutter": "1rem", "margin-mobile": "1rem", "space-2xl": "2rem", "space-xs": "0.25rem" }, fontFamily: { "body-lg": ["Geist"], "body-md": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "label-sm": ["JetBrains Mono"], "body-sm": ["Geist"], "label-lg": ["Geist"], "headline-sm": ["Geist"], "display-lg": ["Geist"], "code-md": ["JetBrains Mono"], "label-md": ["JetBrains Mono"] }, fontSize: { "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.005em", "fontWeight": "400" }], "label-lg": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "code-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }] } } } };</script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+    <aside
+        class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none">
+        <div class="flex flex-col flex-1 min-h-0">
+            <div
+                class="h-16 px-space-lg flex items-center gap-space-sm border-b border-outline-variant/20 bg-surface-container-lowest">
+                <img alt="CIVITRACE Orbit Logo" class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/ALJJyrC5k-9ffVn4fqLd_vEDxO495ALLRmnzxzZVk3eAv_eJpZTapRENhbNXzObMzUHutKcfd5TJMnxizrvQZNsDIc3mXQVFGO3lnwwNvZhfNCOnwVozgGXSh8T9Rz5PMMEDZxB5sjumnUUJvCj-wne5yoCJHkSdKcJH9Z4LJO8yJezE1YkSxZkjctgMNt-njeUMru0e2o26siK319lf8fprK7WNZl13Mfy-OwKZKPR1xyQwqg" />
+                <div class="flex flex-col leading-tight min-w-0"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">CIVITRACE</span><span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider truncate">INFRASTRUCTURE
+                        INTELLIGENCE</span></div>
+            </div>
+            <div class="flex-1 overflow-y-auto px-space-md py-space-md space-y-space-lg">
+                <div class="space-y-space-xs">
+                    <div
+                        class="px-space-sm pb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-outline">
+                        WORKSPACE</div>
+                    <nav class="space-y-0.5" data-active-classes="bg-surface-container text-primary font-headline-sm"><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="overview" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">radar</span><span>Overview</span>
+                            </div>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="project-explorer" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">explore</span><span>Project
+                                    Explorer</span></div>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="satellite-evidence" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">satellite_alt</span><span>Satellite
+                                    Evidence</span></div><span
+                                class="bg-primary text-on-primary font-label-sm text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wider font-semibold">HERO</span>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="milestone-verification" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">verified</span><span>Milestone
+                                    Verification</span></div>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="financial-analysis" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">payments</span><span>Financial
+                                    Analysis</span></div>
+                        </a></nav>
+                </div>
+                <div class="space-y-space-xs">
+                    <div
+                        class="px-space-sm pb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-outline">
+                        INTELLIGENCE</div>
+                    <nav class="space-y-0.5" data-active-classes="bg-surface-container text-primary font-headline-sm"><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="project-alerts" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">warning</span><span>Project
+                                    Alerts</span></div><span
+                                class="bg-error text-on-error font-label-sm text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-bold">9</span>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="risk-assessment" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">gpp_maybe</span><span>Risk
+                                    Assessment</span></div>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="reports-and-documents" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">description</span><span>Reports &amp;
+                                    Documents</span></div>
+                        </a></nav>
+                </div>
+                <div class="space-y-space-xs">
+                    <div
+                        class="px-space-sm pb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-outline">
+                        SYSTEM</div>
+                    <nav class="space-y-0.5" data-active-classes="bg-surface-container text-primary font-headline-sm"><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="settings" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span>
+                            </div>
+                        </a><a
+                            class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+                            data-path="help-and-support" href="#">
+                            <div class="flex items-center gap-space-sm"><span
+                                    class="material-symbols-outlined text-[18px]">help</span><span>Help &amp;
+                                    Support</span></div>
+                        </a></nav>
+                </div>
+            </div>
+        </div>
+        <div
+            class="p-space-md border-t border-outline-variant/20 bg-surface-container-lowest flex flex-col gap-space-sm">
+            <div class="flex items-center gap-space-sm p-space-xs rounded bg-surface-container-low">
+                <div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></div><span
+                    class="font-label-sm text-label-sm text-on-surface truncate">ISRO &amp; Sentinel-2 Sync: LIVE</span>
+            </div>
+            <div class="flex items-center justify-between"><span
+                    class="font-label-sm text-label-sm text-outline truncate">Workspace</span><span
+                    class="font-label-sm text-label-sm font-semibold text-primary truncate">NHAI/MoRTH</span></div>
+            <div class="flex items-center gap-space-sm pt-space-xs border-t border-outline-variant/10"><img
+                    alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 border border-outline-variant/40"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCibKIAb5VH7LFkz_V18oFWOTU0Y3TOV5JEqWGUU0mxIdxahCPyM31471tKKfCY5_MyS-1lUCs_aNvArCQ5WiVSdwtH357mqESGVoUBqpokFCzsxHsnxUfZFlg1SJWuQ_hBtliepMfFv8fhyHPrrhDQ1BNlTcJ3woyGK2mITU8Yos5F2j8eW-umGm2ZqzuaLTRc_lTsVvR3vmW7jdGPiXf7vyC08sVYSwrTspgAwCzo" />
+                <div class="flex flex-col min-w-0 flex-1"><span
+                        class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Dr. Aris
+                        Thorne</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Lead
+                        Geospatial Analyst</span></div>
+            </div>
+            <div class="pt-space-xs flex justify-between items-center"><span
+                    class="font-label-sm text-[9px] text-outline uppercase tracking-wider">HACKATHON DEMO
+                    v2.4</span><span class="material-symbols-outlined text-[14px] text-outline">terminal</span></div>
+        </div>
+    </aside>
+    <div class="pl-[260px] min-h-screen flex flex-col">
+        <header
+            class="fixed top-0 left-[260px] right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/30 z-40 px-space-lg flex items-center justify-between">
+            <div class="flex items-center gap-space-lg flex-1 max-w-2xl">
+                <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span
+                        class="material-symbols-outlined text-[16px] text-outline">satellite</span><span>CIVITRACE</span><span
+                        class="text-outline-variant">/</span><span class="text-on-surface font-semibold">Telemetry
+                        Operations</span></div>
+                <div class="relative flex-1"><span
+                        class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input
+                        class="w-full pl-9 pr-14 py-1.5 bg-surface-container-low border border-outline-variant/40 rounded font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:bg-surface-container-lowest"
+                        placeholder="Search 124 projects, corridor IDs, coordinates, or alerts..." type="text" /><span
+                        class="absolute right-2 top-1/2 -translate-y-1/2 font-label-sm text-label-sm bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30 text-on-surface-variant">⌘K</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-space-md">
+                <div
+                    class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30">
+                    <span class="material-symbols-outlined text-[16px] text-primary">calendar_today</span><span
+                        class="font-label-md text-label-md text-on-surface font-medium">Sentinel-2 &amp; Cartosat-3
+                        (Q3-Q4 2024)</span><span
+                        class="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span></div>
+                <div
+                    class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30">
+                    <div class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></div><span
+                        class="font-label-sm text-label-sm text-on-surface font-medium">Live Sensor Telemetry:
+                        Active</span>
+                </div>
+                <div class="relative"><button
+                        class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-low text-on-surface-variant transition-colors"><span
+                            class="material-symbols-outlined text-[20px]">notifications</span></button><span
+                        class="absolute 1 top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+                </div><button
+                    class="flex items-center gap-1.5 bg-primary text-on-primary font-label-md text-label-md px-space-sm py-1.5 rounded hover:bg-primary-container transition-colors shadow-sm"><span
+                        class="material-symbols-outlined text-[16px]">file_download</span><span>Quick
+                        Export</span></button><img alt="Profile"
+                    class="w-8 h-8 rounded-full object-cover shrink-0 border border-outline-variant/40"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCibKIAb5VH7LFkz_V18oFWOTU0Y3TOV5JEqWGUU0mxIdxahCPyM31471tKKfCY5_MyS-1lUCs_aNvArCQ5WiVSdwtH357mqESGVoUBqpokFCzsxHsnxUfZFlg1SJWuQ_hBtliepMfFv8fhyHPrrhDQ1BNlTcJ3woyGK2mITU8Yos5F2j8eW-umGm2ZqzuaLTRc_lTsVvR3vmW7jdGPiXf7vyC08sVYSwrTspgAwCzo" />
+            </div>
+        </header>
+        <main class="w-full pt-16 bg-surface min-h-screen">
+            <div class="flex flex-col w-full">
+                <!-- Operational Sub-Header Ribbon -->
+                <div class="bg-surface-container-lowest px-space-xl py-space-md shadow-sm">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+                        <div class="flex flex-col gap-0.5">
+                            <div class="flex items-center gap-space-xs">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">CIVITRACE
+                                    AUDIT PROTOCOL · STAGE 4</span>
+                                <span class="text-outline-variant">/</span>
+                                <span class="font-label-sm text-label-sm text-on-surface-variant">ENGINEERING HEURISTIC
+                                    v3.1</span>
+                            </div>
+                            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Infrastructure
+                                Risk Assessment &amp; Predictive Auditing</h1>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant max-w-4xl">
+                                Multi-dimensional risk modeling combining orbital sensor coherence, milestone velocity,
+                                contractor historical variance, and financial exposure across national mega-corridors.
+                            </p>
+                        </div>
+                        <!-- Live Confidence Engine Pill -->
+                        <div class="flex items-center gap-space-md shrink-0">
+                            <div
+                                class="bg-surface-container-low px-space-md py-1.5 rounded flex items-center gap-space-sm">
+                                <div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Assessment
+                                        Confidence</span>
+                                    <span class="font-label-md text-label-md text-on-surface font-semibold">98.4% <span
+                                            class="font-normal text-on-surface-variant">(ISO-19115
+                                            Verified)</span></span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-xs">
+                                <button
+                                    class="h-8 px-space-sm bg-surface-container hover:bg-surface-container-high rounded text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors"
+                                    id="filterRefreshBtn">
+                                    <span class="material-symbols-outlined text-[16px] text-primary">sync</span>
+                                    <span>Sync Models</span>
+                                </button>
+                                <button
+                                    class="h-8 px-space-sm bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md flex items-center gap-1 shadow-sm transition-colors">
+                                    <span class="material-symbols-outlined text-[16px]">download</span>
+                                    <span>Export Risk Brief</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-space-xl space-y-space-xl">
+                    <!-- Section 1: Executive Risk Header & Key Metric Index Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                        <!-- High Risk -->
+                        <div
+                            class="bg-surface-container-lowest p-space-lg rounded shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-error"></div>
+                            <div class="flex items-start justify-between">
+                                <div class="flex flex-col">
+                                    <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">High
+                                        Risk Corridors</span>
+                                    <div class="flex items-baseline gap-space-xs mt-1">
+                                        <span class="font-display-lg text-display-lg text-error font-semibold">09</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-error/80 uppercase">Corridors</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-8 h-8 rounded bg-error-container/60 flex items-center justify-center text-error">
+                                    <span class="material-symbols-outlined text-[20px]">fmd_bad</span>
+                                </div>
+                            </div>
+                            <div class="mt-space-md pt-space-xs flex items-center gap-space-xs">
+                                <span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                                <span class="font-label-sm text-label-sm text-error font-medium">Immediate Intervention
+                                    Mandated</span>
+                            </div>
+                        </div>
+                        <!-- Moderate Risk -->
+                        <div
+                            class="bg-surface-container-lowest p-space-lg rounded shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+                            <div class="flex items-start justify-between">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Moderate
+                                        Risk Corridors</span>
+                                    <div class="flex items-baseline gap-space-xs mt-1">
+                                        <span
+                                            class="font-display-lg text-display-lg text-secondary font-semibold">23</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-outline uppercase">Corridors</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary">
+                                    <span class="material-symbols-outlined text-[20px]">warning_amber</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+                                <span>Enhanced Optical Scan Rate</span>
+                                <span class="font-semibold text-primary">Every 48h</span>
+                            </div>
+                        </div>
+                        <!-- Low Risk / On-Track -->
+                        <div
+                            class="bg-surface-container-lowest p-space-lg rounded shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-tertiary"></div>
+                            <div class="flex items-start justify-between">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">On-Track
+                                        &amp; Nominal</span>
+                                    <div class="flex items-baseline gap-space-xs mt-1">
+                                        <span
+                                            class="font-display-lg text-display-lg text-tertiary font-semibold">92</span>
+                                        <span class="font-label-sm text-label-sm text-outline uppercase">Segments</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-8 h-8 rounded bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+                                    <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+                                <span>Standard Sentinel-2 Pass</span>
+                                <span class="font-semibold text-tertiary">10-Day Cadence</span>
+                            </div>
+                        </div>
+                        <!-- Capital at Risk -->
+                        <div
+                            class="bg-surface-container-lowest p-space-lg rounded shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+                            <div class="flex items-start justify-between">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Cumulative
+                                        Capital At-Risk</span>
+                                    <div class="flex items-baseline gap-space-xs mt-1">
+                                        <span
+                                            class="font-display-lg text-display-lg text-primary font-semibold">₹14,820</span>
+                                        <span class="font-label-sm text-label-sm text-primary uppercase">Cr</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined text-[20px]">account_balance</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+                                <span>Total Monitored Portfolio</span>
+                                <span class="font-semibold text-on-surface">₹1,18,400 Cr (12.5%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section 2 & 3: Multi-Dimensional Risk Matrix & 5-Pillar Scores -->
+                    <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl">
+                        <!-- 2x2 Risk Quadrant Engine (xl:col-span-7) -->
+                        <div
+                            class="xl:col-span-7 bg-surface-container-lowest p-space-lg rounded shadow-sm flex flex-col justify-between">
+                            <div
+                                class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+                                <div class="flex items-center gap-space-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
+                                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Risk Quadrant Matrix:
+                                        Physical Slip vs Capital Exposure</h2>
+                                </div>
+                                <span
+                                    class="font-label-sm text-label-sm bg-surface-container px-space-sm py-1 rounded text-on-surface-variant">
+                                    Cross-Correlation: R² = 0.841
+                                </span>
+                            </div>
+                            <!-- 2x2 Matrix Visualizer Canvas -->
+                            <div
+                                class="relative bg-surface-container-low rounded p-space-md h-96 flex flex-col justify-between overflow-hidden">
+                                <!-- Subtle Grid Lines -->
+                                <div
+                                    class="absolute inset-0 grid grid-cols-2 grid-rows-2 pointer-events-none opacity-40">
+                                    <div class="bg-surface-container/50"></div>
+                                    <div class="bg-error-container/30"></div>
+                                    <div class="bg-surface-container-lowest/60"></div>
+                                    <div class="bg-tertiary-fixed/20"></div>
+                                </div>
+                                <!-- Axis Crosshairs -->
+                                <div
+                                    class="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/60 pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute top-1/2 left-0 right-0 h-px bg-outline-variant/60 pointer-events-none">
+                                </div>
+                                <!-- Quadrant Background Watermarks -->
+                                <div class="absolute top-3 left-4 pointer-events-none">
+                                    <span
+                                        class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Q2:
+                                        High Discrepancy / Mid Exposure</span>
+                                </div>
+                                <div class="absolute top-3 right-4 text-right pointer-events-none">
+                                    <span
+                                        class="font-label-sm text-label-sm text-error font-bold uppercase tracking-wider">Q1:
+                                        RED ZONE (High Slip + High Capital)</span>
+                                </div>
+                                <div class="absolute bottom-3 left-4 pointer-events-none">
+                                    <span
+                                        class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Q4:
+                                        Low Exposure / Stable</span>
+                                </div>
+                                <div class="absolute bottom-3 right-4 text-right pointer-events-none">
+                                    <span
+                                        class="font-label-sm text-label-sm text-tertiary font-semibold uppercase tracking-wider">Q3:
+                                        High Capital / On Schedule</span>
+                                </div>
+                                <!-- Interactive Scatter Nodes (Relative Positioning based on Exposure & Discrepancy) -->
+                                <!-- Node 1: Delhi-Mumbai Expressway Pkg 4B (High Discrepancy, High Exposure) Q1 -->
+                                <div class="absolute top-14 right-14 cursor-pointer group z-10">
+                                    <div class="relative flex items-center justify-center">
+                                        <span class="absolute w-6 h-6 rounded-full bg-error/30 animate-ping"></span>
+                                        <span
+                                            class="w-3.5 h-3.5 rounded-full bg-error shadow-sm group-hover:scale-125 transition-transform"></span>
+                                    </div>
+                                    <div
+                                        class="absolute -top-7 -right-12 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded shadow-md font-label-sm text-label-sm whitespace-nowrap z-20">
+                                        <span class="font-bold text-error-container">Delhi-Mumbai Pkg 4B</span>
+                                        <span>Gap: -26.7% | ₹4,280 Cr</span>
+                                    </div>
+                                    <span
+                                        class="font-label-sm text-label-sm text-error font-bold mt-1 inline-block -ml-6">DME
+                                        Pkg 4B</span>
+                                </div>
+                                <!-- Node 2: Bengaluru Suburban Rail (High Discrepancy, Moderate-High Exposure) Q1/Q2 border -->
+                                <div class="absolute top-24 right-44 cursor-pointer group z-10">
+                                    <div
+                                        class="w-3 h-3 rounded-full bg-error shadow-sm group-hover:scale-125 transition-transform">
+                                    </div>
+                                    <div
+                                        class="absolute -top-7 -right-8 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded shadow-md font-label-sm text-label-sm whitespace-nowrap z-20">
+                                        <span class="font-bold text-error-container">Bengaluru Rail C-2</span>
+                                        <span>Gap: -35.0% | ₹2,150 Cr</span>
+                                    </div>
+                                    <span
+                                        class="font-label-sm text-label-sm text-on-surface font-medium mt-1 inline-block -ml-4">BLR
+                                        Rail C2</span>
+                                </div>
+                                <!-- Node 3: Ganga Expressway Pkg 7 (Mid Exposure, High Discrepancy) Q2 -->
+                                <div class="absolute top-20 left-28 cursor-pointer group z-10">
+                                    <div
+                                        class="w-3 h-3 rounded-full bg-secondary shadow-sm group-hover:scale-125 transition-transform">
+                                    </div>
+                                    <div
+                                        class="absolute -top-7 -left-8 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded shadow-md font-label-sm text-label-sm whitespace-nowrap z-20">
+                                        <span class="font-bold text-primary-fixed">Ganga Expy Pkg 7</span>
+                                        <span>Gap: -14.2% | ₹3,410 Cr</span>
+                                    </div>
+                                    <span
+                                        class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-1 inline-block -ml-2">Ganga
+                                        Pkg 7</span>
+                                </div>
+                                <!-- Node 4: DFC Dadri-Rewari (High Exposure, Nominal Discrepancy) Q3 -->
+                                <div class="absolute bottom-16 right-20 cursor-pointer group z-10">
+                                    <div
+                                        class="w-3.5 h-3.5 rounded-full bg-tertiary shadow-sm group-hover:scale-125 transition-transform">
+                                    </div>
+                                    <div
+                                        class="absolute -top-7 -right-8 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded shadow-md font-label-sm text-label-sm whitespace-nowrap z-20">
+                                        <span class="font-bold text-tertiary-fixed">DFC Dadri-Rewari</span>
+                                        <span>Gap: +1.2% (On-Time) | ₹6,850 Cr</span>
+                                    </div>
+                                    <span
+                                        class="font-label-sm text-label-sm text-tertiary font-medium mt-1 inline-block -ml-6">DFC
+                                        Dadri-Rewari</span>
+                                </div>
+                                <!-- Node 5: Mumbai Coastal Road Ph 2 (Mid Exposure, Low Discrepancy) Q3/Q4 border -->
+                                <div class="absolute bottom-20 left-56 cursor-pointer group z-10">
+                                    <div
+                                        class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm group-hover:scale-125 transition-transform">
+                                    </div>
+                                    <div
+                                        class="absolute -top-7 -left-4 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded shadow-md font-label-sm text-label-sm whitespace-nowrap z-20">
+                                        <span class="font-bold text-surface-container-lowest">MCR Ph-2</span>
+                                        <span>Gap: -1.8% | ₹1,980 Cr</span>
+                                    </div>
+                                    <span
+                                        class="font-label-sm text-label-sm text-outline font-medium mt-1 inline-block -ml-2">MCR
+                                        Ph-2</span>
+                                </div>
+                                <!-- Node 6: Low risk cluster in Q4 -->
+                                <div class="absolute bottom-10 left-16 cursor-pointer group z-10">
+                                    <div class="flex items-center gap-1">
+                                        <div class="w-2 h-2 rounded-full bg-outline"></div>
+                                        <div class="w-2 h-2 rounded-full bg-outline"></div>
+                                        <div class="w-2 h-2 rounded-full bg-outline"></div>
+                                    </div>
+                                    <span class="font-label-sm text-label-sm text-outline mt-1 inline-block">88
+                                        Corridors (Nominal)</span>
+                                </div>
+                                <!-- Axis Labels -->
+                                <div
+                                    class="absolute bottom-1 right-2 font-label-sm text-label-sm text-outline flex items-center gap-1">
+                                    <span>FINANCIAL EXPOSURE (CAPITAL AT STAKE) →</span>
+                                </div>
+                                <div
+                                    class="absolute top-2 left-2 font-label-sm text-label-sm text-outline [writing-mode:vertical-rl] rotate-180 flex items-center gap-1">
+                                    <span>PHYSICAL DISCREPANCY / GROUND DEFICIT →</span>
+                                </div>
+                            </div>
+                            <!-- Matrix Legend and Status Ribbon -->
+                            <div
+                                class="mt-space-md pt-space-xs flex flex-wrap items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+                                <div class="flex items-center gap-space-md">
+                                    <span class="flex items-center gap-1.5"><span
+                                            class="w-2 h-2 rounded-full bg-error"></span> Critical Intervention
+                                        (Q1)</span>
+                                    <span class="flex items-center gap-1.5"><span
+                                            class="w-2 h-2 rounded-full bg-secondary"></span> Stagnation Drift
+                                        (Q2)</span>
+                                    <span class="flex items-center gap-1.5"><span
+                                            class="w-2 h-2 rounded-full bg-tertiary"></span> Capital Secure (Q3)</span>
+                                </div>
+                                <span class="text-outline">Updated: Orbital Pass T-02:18 UTC</span>
+                            </div>
+                        </div>
+                        <!-- 5-Pillar Risk Scoring Engines (xl:col-span-5) -->
+                        <div
+                            class="xl:col-span-5 bg-surface-container-lowest p-space-lg rounded shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center justify-between mb-space-sm">
+                                <div class="flex items-center gap-space-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">troubleshoot</span>
+                                    <h2 class="font-headline-sm text-headline-sm text-on-surface">5-Pillar Predictive
+                                        Audit Model</h2>
+                                </div>
+                                <span class="font-label-sm text-label-sm text-primary font-mono font-medium">WEIGHTED
+                                    INDEX</span>
+                            </div>
+                            <!-- Pillar List with Micro Bars & Heuristics -->
+                            <div class="space-y-space-md py-space-xs">
+                                <!-- Pillar 1 -->
+                                <div
+                                    class="bg-surface-container-low p-space-sm rounded hover:bg-surface-container transition-colors">
+                                    <div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+                                        <span class="font-semibold text-on-surface flex items-center gap-1.5">
+                                            <span class="material-symbols-outlined text-[15px] text-error">speed</span>
+                                            Schedule Slip Velocity
+                                        </span>
+                                        <span class="text-error font-bold font-mono">4.2 Mo Slip Avg</span>
+                                    </div>
+                                    <div class="w-full bg-surface-container-high h-1.5 rounded overflow-hidden">
+                                        <div class="bg-error h-full rounded" style="width: 78%;"></div>
+                                    </div>
+                                    <div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+                                        <span>Ground speed vs DPR target</span>
+                                        <span>Weight: 25%</span>
+                                    </div>
+                                </div>
+                                <!-- Pillar 2 -->
+                                <div
+                                    class="bg-surface-container-low p-space-sm rounded hover:bg-surface-container transition-colors">
+                                    <div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+                                        <span class="font-semibold text-on-surface flex items-center gap-1.5">
+                                            <span
+                                                class="material-symbols-outlined text-[15px] text-secondary">satellite_alt</span>
+                                            Optical / InSAR Ground Verification Gap
+                                        </span>
+                                        <span class="text-secondary font-bold font-mono">-22.4% Variance</span>
+                                    </div>
+                                    <div class="w-full bg-surface-container-high h-1.5 rounded overflow-hidden">
+                                        <div class="bg-secondary h-full rounded" style="width: 66%;"></div>
+                                    </div>
+                                    <div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+                                        <span>Sentinel-2 SAR volumetric disparity</span>
+                                        <span>Weight: 25%</span>
+                                    </div>
+                                </div>
+                                <!-- Pillar 3 -->
+                                <div
+                                    class="bg-surface-container-low p-space-sm rounded hover:bg-surface-container transition-colors">
+                                    <div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+                                        <span class="font-semibold text-on-surface flex items-center gap-1.5">
+                                            <span
+                                                class="material-symbols-outlined text-[15px] text-error">front_loader</span>
+                                            Physical Stagnation Index
+                                        </span>
+                                        <span class="text-error font-bold font-mono">64 Days Max Static</span>
+                                    </div>
+                                    <div class="w-full bg-surface-container-high h-1.5 rounded overflow-hidden">
+                                        <div class="bg-error h-full rounded" style="width: 82%;"></div>
+                                    </div>
+                                    <div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+                                        <span>Zero earth-moving activity detected</span>
+                                        <span>Weight: 20%</span>
+                                    </div>
+                                </div>
+                                <!-- Pillar 4 -->
+                                <div
+                                    class="bg-surface-container-low p-space-sm rounded hover:bg-surface-container transition-colors">
+                                    <div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+                                        <span class="font-semibold text-on-surface flex items-center gap-1.5">
+                                            <span
+                                                class="material-symbols-outlined text-[15px] text-primary">price_change</span>
+                                            Financial Burn Rate Anomaly
+                                        </span>
+                                        <span class="text-primary font-bold font-mono">+18.5% Over-run</span>
+                                    </div>
+                                    <div class="w-full bg-surface-container-high h-1.5 rounded overflow-hidden">
+                                        <div class="bg-primary h-full rounded" style="width: 58%;"></div>
+                                    </div>
+                                    <div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+                                        <span>Disbursement vs observed civil progress</span>
+                                        <span>Weight: 20%</span>
+                                    </div>
+                                </div>
+                                <!-- Pillar 5 -->
+                                <div
+                                    class="bg-surface-container-low p-space-sm rounded hover:bg-surface-container transition-colors">
+                                    <div class="flex items-center justify-between font-label-sm text-label-sm mb-1">
+                                        <span class="font-semibold text-on-surface flex items-center gap-1.5">
+                                            <span
+                                                class="material-symbols-outlined text-[15px] text-tertiary">cloud</span>
+                                            Sensor Reliability &amp; Cloud Masking Risk
+                                        </span>
+                                        <span class="text-tertiary font-bold font-mono">4.1% Latency</span>
+                                    </div>
+                                    <div class="w-full bg-surface-container-high h-1.5 rounded overflow-hidden">
+                                        <div class="bg-tertiary h-full rounded" style="width: 14%;"></div>
+                                    </div>
+                                    <div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+                                        <span>Cartosat-3 and Copernicus optical clearance</span>
+                                        <span>Weight: 10%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-space-sm pt-space-xs flex items-center justify-between font-label-sm text-label-sm text-outline">
+                                <span>Algorithmic Composite Score Model</span>
+                                <span class="text-primary font-semibold">CIVITRACE CRS-Alpha v4</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section 4: National Corridor Risk Ranking Table -->
+                    <div class="bg-surface-container-lowest rounded shadow-sm overflow-hidden flex flex-col">
+                        <div class="p-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+                            <div class="flex flex-col">
+                                <div class="flex items-center gap-space-sm">
+                                    <span class="material-symbols-outlined text-primary text-[22px]">analytics</span>
+                                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Top Flagged
+                                        Mega-Corridors by Composite Risk Score (CRS)</h2>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Ranked hierarchy
+                                    prioritized for engineering ground verification, JPV mobilization, and CAG audit
+                                    flag escalation.</p>
+                            </div>
+                            <!-- Filter / Quick View Controls -->
+                            <div class="flex items-center gap-space-xs shrink-0">
+                                <div class="flex items-center bg-surface-container-low rounded p-0.5">
+                                    <button
+                                        class="px-space-sm py-1 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-xs">Critical
+                                        (9)</button>
+                                    <button
+                                        class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">High
+                                        (23)</button>
+                                    <button
+                                        class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">All
+                                        Corridors (124)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- High-Density Analytical Ledger -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left font-body-sm text-body-sm">
+                                <thead
+                                    class="bg-surface-container-low font-label-sm text-label-sm uppercase tracking-wider text-outline">
+                                    <tr>
+                                        <th class="py-2.5 px-space-md">Rank / Corridor Identity</th>
+                                        <th class="py-2.5 px-space-md">Agency / Sector</th>
+                                        <th class="py-2.5 px-space-md text-right">Exposure (₹ Cr)</th>
+                                        <th class="py-2.5 px-space-md text-center">CRS Risk Index</th>
+                                        <th class="py-2.5 px-space-md">Physical Ground Deficit</th>
+                                        <th class="py-2.5 px-space-md">Stagnation</th>
+                                        <th class="py-2.5 px-space-md">Sensor Status</th>
+                                        <th class="py-2.5 px-space-md text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-none">
+                                    <!-- Row 1: CRITICAL -->
+                                    <tr
+                                        class="hover:bg-surface-container transition-colors group bg-error-container/10">
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <span
+                                                    class="w-5 h-5 rounded bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-headline-sm text-[13px] text-on-surface font-semibold group-hover:text-primary transition-colors">Delhi-Mumbai
+                                                        Expressway Pkg 4B</span>
+                                                    <span
+                                                        class="font-label-sm text-label-sm font-mono text-outline">NHAI-CR-2022-DME-04</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span
+                                                class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">NHAI
+                                                / Highways</span>
+                                        </td>
+                                        <td
+                                            class="py-2.5 px-space-md text-right font-mono font-semibold text-on-surface">
+                                            ₹4,280 Cr
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold">
+                                                92/100 · CRITICAL
+                                            </span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="text-error font-semibold font-mono">-26.7%</span>
+                                                <span
+                                                    class="text-on-surface-variant font-label-sm text-label-sm truncate">Sub-grade
+                                                    paving deficit</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span class="font-mono text-error font-medium">64 Days Static</span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div
+                                                class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+                                                <span class="w-2 h-2 rounded-full bg-error"></span>
+                                                <span>SAR Incoherence</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-right">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="h-6 px-2 bg-primary text-on-primary hover:bg-primary-container rounded font-label-sm text-label-sm font-medium transition-colors"
+                                                    title="Schedule Joint Physical Verification">
+                                                    Dispatch JPV
+                                                </button>
+                                                <button
+                                                    class="h-6 w-6 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant"
+                                                    title="Deep Dive Telemetry">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px]">visibility</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 2: CRITICAL -->
+                                    <tr class="hover:bg-surface-container transition-colors group bg-error-container/5">
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <span
+                                                    class="w-5 h-5 rounded bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center font-bold">2</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-headline-sm text-[13px] text-on-surface font-semibold group-hover:text-primary transition-colors">Bengaluru
+                                                        Suburban Rail Corridor 2</span>
+                                                    <span
+                                                        class="font-label-sm text-label-sm font-mono text-outline">K-RIDE-SBN-02-YPR</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span
+                                                class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">K-RIDE
+                                                / Metro-Rail</span>
+                                        </td>
+                                        <td
+                                            class="py-2.5 px-space-md text-right font-mono font-semibold text-on-surface">
+                                            ₹2,150 Cr
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold">
+                                                88/100 · CRITICAL
+                                            </span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="text-error font-semibold font-mono">-35.0%</span>
+                                                <span
+                                                    class="text-on-surface-variant font-label-sm text-label-sm truncate">Pier
+                                                    cast gap vs reported</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span class="font-mono text-error font-medium">45 Days Static</span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div
+                                                class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+                                                <span class="w-2 h-2 rounded-full bg-error"></span>
+                                                <span>Drone &amp; Optical Confirmed</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-right">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="h-6 px-2 bg-primary text-on-primary hover:bg-primary-container rounded font-label-sm text-label-sm font-medium transition-colors">
+                                                    Dispatch JPV
+                                                </button>
+                                                <button
+                                                    class="h-6 w-6 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px]">visibility</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 3: HIGH -->
+                                    <tr class="hover:bg-surface-container transition-colors group">
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <span
+                                                    class="w-5 h-5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center justify-center font-bold">3</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-headline-sm text-[13px] text-on-surface font-semibold group-hover:text-primary transition-colors">Dedicated
+                                                        Freight Corridor Phase 2</span>
+                                                    <span
+                                                        class="font-label-sm text-label-sm font-mono text-outline">DFCCIL-EDFC-PH2</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span
+                                                class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">DFCCIL
+                                                / Rail</span>
+                                        </td>
+                                        <td
+                                            class="py-2.5 px-space-md text-right font-mono font-semibold text-on-surface">
+                                            ₹6,850 Cr
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm font-bold">
+                                                76/100 · HIGH
+                                            </span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="text-secondary font-semibold font-mono">-18.0%</span>
+                                                <span
+                                                    class="text-on-surface-variant font-label-sm text-label-sm truncate">Track
+                                                    slab alignment lag</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span class="font-mono text-error font-medium">78 Days (Partial)</span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div
+                                                class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+                                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                                <span>Sentinel-2 Multispectral</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-right">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="h-6 px-2 bg-surface-container hover:bg-surface-container-high rounded font-label-sm text-label-sm font-medium text-on-surface transition-colors">
+                                                    Re-Verify
+                                                </button>
+                                                <button
+                                                    class="h-6 w-6 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px]">visibility</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 4: HIGH -->
+                                    <tr class="hover:bg-surface-container transition-colors group">
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <span
+                                                    class="w-5 h-5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center justify-center font-bold">4</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-headline-sm text-[13px] text-on-surface font-semibold group-hover:text-primary transition-colors">Ganga
+                                                        Expressway Package 7</span>
+                                                    <span
+                                                        class="font-label-sm text-label-sm font-mono text-outline">UPEIDA-GE-07</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span
+                                                class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">UPEIDA
+                                                / Expressways</span>
+                                        </td>
+                                        <td
+                                            class="py-2.5 px-space-md text-right font-mono font-semibold text-on-surface">
+                                            ₹3,410 Cr
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm font-bold">
+                                                71/100 · HIGH
+                                            </span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="text-secondary font-semibold font-mono">-14.2%</span>
+                                                <span
+                                                    class="text-on-surface-variant font-label-sm text-label-sm truncate">Sub-base
+                                                    earth displacement</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span class="font-mono text-on-surface-variant">32 Days</span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div
+                                                class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+                                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                                <span>Equipment Demobilized</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-right">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="h-6 px-2 bg-surface-container hover:bg-surface-container-high rounded font-label-sm text-label-sm font-medium text-on-surface transition-colors">
+                                                    Re-Verify
+                                                </button>
+                                                <button
+                                                    class="h-6 w-6 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px]">visibility</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 5: MODERATE -->
+                                    <tr class="hover:bg-surface-container transition-colors group">
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <span
+                                                    class="w-5 h-5 rounded bg-outline text-on-primary font-label-sm text-label-sm flex items-center justify-center font-bold">5</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-headline-sm text-[13px] text-on-surface font-semibold group-hover:text-primary transition-colors">Zojila
+                                                        Tunnel Approach Road (NH-1)</span>
+                                                    <span
+                                                        class="font-label-sm text-label-sm font-mono text-outline">NHIDCL-ZTL-01</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span
+                                                class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">NHIDCL
+                                                / Tunnels</span>
+                                        </td>
+                                        <td
+                                            class="py-2.5 px-space-md text-right font-mono font-semibold text-on-surface">
+                                            ₹2,800 Cr
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm font-bold">
+                                                64/100 · MODERATE
+                                            </span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="text-on-surface font-semibold font-mono">-9.5%</span>
+                                                <span
+                                                    class="text-on-surface-variant font-label-sm text-label-sm truncate">Terrain
+                                                    &amp; freeze-thaw slowdown</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span class="font-mono text-outline">18 Days</span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div
+                                                class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+                                                <span class="w-2 h-2 rounded-full bg-outline"></span>
+                                                <span>Winter Snow Mask</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-right">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="h-6 px-2 bg-surface-container hover:bg-surface-container-high rounded font-label-sm text-label-sm font-medium text-on-surface transition-colors">
+                                                    Log Memo
+                                                </button>
+                                                <button
+                                                    class="h-6 w-6 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px]">visibility</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 6: MODERATE -->
+                                    <tr class="hover:bg-surface-container transition-colors group">
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <span
+                                                    class="w-5 h-5 rounded bg-outline text-on-primary font-label-sm text-label-sm flex items-center justify-center font-bold">6</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-headline-sm text-[13px] text-on-surface font-semibold group-hover:text-primary transition-colors">Chennai
+                                                        Metro Rail Ph-2 Line 4</span>
+                                                    <span
+                                                        class="font-label-sm text-label-sm font-mono text-outline">CMRL-P2-L4</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span
+                                                class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">CMRL
+                                                / Metro</span>
+                                        </td>
+                                        <td
+                                            class="py-2.5 px-space-md text-right font-mono font-semibold text-on-surface">
+                                            ₹3,120 Cr
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm font-bold">
+                                                59/100 · MODERATE
+                                            </span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="text-on-surface font-semibold font-mono">-7.1%</span>
+                                                <span
+                                                    class="text-on-surface-variant font-label-sm text-label-sm truncate">Underground
+                                                    TBM progress stable</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <span class="font-mono text-outline">12 Days</span>
+                                        </td>
+                                        <td class="py-2.5 px-space-md">
+                                            <div
+                                                class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+                                                <span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                                                <span>Ground Sensor Active</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-2.5 px-space-md text-right">
+                                            <div class="flex items-center justify-end gap-1">
+                                                <button
+                                                    class="h-6 px-2 bg-surface-container hover:bg-surface-container-high rounded font-label-sm text-label-sm font-medium text-on-surface transition-colors">
+                                                    Log Memo
+                                                </button>
+                                                <button
+                                                    class="h-6 w-6 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px]">visibility</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Ledger Footer & Rapid Pagination -->
+                        <div
+                            class="p-space-md bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+                            <span>Showing 6 of 10 prioritized corridors in operational triage queue</span>
+                            <div class="flex items-center gap-space-sm">
+                                <span class="text-outline">Page 1 of 3</span>
+                                <div class="flex items-center gap-1">
+                                    <button
+                                        class="w-6 h-6 rounded bg-surface-container-lowest flex items-center justify-center text-outline hover:text-on-surface"><span
+                                            class="material-symbols-outlined text-[14px]">chevron_left</span></button>
+                                    <button
+                                        class="w-6 h-6 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface font-bold hover:bg-surface-container">1</button>
+                                    <button
+                                        class="w-6 h-6 rounded bg-surface-container-lowest flex items-center justify-center text-outline hover:text-on-surface">2</button>
+                                    <button
+                                        class="w-6 h-6 rounded bg-surface-container-lowest flex items-center justify-center text-outline hover:text-on-surface"><span
+                                            class="material-symbols-outlined text-[14px]">chevron_right</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section 5: Regulatory Audit Disclaimer & Methodology Protocol -->
+                    <div
+                        class="bg-surface-container p-space-lg rounded shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+                        <div class="flex items-start gap-space-md">
+                            <span
+                                class="material-symbols-outlined text-outline text-[24px] mt-0.5 shrink-0">gavel</span>
+                            <div class="flex flex-col gap-0.5">
+                                <span
+                                    class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">
+                                    Statutory &amp; Methodological Notice · National Infrastructure Pipeline (NIP)
+                                </span>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant max-w-4xl">
+                                    The Civitrace Composite Risk Score (CRS) is an algorithmic heuristic synthesized
+                                    from multispectral satellite observations, synthetic aperture radar (InSAR)
+                                    coherence matrices, contractor billing telemetry, and public milestone milestones.
+                                    This metric is designed strictly to prioritize federal engineering inspection
+                                    resources, optimize Joint Physical Verification (JPV) rosters, and flag early-stage
+                                    drift. It does not constitute a legal determination of contractual breach or
+                                    financial culpability.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-space-sm shrink-0 self-end md:self-center">
+                            <span class="font-label-sm text-label-sm font-mono text-outline uppercase">ISO 19115 / OGC
+                                WCS Compliant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Micro-interaction for Sync Model Button
+                document.getElementById('filterRefreshBtn')?.addEventListener('click', function () {
+                    const icon = this.querySelector('.material-symbols-outlined');
+                    if (icon) {
+                        icon.classList.add('animate-spin');
+                        setTimeout(() => {
+                            icon.classList.remove('animate-spin');
+                        }, 1000);
+                    }
+                });
+            </script>
+        </main>
+    </div>
+</body>
+
+</html>
