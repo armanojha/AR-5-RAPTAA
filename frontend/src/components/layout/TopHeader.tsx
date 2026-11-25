@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AVATAR_URL } from './Sidebar';
+import { useDrishtiData } from '../../data/DrishtiContext';
 
 interface TopHeaderProps {
   pageTitle: string;
@@ -9,14 +9,17 @@ interface TopHeaderProps {
 
 export const TopHeader: React.FC<TopHeaderProps> = ({ pageTitle, onMenuOpen }) => {
   const navigate = useNavigate();
+  const { data, selectedProjectId, setSelectedProjectId } = useDrishtiData();
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [avatarError, setAvatarError] = React.useState(false);
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && searchQuery.trim()) {
       navigate('/explorer');
     }
   };
+
+  const realCorridors = (data?.projects ?? []).filter((p) => !p.is_synthetic);
+  const latestDate = data?.latest_observed_at?.slice(0, 10) ?? '2025-03-15';
 
   return (
     <header className="fixed top-0 left-0 lg:left-[260px] right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/30 z-40 px-space-md lg:px-space-lg flex items-center justify-between gap-space-md">
@@ -32,7 +35,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ pageTitle, onMenuOpen }) =
 
         <div className="hidden sm:flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant shrink-0">
           <span className="material-symbols-outlined text-[16px] text-outline">satellite</span>
-          <span>CIVITRACE</span>
+          <span>DRISHTI</span>
           <span className="text-outline-variant">/</span>
           <span className="text-on-surface font-semibold">{pageTitle}</span>
         </div>
@@ -46,7 +49,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ pageTitle, onMenuOpen }) =
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={handleSearchKeyDown}
             className="w-full pl-9 pr-14 py-1.5 bg-surface-container-low border border-outline-variant/40 rounded font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:bg-surface-container-lowest"
-            placeholder="Search 124 projects, corridor IDs, coordinates, or alerts..."
+            placeholder="Search corridors, segments, Track C alerts..."
             type="text"
           />
           <span className="hidden sm:inline-block absolute right-2 top-1/2 -translate-y-1/2 font-label-sm text-label-sm bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30 text-on-surface-variant">
@@ -57,17 +60,26 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ pageTitle, onMenuOpen }) =
 
       <div className="flex items-center gap-space-sm lg:gap-space-md shrink-0">
         <div className="hidden xl:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30">
-          <span className="material-symbols-outlined text-[16px] text-primary">calendar_today</span>
-          <span className="font-label-md text-label-md text-on-surface font-medium">
-            Sentinel-2 &amp; Cartosat-3 (Q3-Q4 2024)
-          </span>
-          <span className="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span>
+          <span className="material-symbols-outlined text-[16px] text-primary">route</span>
+          <select
+            aria-label="Active Corridor Filter"
+            value={selectedProjectId}
+            onChange={(e) => setSelectedProjectId(e.target.value)}
+            className="bg-transparent font-label-md text-label-md text-on-surface font-medium focus:outline-none cursor-pointer"
+          >
+            <option value="ALL">All 3 Real Corridors ({data?.segments.length ?? 33} segs)</option>
+            {realCorridors.map((p) => (
+              <option key={p.project_id} value={p.project_id}>
+                {p.project_id}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="hidden md:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30">
           <div className="w-1.5 h-1.5 rounded-full bg-tertiary-container" />
           <span className="font-label-sm text-label-sm text-on-surface font-medium">
-            Live Sensor Telemetry: Active
+            S1+S2 Epoch: {latestDate}
           </span>
         </div>
 
@@ -92,18 +104,9 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ pageTitle, onMenuOpen }) =
           <span className="hidden sm:inline">Quick Export</span>
         </button>
 
-        {!avatarError ? (
-          <img
-            alt="Profile"
-            className="hidden sm:block w-8 h-8 rounded-full object-cover shrink-0 border border-outline-variant/40"
-            src={AVATAR_URL}
-            onError={() => setAvatarError(true)}
-          />
-        ) : (
-          <div className="hidden sm:flex w-8 h-8 rounded-full bg-primary/15 text-primary items-center justify-center font-label-md font-bold shrink-0">
-            AT
-          </div>
-        )}
+        <div className="hidden sm:flex w-8 h-8 rounded-full bg-primary/15 text-primary items-center justify-center font-label-md font-bold shrink-0">
+          EO
+        </div>
       </div>
     </header>
   );

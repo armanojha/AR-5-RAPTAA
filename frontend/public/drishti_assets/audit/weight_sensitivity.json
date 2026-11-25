@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0",
+  "baseline_weights": {
+    "vegetation_clearance": 0.15,
+    "bare_soil_activity": 0.2,
+    "built_up_activity": 0.2,
+    "brightness_activity": 0.1,
+    "vv_activity": 0.1,
+    "vh_activity": 0.1,
+    "linear_continuity": 0.15
+  },
+  "sample_size": 165,
+  "overall_stability": "highly_robust",
+  "rationale": "SAI components (BSI bare soil, NDVI clearing, and SAR backscatter) provide mutually reinforcing physical evidence. A +/-20% variation in any individual weight changes overall activity scores by less than 2.8 index points and preserves ranking correlation >0.98.",
+  "component_analysis": [
+    {
+      "component": "vegetation_clearance",
+      "configured_weight": 0.15,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.3631,
+          "max_score_shift": 2.2898,
+          "rank_correlation": 0.9993
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.1788,
+          "max_score_shift": 1.1275,
+          "rank_correlation": 0.9998
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.1735,
+          "max_score_shift": 1.0941,
+          "rank_correlation": 0.9997
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.342,
+          "max_score_shift": 2.1564,
+          "rank_correlation": 0.9991
+        }
+      ],
+      "stability_status": "robust"
+    },
+    {
+      "component": "bare_soil_activity",
+      "configured_weight": 0.2,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.3977,
+          "max_score_shift": 1.6084,
+          "rank_correlation": 0.9999
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.1948,
+          "max_score_shift": 0.7878,
+          "rank_correlation": 1.0
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.1871,
+          "max_score_shift": 0.7569,
+          "rank_correlation": 1.0
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.3671,
+          "max_score_shift": 1.4846,
+          "rank_correlation": 0.9999
+        }
+      ],
+      "stability_status": "robust"
+    },
+    {
+      "component": "built_up_activity",
+      "configured_weight": 0.2,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.3817,
+          "max_score_shift": 1.6084,
+          "rank_correlation": 0.9999
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.1869,
+          "max_score_shift": 0.7878,
+          "rank_correlation": 0.9999
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.1796,
+          "max_score_shift": 0.7569,
+          "rank_correlation": 1.0
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.3523,
+          "max_score_shift": 1.4846,
+          "rank_correlation": 0.9999
+        }
+      ],
+      "stability_status": "robust"
+    },
+    {
+      "component": "brightness_activity",
+      "configured_weight": 0.1,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.2751,
+          "max_score_shift": 1.0032,
+          "rank_correlation": 0.9984
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.1361,
+          "max_score_shift": 0.4965,
+          "rank_correlation": 0.9994
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.1335,
+          "max_score_shift": 0.4867,
+          "rank_correlation": 0.9997
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.2643,
+          "max_score_shift": 0.9638,
+          "rank_correlation": 0.9984
+        }
+      ],
+      "stability_status": "robust"
+    },
+    {
+      "component": "vv_activity",
+      "configured_weight": 0.1,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.3136,
+          "max_score_shift": 1.4732,
+          "rank_correlation": 0.999
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.1552,
+          "max_score_shift": 0.7292,
+          "rank_correlation": 0.9997
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.1522,
+          "max_score_shift": 0.7147,
+          "rank_correlation": 0.9995
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.3013,
+          "max_score_shift": 1.4155,
+          "rank_correlation": 0.9989
+        }
+      ],
+      "stability_status": "robust"
+    },
+    {
+      "component": "vh_activity",
+      "configured_weight": 0.1,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.3171,
+          "max_score_shift": 1.6844,
+          "rank_correlation": 0.9989
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.157,
+          "max_score_shift": 0.8337,
+          "rank_correlation": 0.9995
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.1538,
+          "max_score_shift": 0.8172,
+          "rank_correlation": 0.9997
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.3047,
+          "max_score_shift": 1.6184,
+          "rank_correlation": 0.9995
+        }
+      ],
+      "stability_status": "robust"
+    },
+    {
+      "component": "linear_continuity",
+      "configured_weight": 0.15,
+      "perturbations": [
+        {
+          "perturbation_percent": -20.0,
+          "mean_score_shift": 0.1967,
+          "max_score_shift": 0.7299,
+          "rank_correlation": 1.0
+        },
+        {
+          "perturbation_percent": -10.0,
+          "mean_score_shift": 0.0968,
+          "max_score_shift": 0.3594,
+          "rank_correlation": 1.0
+        },
+        {
+          "perturbation_percent": 10.0,
+          "mean_score_shift": 0.094,
+          "max_score_shift": 0.3488,
+          "rank_correlation": 1.0
+        },
+        {
+          "perturbation_percent": 20.0,
+          "mean_score_shift": 0.1852,
+          "max_score_shift": 0.6874,
+          "rank_correlation": 1.0
+        }
+      ],
+      "stability_status": "robust"
+    }
+  ]
+}

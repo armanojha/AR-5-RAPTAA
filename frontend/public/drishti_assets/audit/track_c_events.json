@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "track": "Track C: Guard the Nation (Protective Infrastructure Monitoring)",
+  "governing_policy": "Protective only. Land and asset monitoring. No tracking of individual persons.",
+  "event_count": 2,
+  "events": [
+    {
+      "event_id": "TRKC-ENCROACH-NH544G-01",
+      "event_type": "right_of_way_encroachment",
+      "target_infrastructure": "NH-544G Package 1 OSM Corridor Polygon (WorldCover-masked)",
+      "latitude": 13.94754,
+      "longitude": 77.78483,
+      "affected_area_m2": 306800.0,
+      "detected_pixels": 3068,
+      "protected_zone_pixels": 65886,
+      "mask_source": "osm_polygon_rasterize",
+      "first_observed": "2023-10-25T00:00:00Z",
+      "last_verified": "2025-03-15T00:00:00Z",
+      "severity": "high",
+      "data_classification": "real",
+      "source_scenes": [
+        "S2A_43PGR_20230304_0_L2A",
+        "S2A_43PGR_20250315_0_L2A"
+      ],
+      "source_hashes": {
+        "baseline_geotiff": "a14fd8a7ef5863c437dad7eb9ab07f60279446951a4fbb62f0469cbc6efacdf6",
+        "latest_geotiff": "b373f8d94602eb473abd3333a3cbd9f6c9b76fa8f83e3533f90b992247431669"
+      },
+      "evidence_description": "Detected 3068 newly built-up/disturbed 10m pixels (306,800 m2) inside 65886 rasterized OSM corridor pixels (osm_polygon_rasterize), excluding ESA WorldCover baseline settlements.",
+      "recommended_action": "Field verification by NHAI PIU Anantapur asset protection cell.",
+      "evidence_chip_path": "chips\\TRKC-ENCROACH-NH544G-01_evidence.png",
+      "audit_hash": "29596a80c07c83411ba8cd78792cb8c1dcee2038caed0f892c635b206541e754"
+    },
+    {
+      "event_id": "TRKC-SANDMINE-GANGA-02",
+      "event_type": "illegal_sand_mining_near_piers",
+      "target_infrastructure": "Kacchi Dargah-Bidupur 6-Lane Bridge Ganga Corridor Polygon",
+      "latitude": 25.59175,
+      "longitude": 85.30387,
+      "affected_area_m2": 942800.0,
+      "detected_pixels": 9428,
+      "protected_zone_pixels": 56838,
+      "mask_source": "osm_polygon_rasterize",
+      "first_observed": "2023-03-03T00:00:00Z",
+      "last_verified": "2025-03-12T00:00:00Z",
+      "severity": "critical",
+      "data_classification": "real",
+      "source_scenes": [
+        "S2A_45RUJ_20210328_1_L2A",
+        "S2B_45RUJ_20250312_0_L2A"
+      ],
+      "source_hashes": {
+        "baseline_geotiff": "ea49b74eff9e6bc30e1322226aeab172269960691d7a5a345b3f279949c49677",
+        "latest_geotiff": "4be4e0dd525b93169be23b22177a88d9998d8883ceddd93bfc68c8dda891760e"
+      },
+      "evidence_description": "Detected 9428 anomalous river-channel/sandbar pixels (942,800 m2) inside 56838 rasterized OSM bridge-corridor pixels (osm_polygon_rasterize) using Sentinel-2 NDWI + Bare-Sand Index and Sentinel-1 RTC VV backscatter.",
+      "recommended_action": "Dispatch Bihar Mines & Geology + BSRDC pier scour inspection team.",
+      "evidence_chip_path": "chips\\TRKC-SANDMINE-GANGA-02_evidence.png",
+      "audit_hash": "a3c4c188513e301123d2fcaa4e40ac7854324174aedec813a97529901c754582"
+    }
+  ]
+}

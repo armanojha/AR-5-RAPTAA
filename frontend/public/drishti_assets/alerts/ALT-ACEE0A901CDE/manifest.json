@@ -1,0 +1,398 @@
+{
+  "alert_id": "ALT-ACEE0A901CDE",
+  "alert_type": "delay_risk",
+  "severity": "high",
+  "segment_id": "NHAI-NH544G-PKG1-S0016",
+  "observed_at": "2023-10-25T00:00:00+00:00",
+  "recommended_action": "Field verification",
+  "responsible_use": "This is a verification request, not an allegation or enforcement decision.",
+  "risk": {
+    "segment_id": "NHAI-NH544G-PKG1-S0016",
+    "observed_at": "2023-10-25T00:00:00+00:00",
+    "risk_score": 0.754948,
+    "alert": true,
+    "divergence_component": 0.642192,
+    "stall_component": 1.0,
+    "inactivity_component": 0.908596,
+    "spend_ratio_component": 0.180867,
+    "ml_delay_probability": 0.7833,
+    "confidence": 1.0,
+    "state": "stall_candidate"
+  },
+  "analysis": {
+    "segment_id": "NHAI-NH544G-PKG1-S0016",
+    "observed_at": "2023-10-25T00:00:00+00:00",
+    "activity_index": 9.1404,
+    "observed_activity_percentile": 0.091404,
+    "expected_activity_percentile": 0.4125,
+    "activity_reporting_divergence": 0.321096,
+    "reported_progress_pct": 12.0,
+    "spend_to_date_pct": 14.1,
+    "spend_vs_activity_ratio": 1.5426,
+    "confidence": 1.0,
+    "observability": "high",
+    "rainfall_mm": 4.01,
+    "rainfall_confounded": false,
+    "low_activity_streak": 2,
+    "state": "stall_candidate",
+    "reasons": [
+      "activity remained below 35 for 2 consecutive clear observations"
+    ]
+  },
+  "activity": {
+    "segment_id": "NHAI-NH544G-PKG1-S0016",
+    "observed_at": "2023-10-25T00:00:00+00:00",
+    "activity_index": 9.1404,
+    "confidence": 1.0,
+    "observability": "high",
+    "available_weight_fraction": 1.0,
+    "components": [
+      {
+        "name": "vegetation_clearance",
+        "raw_value": -0.117477,
+        "normalized_value": 0.0,
+        "configured_weight": 0.15,
+        "effective_weight": 0.15,
+        "contribution": 0.0
+      },
+      {
+        "name": "bare_soil_activity",
+        "raw_value": -0.119785,
+        "normalized_value": 0.0,
+        "configured_weight": 0.2,
+        "effective_weight": 0.2,
+        "contribution": 0.0
+      },
+      {
+        "name": "built_up_activity",
+        "raw_value": -0.130662,
+        "normalized_value": 0.0,
+        "configured_weight": 0.2,
+        "effective_weight": 0.2,
+        "contribution": 0.0
+      },
+      {
+        "name": "brightness_activity",
+        "raw_value": -0.000333,
+        "normalized_value": 0.002219,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "contribution": 0.000222
+      },
+      {
+        "name": "vv_activity",
+        "raw_value": 1.072031,
+        "normalized_value": 0.357344,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "contribution": 0.035734
+      },
+      {
+        "name": "vh_activity",
+        "raw_value": 0.988419,
+        "normalized_value": 0.329473,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "contribution": 0.032947
+      },
+      {
+        "name": "linear_continuity",
+        "raw_value": 0.15,
+        "normalized_value": 0.15,
+        "configured_weight": 0.15,
+        "effective_weight": 0.15,
+        "contribution": 0.0225
+      }
+    ],
+    "model_version": "sai-v1"
+  },
+  "features": {
+    "segment_id": "NHAI-NH544G-PKG1-S0016",
+    "ndvi_mean": 0.47625850780387263,
+    "ndvi_change": 0.11747694452960267,
+    "bsi_mean": 0.032050705573423835,
+    "bsi_change": -0.11978483044261924,
+    "ndbi_mean": -0.02361848965507038,
+    "ndbi_change": -0.13066216334923644,
+    "brightness_mean": 0.09830416661376755,
+    "brightness_change": -0.00033291623306770657,
+    "vv_mean_db": -9.569281220436096,
+    "vv_change_db": 1.0720313787460327,
+    "vh_mean_db": -15.021362543106079,
+    "vh_change_db": 0.9884187579154968,
+    "linear_continuity": 0.15,
+    "rainfall_mm": 4.01,
+    "valid_pixel_fraction": 1.0,
+    "observed_at": "2023-10-25T00:00:00+00:00",
+    "optical_scene_ids": [
+      "S2B_43PGR_20231025_0_L2A"
+    ],
+    "sar_scene_ids": [
+      "S1A_IW_GRDH_1SDV_20231205T004007_20231205T004032_051512_0637C8_rtc"
+    ]
+  },
+  "segment": {
+    "type": "Feature",
+    "id": "NHAI-NH544G-PKG1-S0016",
+    "properties": {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "sequence": 16,
+      "project_id": "NHAI-NH544G-PKG1",
+      "alignment_id": "NHAI-NH544G-PKG1-OSM",
+      "start_m": 15000.0,
+      "end_m": 16000.0,
+      "length_m": 1000.0,
+      "buffer_m": 300.0,
+      "baseline_start": "2023-01-01",
+      "baseline_end": "2023-03-15",
+      "observability": "high",
+      "centerline": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.8189081,
+            13.97920885
+          ],
+          [
+            77.8191761,
+            13.9794
+          ],
+          [
+            77.8236608,
+            13.9826066
+          ],
+          [
+            77.82619212,
+            13.98475582
+          ]
+        ]
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            77.81612825,
+            13.97920885
+          ],
+          [
+            77.81633985,
+            13.97817638
+          ],
+          [
+            77.81694245,
+            13.9773011
+          ],
+          [
+            77.8178443,
+            13.97671626
+          ],
+          [
+            77.8189081,
+            13.97651089
+          ],
+          [
+            77.8199719,
+            13.97671626
+          ],
+          [
+            77.82087374,
+            13.9773011
+          ],
+          [
+            77.82114175,
+            13.97749225
+          ],
+          [
+            77.82562645,
+            13.98069885
+          ],
+          [
+            77.82815777,
+            13.98284807
+          ],
+          [
+            77.82876037,
+            13.98372336
+          ],
+          [
+            77.82897197,
+            13.98475582
+          ],
+          [
+            77.82876037,
+            13.98578829
+          ],
+          [
+            77.82815777,
+            13.98666357
+          ],
+          [
+            77.82725593,
+            13.98724841
+          ],
+          [
+            77.82619212,
+            13.98745378
+          ],
+          [
+            77.82512832,
+            13.98724841
+          ],
+          [
+            77.82422648,
+            13.98666357
+          ],
+          [
+            77.81694245,
+            13.98111659
+          ],
+          [
+            77.81633985,
+            13.98024131
+          ],
+          [
+            77.81612825,
+            13.97920885
+          ]
+        ]
+      ]
+    }
+  },
+  "matched_scenes": [
+    {
+      "scene_id": "S2B_43PGR_20231025_0_L2A",
+      "collection": "sentinel-2-l2a",
+      "acquired_at": "2023-10-25T05:25:06.064000+00:00",
+      "platform": "sentinel-2",
+      "sensor_kind": "optical",
+      "bbox": [
+        76.90616857251504,
+        13.463735246207047,
+        77.87307071383344,
+        14.463205191919913
+      ],
+      "cloud_cover_pct": 0.000166,
+      "source_href": null,
+      "license": "proprietary/copernicus-open",
+      "covered_segment_ids": [
+        "NHAI-NH544G-PKG1-S0005",
+        "NHAI-NH544G-PKG1-S0006",
+        "NHAI-NH544G-PKG1-S0007",
+        "NHAI-NH544G-PKG1-S0008",
+        "NHAI-NH544G-PKG1-S0009",
+        "NHAI-NH544G-PKG1-S0010",
+        "NHAI-NH544G-PKG1-S0011",
+        "NHAI-NH544G-PKG1-S0012",
+        "NHAI-NH544G-PKG1-S0013",
+        "NHAI-NH544G-PKG1-S0014",
+        "NHAI-NH544G-PKG1-S0015",
+        "NHAI-NH544G-PKG1-S0016"
+      ],
+      "properties": {
+        "drishti:valid_pixel_fraction": 1.0
+      },
+      "assets": {
+        "blue": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "green": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "red": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "nir": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "swir16": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "scl": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        }
+      }
+    },
+    {
+      "scene_id": "S1A_IW_GRDH_1SDV_20231205T004007_20231205T004032_051512_0637C8_rtc",
+      "collection": "sentinel-1-rtc",
+      "acquired_at": "2023-10-25T05:25:06.064000+00:00",
+      "platform": "sentinel-1a",
+      "sensor_kind": "sar",
+      "bbox": [
+        77.74983,
+        13.91254,
+        77.81983,
+        13.98254
+      ],
+      "cloud_cover_pct": null,
+      "source_href": null,
+      "license": "CC-BY-4.0",
+      "covered_segment_ids": [
+        "NHAI-NH544G-PKG1-S0005",
+        "NHAI-NH544G-PKG1-S0006",
+        "NHAI-NH544G-PKG1-S0007",
+        "NHAI-NH544G-PKG1-S0008",
+        "NHAI-NH544G-PKG1-S0009",
+        "NHAI-NH544G-PKG1-S0010",
+        "NHAI-NH544G-PKG1-S0011",
+        "NHAI-NH544G-PKG1-S0012",
+        "NHAI-NH544G-PKG1-S0013",
+        "NHAI-NH544G-PKG1-S0014",
+        "NHAI-NH544G-PKG1-S0015",
+        "NHAI-NH544G-PKG1-S0016"
+      ],
+      "properties": {
+        "sar:product_type": "RTC",
+        "drishti:valid_pixel_fraction": 1.0
+      },
+      "assets": {
+        "vv": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "vh": {
+          "href": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        }
+      }
+    }
+  ],
+  "input_sha256": {
+    "analysis": "85b85afe552074aff8b736682719184c71589371a1f2c3134d18b1da9d335953",
+    "backtest": "8d47cdc3e2cae3054435855a1118906c9576caa30682ade4df66c8f9fa303be2",
+    "activity": "a713cf8b2ff752ae735246d2a7d0f61d741105017cd2d7a362d1d850cb4fbebf",
+    "features": "50416cb315b742a1517ed568f07c606c457308ebc149f615fc0e30cdf6d98dcd",
+    "segments": "d494887113d8101f2c2e87dd3349527702ebabfa72ea68967e66defcb1a1e07b",
+    "scenes": "06234eb1ac61bf8846b482c4f611bad24d486f8b9d20578f3b23269c718d4051"
+  },
+  "evidence_status": {
+    "status": "complete",
+    "missing": []
+  },
+  "data_classification": "real",
+  "evidence_sha256": "6456efe9a837a9a5c67772d5eb0822aeebc56d2abce9e3d9859e49140c1f9334"
+}

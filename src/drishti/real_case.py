@@ -10,6 +10,7 @@ import numpy as np
 import rasterio
 
 from drishti.dashboard import build_dashboard
+from drishti.frontend_export import export_frontend_bundle
 from drishti.layers.activity_index import score_feature_manifest
 from drishti.layers.alignment import AlignmentInput, CorridorSegment, build_segments, export_segments
 from drishti.layers.backtest import DelayRiskScorer, run_backtest
@@ -618,6 +619,16 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
         before_chip_rel=before_rel,
         after_chip_rel=after_rel,
     )
+
+    frontend_public = BASE_DIR / "frontend" / "public"
+    if (BASE_DIR / "frontend").is_dir():
+        print("→ Exporting consolidated real-case bundle & local assets to frontend/public/...")
+        export_frontend_bundle(
+            output_dir=out_root,
+            frontend_public_dir=frontend_public,
+            real_cache_dir=CACHE_DIR,
+            portfolio_projects=portfolio_meta,
+        )
 
     detected_cases = sum(1 for c in bt_cases if c.outcome == "detected_before_official_flag")
     lead_times = [c.lead_time_days for c in bt_cases if c.lead_time_days is not None]

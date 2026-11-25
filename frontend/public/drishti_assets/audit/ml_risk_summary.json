@@ -1,0 +1,1044 @@
+{
+  "model_type": "HistGradientBoostingClassifier (monotonic_cst + native NaN) + CalibratedClassifierCV",
+  "training_samples": 23,
+  "positive_samples": 8,
+  "cutoff_date": "2024-11-20",
+  "calibration_method": "sigmoid (Platt 3-fold CV)",
+  "brier_score": 0.0296,
+  "monotonic_constraints": {
+    "activity_index": -1,
+    "divergence": 1,
+    "low_activity_streak": 1,
+    "rainfall_mm": -1,
+    "confidence": 0,
+    "observability_score": 0,
+    "bsi_change": -1,
+    "ndvi_change": 1,
+    "vv_change_db": 0,
+    "spend_vs_activity_ratio": 1
+  },
+  "feature_importances": {
+    "low_activity_streak": 1.0,
+    "activity_index": 0.0,
+    "divergence": 0.0,
+    "rainfall_mm": 0.0,
+    "confidence": 0.0,
+    "observability_score": 0.0,
+    "bsi_change": 0.0,
+    "ndvi_change": 0.0,
+    "vv_change_db": 0.0,
+    "spend_vs_activity_ratio": 0.0
+  },
+  "predictions": [
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 10.43
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 12.78
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 24.05
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 13.83
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 5.5
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 20.46
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 17.68
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.99
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 7.62
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 8.3
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.04
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.94
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0004",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0004",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 7.15
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0004",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 5.91
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0004",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.26
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0004",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.43
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0005",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0005",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 8.11
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0005",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 5.21
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0005",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.26
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0005",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.08
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0006",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0006",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 12.31
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0006",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 7.27
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0006",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.26
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0006",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.98
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0007",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0007",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 8.11
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0007",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 5.91
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0007",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.26
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0007",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.36
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0008",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0008",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 6.66
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0008",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 5.21
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0008",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.26
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0008",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.4
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0009",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0009",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 7.64
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0009",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 7.54
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0009",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 22.26
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0009",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.19
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0010",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0010",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 23.03
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0010",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 23.14
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0010",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 23.14
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0010",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 18.47
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 20.65
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 23.14
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 17.32
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 14.82
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 17.91
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 21.96
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 13.26
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.56
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 21.33
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 21.93
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 16.43
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.26
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 21.33
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 21.96
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 14.95
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.26
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 17.5
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 21.96
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 13.05
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.26
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 12.34
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 19.69
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.08
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.33
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 15.02
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 13.19
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 19.97
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.2
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 15.53
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 22.19
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 16.89
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.26
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 13.56
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 22.19
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 15.52
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.93
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 10.52
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 22.19
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 15.45
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.93
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 15.53
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 19.69
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 19.49
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.93
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 10.52
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 23.07
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.08
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 16.11
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.74
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 8.25
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-03-08T00:00:00+00:00",
+      "calibrated_delay_probability": 0.7833,
+      "gbdt_predicted_sai": 23.07
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.77
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 16.11
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0001",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0001",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0001",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.24
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0001",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0001",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.1
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0002",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0002",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.55
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0002",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.09
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0002",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0002",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.56
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.72
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.09
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.27
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.75
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0004",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0004",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.75
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0004",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.89
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0004",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.76
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0004",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.2
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0005",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0005",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.2
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0005",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.04
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0005",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 12.68
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0005",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 12.1
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0006",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0006",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.23
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0006",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.94
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0006",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.78
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0006",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 10.2
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0007",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0007",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.2
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0007",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.74
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0007",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0007",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.9
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0008",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0008",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.55
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0008",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.3
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0008",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0008",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.84
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0009",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0009",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.65
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0009",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.94
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0009",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0009",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 9.89
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0010",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 0.8
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0010",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 5.35
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0010",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 6.89
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0010",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 8.46
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0010",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "calibrated_delay_probability": 0.1429,
+      "gbdt_predicted_sai": 7.58
+    }
+  ],
+  "cusum_nh544g_bsi_breaks": {
+    "baseline_mean": 0.1899,
+    "baseline_std": 0.02,
+    "upward_break_index": 2,
+    "downward_break_index": 1,
+    "cusum_pos": [
+      0.0,
+      0.0,
+      0.0477,
+      0.0,
+      0.0
+    ],
+    "cusum_neg": [
+      0.0,
+      0.1026,
+      0.0429,
+      0.293,
+      0.2858
+    ]
+  }
+}

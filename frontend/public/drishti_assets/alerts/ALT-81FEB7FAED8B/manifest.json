@@ -1,0 +1,392 @@
+{
+  "alert_id": "ALT-81FEB7FAED8B",
+  "alert_type": "delay_risk",
+  "severity": "medium",
+  "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+  "observed_at": "2023-03-03T00:00:00+00:00",
+  "recommended_action": "Field verification",
+  "responsible_use": "This is a verification request, not an allegation or enforcement decision.",
+  "risk": {
+    "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+    "observed_at": "2023-03-03T00:00:00+00:00",
+    "risk_score": 0.698374,
+    "alert": true,
+    "divergence_component": 0.430494,
+    "stall_component": 1.0,
+    "inactivity_component": 0.802747,
+    "spend_ratio_component": 0.0131,
+    "ml_delay_probability": 0.7833,
+    "confidence": 1.0,
+    "state": "stall_candidate"
+  },
+  "analysis": {
+    "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+    "observed_at": "2023-03-03T00:00:00+00:00",
+    "activity_index": 19.7253,
+    "observed_activity_percentile": 0.197253,
+    "expected_activity_percentile": 0.4125,
+    "activity_reporting_divergence": 0.215247,
+    "reported_progress_pct": 19.0,
+    "spend_to_date_pct": 20.5,
+    "spend_vs_activity_ratio": 1.0393,
+    "confidence": 1.0,
+    "observability": "high",
+    "rainfall_mm": 0.0,
+    "rainfall_confounded": false,
+    "low_activity_streak": 2,
+    "state": "stall_candidate",
+    "reasons": [
+      "activity remained below 35 for 2 consecutive clear observations"
+    ]
+  },
+  "activity": {
+    "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+    "observed_at": "2023-03-03T00:00:00+00:00",
+    "activity_index": 19.7253,
+    "confidence": 1.0,
+    "observability": "high",
+    "available_weight_fraction": 1.0,
+    "components": [
+      {
+        "name": "vegetation_clearance",
+        "raw_value": 0.045799,
+        "normalized_value": 0.183195,
+        "configured_weight": 0.15,
+        "effective_weight": 0.15,
+        "contribution": 0.027479
+      },
+      {
+        "name": "bare_soil_activity",
+        "raw_value": 0.007995,
+        "normalized_value": 0.031979,
+        "configured_weight": 0.2,
+        "effective_weight": 0.2,
+        "contribution": 0.006396
+      },
+      {
+        "name": "built_up_activity",
+        "raw_value": 0.049716,
+        "normalized_value": 0.248581,
+        "configured_weight": 0.2,
+        "effective_weight": 0.2,
+        "contribution": 0.049716
+      },
+      {
+        "name": "brightness_activity",
+        "raw_value": 0.03512,
+        "normalized_value": 0.234136,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "contribution": 0.023414
+      },
+      {
+        "name": "vv_activity",
+        "raw_value": -0.857812,
+        "normalized_value": 0.285937,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "contribution": 0.028594
+      },
+      {
+        "name": "vh_activity",
+        "raw_value": -1.174631,
+        "normalized_value": 0.391544,
+        "configured_weight": 0.1,
+        "effective_weight": 0.1,
+        "contribution": 0.039154
+      },
+      {
+        "name": "linear_continuity",
+        "raw_value": 0.15,
+        "normalized_value": 0.15,
+        "configured_weight": 0.15,
+        "effective_weight": 0.15,
+        "contribution": 0.0225
+      }
+    ],
+    "model_version": "sai-v1"
+  },
+  "features": {
+    "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+    "ndvi_mean": 0.1305992383248802,
+    "ndvi_change": -0.04579879767064418,
+    "bsi_mean": 0.11743902715184218,
+    "bsi_change": 0.00799472274559622,
+    "ndbi_mean": 0.08666066479838866,
+    "ndbi_change": 0.049716253686076364,
+    "brightness_mean": 0.1658981249978145,
+    "brightness_change": 0.03512041658783954,
+    "vv_mean_db": -9.465318754315376,
+    "vv_change_db": -0.8578124940395355,
+    "vh_mean_db": -16.64375638961792,
+    "vh_change_db": -1.174631416797638,
+    "linear_continuity": 0.15,
+    "rainfall_mm": 0.0,
+    "valid_pixel_fraction": 1.0,
+    "observed_at": "2023-03-03T00:00:00+00:00",
+    "optical_scene_ids": [
+      "S2B_45RUJ_20230303_0_L2A"
+    ],
+    "sar_scene_ids": [
+      "S1A_IW_GRDH_1SDV_20230330T002027_20230330T002052_047866_05C070_rtc"
+    ]
+  },
+  "segment": {
+    "type": "Feature",
+    "id": "BSRDC-KDB-BRIDGE-S0011",
+    "properties": {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0011",
+      "sequence": 11,
+      "project_id": "BSRDC-KDB-BRIDGE",
+      "alignment_id": "BSRDC-KDB-BRIDGE-OSM",
+      "start_m": 10000.0,
+      "end_m": 11000.0,
+      "length_m": 1000.0,
+      "buffer_m": 300.0,
+      "baseline_start": "2021-01-01",
+      "baseline_end": "2021-03-31",
+      "observability": "high",
+      "centerline": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            85.2692382,
+            25.56605347
+          ],
+          [
+            85.2673048,
+            25.5646182
+          ],
+          [
+            85.2656211,
+            25.5633625
+          ],
+          [
+            85.2615306,
+            25.56034779
+          ]
+        ]
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            85.25853916,
+            25.56034779
+          ],
+          [
+            85.25876687,
+            25.55931532
+          ],
+          [
+            85.25941533,
+            25.55844004
+          ],
+          [
+            85.26038582,
+            25.55785519
+          ],
+          [
+            85.2615306,
+            25.55764982
+          ],
+          [
+            85.26267537,
+            25.55785519
+          ],
+          [
+            85.26364587,
+            25.55844004
+          ],
+          [
+            85.26773637,
+            25.56145475
+          ],
+          [
+            85.27135347,
+            25.56414573
+          ],
+          [
+            85.27200193,
+            25.56502101
+          ],
+          [
+            85.27222964,
+            25.56605347
+          ],
+          [
+            85.27200193,
+            25.56708594
+          ],
+          [
+            85.27135347,
+            25.56796122
+          ],
+          [
+            85.27038297,
+            25.56854606
+          ],
+          [
+            85.2692382,
+            25.56875143
+          ],
+          [
+            85.26809342,
+            25.56854606
+          ],
+          [
+            85.26712293,
+            25.56796122
+          ],
+          [
+            85.25941533,
+            25.56225553
+          ],
+          [
+            85.25876687,
+            25.56138025
+          ],
+          [
+            85.25853916,
+            25.56034779
+          ]
+        ]
+      ]
+    }
+  },
+  "matched_scenes": [
+    {
+      "scene_id": "S2B_45RUJ_20230303_0_L2A",
+      "collection": "sentinel-2-l2a",
+      "acquired_at": "2023-03-03T05:01:38.288000+00:00",
+      "platform": "sentinel-2",
+      "sensor_kind": "optical",
+      "bbox": [
+        84.99830806921727,
+        25.21508866264745,
+        86.1045021733208,
+        26.217084961861953
+      ],
+      "cloud_cover_pct": 0.002031,
+      "source_href": null,
+      "license": "proprietary/copernicus-open",
+      "covered_segment_ids": [
+        "BSRDC-KDB-BRIDGE-S0001",
+        "BSRDC-KDB-BRIDGE-S0002",
+        "BSRDC-KDB-BRIDGE-S0003",
+        "BSRDC-KDB-BRIDGE-S0004",
+        "BSRDC-KDB-BRIDGE-S0005",
+        "BSRDC-KDB-BRIDGE-S0006",
+        "BSRDC-KDB-BRIDGE-S0007",
+        "BSRDC-KDB-BRIDGE-S0008",
+        "BSRDC-KDB-BRIDGE-S0009",
+        "BSRDC-KDB-BRIDGE-S0010",
+        "BSRDC-KDB-BRIDGE-S0011"
+      ],
+      "properties": {
+        "drishti:valid_pixel_fraction": 0.9997137705011878
+      },
+      "assets": {
+        "blue": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "green": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "red": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "nir": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "swir16": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "scl": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        }
+      }
+    },
+    {
+      "scene_id": "S1A_IW_GRDH_1SDV_20230330T002027_20230330T002052_047866_05C070_rtc",
+      "collection": "sentinel-1-rtc",
+      "acquired_at": "2023-03-03T05:01:38.288000+00:00",
+      "platform": "sentinel-1a",
+      "sensor_kind": "sar",
+      "bbox": [
+        85.26887,
+        25.55675,
+        85.33887,
+        25.62675
+      ],
+      "cloud_cover_pct": null,
+      "source_href": null,
+      "license": "CC-BY-4.0",
+      "covered_segment_ids": [
+        "BSRDC-KDB-BRIDGE-S0001",
+        "BSRDC-KDB-BRIDGE-S0002",
+        "BSRDC-KDB-BRIDGE-S0003",
+        "BSRDC-KDB-BRIDGE-S0004",
+        "BSRDC-KDB-BRIDGE-S0005",
+        "BSRDC-KDB-BRIDGE-S0006",
+        "BSRDC-KDB-BRIDGE-S0007",
+        "BSRDC-KDB-BRIDGE-S0008",
+        "BSRDC-KDB-BRIDGE-S0009",
+        "BSRDC-KDB-BRIDGE-S0010",
+        "BSRDC-KDB-BRIDGE-S0011"
+      ],
+      "properties": {
+        "sar:product_type": "RTC",
+        "drishti:valid_pixel_fraction": 1.0
+      },
+      "assets": {
+        "vv": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        },
+        "vh": {
+          "href": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+          "media_type": null,
+          "roles": [],
+          "title": null
+        }
+      }
+    }
+  ],
+  "input_sha256": {
+    "analysis": "85b85afe552074aff8b736682719184c71589371a1f2c3134d18b1da9d335953",
+    "backtest": "8d47cdc3e2cae3054435855a1118906c9576caa30682ade4df66c8f9fa303be2",
+    "activity": "a713cf8b2ff752ae735246d2a7d0f61d741105017cd2d7a362d1d850cb4fbebf",
+    "features": "50416cb315b742a1517ed568f07c606c457308ebc149f615fc0e30cdf6d98dcd",
+    "segments": "d494887113d8101f2c2e87dd3349527702ebabfa72ea68967e66defcb1a1e07b",
+    "scenes": "06234eb1ac61bf8846b482c4f611bad24d486f8b9d20578f3b23269c718d4051"
+  },
+  "evidence_status": {
+    "status": "complete",
+    "missing": []
+  },
+  "data_classification": "real",
+  "evidence_sha256": "df76c86a501effd26504a16be291666d5514956270961290d6724c27d83ff881"
+}

@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0",
+  "sample_count": 29,
+  "confusion_matrix": {
+    "true_positives": 8,
+    "false_positives": 0,
+    "true_negatives": 21,
+    "false_negatives": 0
+  },
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "false_alerts_on_negative_controls": 0,
+  "not_assessable_percentage": 30.3,
+  "evaluated_samples": [
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.9375
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0001",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.9375
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2024-03-07T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2024-09-23T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0002",
+      "observed_at": "2025-03-12T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2021-03-28T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "BSRDC-KDB-BRIDGE-S0003",
+      "observed_at": "2023-03-03T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.6875
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.625
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2023-03-04T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2023-10-25T00:00:00+00:00",
+      "true_label": "stalled",
+      "predicted_state": "stall_candidate",
+      "result": "TP",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-06-16T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.8125
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2025-03-15T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 1.0
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2021-03-27T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.75
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2023-04-14T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.75
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2024-03-14T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.75
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2024-08-31T00:00:00+00:00",
+      "true_label": "weather_pause",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.75
+    },
+    {
+      "segment_id": "RVNL-RK-RAIL-S0003",
+      "observed_at": "2025-03-31T00:00:00+00:00",
+      "true_label": "untouched",
+      "predicted_state": "slowing",
+      "result": "TN",
+      "confidence": 0.75
+    }
+  ]
+}
