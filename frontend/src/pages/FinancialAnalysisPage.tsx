@@ -13,6 +13,8 @@ export const FinancialAnalysisPage: React.FC = () => {
     if (!highVarianceOnly) return segs;
     return segs.filter(
       (s) =>
+        s.analysis_status === 'stall_candidate' ||
+        s.analysis_status === 'slowing' ||
         s.analysis_status === 'stalled_or_high_divergence' ||
         (s.spend_vs_activity_ratio !== null && s.spend_vs_activity_ratio >= 1.5)
     );
@@ -23,7 +25,12 @@ export const FinancialAnalysisPage: React.FC = () => {
   }
 
   const assessableSegs = rows.filter((s) => s.is_assessable);
-  const flaggedSegs = rows.filter((s) => s.analysis_status === 'stalled_or_high_divergence');
+  const flaggedSegs = rows.filter(
+    (s) =>
+      s.analysis_status === 'stall_candidate' ||
+      s.analysis_status === 'slowing' ||
+      s.analysis_status === 'stalled_or_high_divergence'
+  );
   const avgRatio =
     assessableSegs.length > 0
       ? assessableSegs.reduce((acc, s) => acc + (s.spend_vs_activity_ratio ?? 0), 0) /
@@ -162,7 +169,9 @@ export const FinancialAnalysisPage: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">
                         Not Assessable
                       </span>
-                    ) : s.analysis_status === 'stalled_or_high_divergence' ? (
+                    ) : s.analysis_status === 'stall_candidate' ||
+                      s.analysis_status === 'slowing' ||
+                      s.analysis_status === 'stalled_or_high_divergence' ? (
                       <span className="px-2 py-0.5 rounded bg-error-container text-on-error-container font-medium">
                         Verification Requested
                       </span>

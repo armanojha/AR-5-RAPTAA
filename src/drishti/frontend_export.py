@@ -131,16 +131,22 @@ def export_frontend_bundle(
 
     # 5. Build per-segment latest state + per-date timeline frames
     activity_by_key: dict[tuple[str, str], dict[str, Any]] = {}
-    for rec in activity_raw.get("records", []):
+    latest_act_by_seg: dict[str, dict[str, Any]] = {}
+    for rec in sorted(activity_raw.get("records", []), key=lambda r: r["observed_at"]):
         activity_by_key[(rec["segment_id"], rec["observed_at"])] = rec
+        latest_act_by_seg[rec["segment_id"]] = rec
 
     analysis_by_key: dict[tuple[str, str], dict[str, Any]] = {}
-    for rec in analysis_raw.get("records", []):
+    latest_an_by_seg: dict[str, dict[str, Any]] = {}
+    for rec in sorted(analysis_raw.get("records", []), key=lambda r: r["observed_at"]):
         analysis_by_key[(rec["segment_id"], rec["observed_at"])] = rec
+        latest_an_by_seg[rec["segment_id"]] = rec
 
     risk_by_key: dict[tuple[str, str], dict[str, Any]] = {}
-    for rec in backtest_raw.get("risk_records", []):
+    latest_rk_by_seg: dict[str, dict[str, Any]] = {}
+    for rec in sorted(backtest_raw.get("risk_records", []), key=lambda r: r["observed_at"]):
         risk_by_key[(rec["segment_id"], rec["observed_at"])] = rec
+        latest_rk_by_seg[rec["segment_id"]] = rec
 
     ml_pred_by_seg = {p["segment_id"]: p for p in ml_summary.get("predictions", [])}
 
@@ -151,23 +157,25 @@ def export_frontend_bundle(
     for feat in segments_geo.get("features", []):
         props = dict(feat.get("properties", {}))
         sid = props["segment_id"]
-        latest_an = analysis_by_key.get((sid, latest_date), {})
-        latest_act = activity_by_key.get((sid, latest_date), {})
-        latest_rk = risk_by_key.get((sid, latest_date), {})
+        latest_an = latest_an_by_seg.get(sid, {})
+        latest_act = latest_act_by_seg.get(sid, {})
+        latest_rk = latest_rk_by_seg.get(sid, {})
         ml_p = ml_pred_by_seg.get(sid, {})
+        seg_state = latest_an.get("state", "unknown")
+        is_assess = seg_state != "not_assessable" and props.get("observability", "high") != "none"
         segments_out.append(
             {
                 **props,
                 "geometry": feat.get("geometry", {}),
-                "latest_observed_at": latest_date,
+                "latest_observed_at": latest_an.get("observed_at", latest_date),
                 "activity_index": latest_act.get("activity_index"),
                 "activity_confidence": latest_act.get("confidence"),
                 "spend_to_date_pct": latest_an.get("spend_to_date_pct"),
                 "reported_progress_pct": latest_an.get("reported_progress_pct"),
                 "spend_vs_activity_ratio": latest_an.get("spend_vs_activity_ratio"),
                 "activity_reporting_divergence": latest_an.get("activity_reporting_divergence"),
-                "is_assessable": latest_an.get("is_assessable", True),
-                "analysis_status": latest_an.get("status", "unknown"),
+                "is_assessable": is_assess,
+                "analysis_status": seg_state,
                 "delay_risk_score": latest_rk.get("delay_risk_score", 0.0),
                 "ml_delay_probability": ml_p.get("ml_delay_probability", 0.0),
                 "alert_triggered": latest_rk.get("alert_triggered", False),
@@ -183,6 +191,8 @@ def export_frontend_bundle(
             an = analysis_by_key.get((sid, dt), {})
             act = activity_by_key.get((sid, dt), {})
             rk = risk_by_key.get((sid, dt), {})
+            snap_state = an.get("state", "unknown")
+            snap_assess = snap_state != "not_assessable" and props.get("observability", "high") != "none"
             seg_snaps.append(
                 {
                     "segment_id": sid,
@@ -192,8 +202,8 @@ def export_frontend_bundle(
                     "reported_progress_pct": an.get("reported_progress_pct"),
                     "spend_vs_activity_ratio": an.get("spend_vs_activity_ratio"),
                     "divergence": an.get("activity_reporting_divergence"),
-                    "is_assessable": an.get("is_assessable", True),
-                    "status": an.get("status", "unknown"),
+                    "is_assessable": snap_assess,
+                    "status": snap_state,
                     "delay_risk_score": rk.get("delay_risk_score", 0.0),
                     "alert_triggered": rk.get("alert_triggered", False),
                 }
