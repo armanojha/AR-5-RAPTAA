@@ -76,6 +76,23 @@ Layer 8, delay-risk case-study back-testing, is implemented. It:
 - reports first alert date, lead time and detection outcome;
 - preserves label provenance and synthetic/real classification.
 
+Layer 9, evidence packages and alert API, is implemented. It:
+
+- creates one directory per actionable alert;
+- stores analysis, activity components, context, provenance and geometry;
+- hashes every input and the canonical alert manifest with SHA-256;
+- verifies manifests and detects later tampering;
+- produces a human-readable offline evidence report;
+- exposes health, alert, severity-filter and segment-timeline JSON endpoints.
+
+Layer 10, the judge-facing dashboard, is implemented. It:
+
+- builds as one self-contained offline HTML page with no CDN dependency;
+- displays corridor state, SAI histories, alert components and lead-time metrics;
+- links directly to the matching evidence package;
+- filters the verification queue by severity;
+- labels synthetic evidence and repeats the responsible-use boundary.
+
 ## Quick start
 
 No third-party runtime packages are required for Layer 1.
@@ -90,6 +107,9 @@ python -m drishti features build --input data/sample_observations.json --output 
 python -m drishti activity score --features output/features.json --segments output/segments.geojson --output output/activity.json
 python -m drishti analysis detect --activity output/activity.json --features output/features.json --reporting data/sample_reporting.json --output output/analysis.json
 python -m drishti backtest run --analysis output/analysis.json --labels data/sample_delay_labels.json --output output/backtest.json
+python -m drishti alerts build --analysis output/analysis.json --backtest output/backtest.json --activity output/activity.json --features output/features.json --segments output/segments.geojson --output-dir output/evidence
+python -m drishti dashboard build --evidence-dir output/evidence --segments output/segments.geojson --activity output/activity.json --analysis output/analysis.json --backtest output/backtest.json --output-dir output/dashboard
+python -m http.server 8000 --directory output
 ```
 
 When running directly from the repository without installing it:
@@ -116,8 +136,8 @@ python -m unittest discover -s tests -v
 6. Satellite Activity Index - implemented
 7. Stall detection and divergence scoring - implemented
 8. Delay-risk back-test - implemented
-9. Evidence package and alert API - next
-10. Judge-facing dashboard
+9. Evidence package and alert API - implemented
+10. Judge-facing dashboard - implemented
 11. Optional protective Track C extension
 
 The complete implementation contract is in [docs/architecture.txt](docs/architecture.txt).

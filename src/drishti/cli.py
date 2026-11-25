@@ -4,9 +4,12 @@ import argparse
 import json
 from pathlib import Path
 
+from drishti.api import serve_alert_api
+from drishti.dashboard import build_dashboard
 from drishti.layers.activity_index import score_feature_manifest
 from drishti.layers.alignment import AlignmentInput, build_segments, export_segments
 from drishti.layers.backtest import DelayRiskScorer, run_backtest
+from drishti.layers.evidence import build_evidence_packages, verify_evidence_manifest
 from drishti.layers.features import build_feature_manifest
 from drishti.layers.project_registry import ProjectRegistry, RegistryValidationError
 from drishti.layers.quality import evaluate_manifest
@@ -98,11 +101,78 @@ def _parser() -> argparse.ArgumentParser:
     backtest_run.add_argument("--labels", required=True, type=Path)
     backtest_run.add_argument("--alert-threshold", type=float, default=0.65)
     backtest_run.add_argument("--output", required=True, type=Path)
+
+    alerts = commands.add_parser("alerts", help="Evidence package and alert API operations")
+    alert_commands = alerts.add_subparsers(dest="alert_command", required=True)
+    alert_build = alert_commands.add_parser("build", help="Build tamper-evident alert packages")
+    alert_build.add_argument("--analysis", required=True, type=Path)
+    alert_build.add_argument("--backtest", required=True, type=Path)
+    alert_build.add_argument("--activity", required=True, type=Path)
+    alert_build.add_argument("--features", required=True, type=Path)
+    alert_build.add_argument("--segments", required=True, type=Path)
+    alert_build.add_argument("--scenes", type=Path)
+    alert_build.add_argument("--output-dir", required=True, type=Path)
+    alert_verify = alert_commands.add_parser("verify", help="Verify an evidence manifest hash")
+    alert_verify.add_argument("--manifest", required=True, type=Path)
+    alert_serve = alert_commands.add_parser("serve", help="Serve the local alert JSON API")
+    alert_serve.add_argument("--evidence-dir", required=True, type=Path)
+    alert_serve.add_argument("--host", default="127.0.0.1")
+    alert_serve.add_argument("--port", type=int, default=8765)
+
+    dashboard = commands.add_parser("dashboard", help="Offline judge dashboard operations")
+    dashboard_commands = dashboard.add_subparsers(dest="dashboard_command", required=True)
+    dashboard_build = dashboard_commands.add_parser("build", help="Build the self-contained dashboard")
+    dashboard_build.add_argument("--evidence-dir", required=True, type=Path)
+    dashboard_build.add_argument("--segments", required=True, type=Path)
+    dashboard_build.add_argument("--activity", required=True, type=Path)
+    dashboard_build.add_argument("--analysis", required=True, type=Path)
+    dashboard_build.add_argument("--backtest", required=True, type=Path)
+    dashboard_build.add_argument("--output-dir", required=True, type=Path)
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
+    if args.command == "alerts":
+        if args.alert_command == "serve":
+            serve_alert_api(args.evidence_dir, host=args.host, port=args.port)
+            return 0
+        if args.alert_command == "verify":
+            valid = verify_evidence_manifest(args.manifest)
+            print("evidence manifest verified" if valid else "evidence manifest verification failed")
+            return 0 if valid else 1
+        try:
+            records = build_evidence_packages(
+                analysis_path=args.analysis,
+                backtest_path=args.backtest,
+                activity_path=args.activity,
+                features_path=args.features,
+                segments_path=args.segments,
+                scenes_path=args.scenes,
+                output_directory=args.output_dir,
+            )
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            print(f"alert evidence build failed: {exc}")
+            return 1
+        print(f"built {len(records)} evidence package(s) in {args.output_dir}")
+        return 0
+
+    if args.command == "dashboard":
+        try:
+            output = build_dashboard(
+                evidence_directory=args.evidence_dir,
+                segments_path=args.segments,
+                activity_path=args.activity,
+                analysis_path=args.analysis,
+                backtest_path=args.backtest,
+                output_directory=args.output_dir,
+            )
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            print(f"dashboard build failed: {exc}")
+            return 1
+        print(f"built offline dashboard at {output}")
+        return 0
+
     if args.command == "analysis":
         try:
             detector = StallDivergenceDetector(
