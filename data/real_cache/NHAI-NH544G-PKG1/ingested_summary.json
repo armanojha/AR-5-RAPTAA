@@ -1,0 +1,496 @@
+{
+  "project": {
+    "project_id": "NHAI-NH544G-PKG1",
+    "name": "Bengaluru-Vijayawada Economic Corridor (NH-544G) Package 1",
+    "sector": "highway",
+    "ministry": "MoRTH / NHAI",
+    "sanctioned_cost_inr": 5995000000.0,
+    "latest_cost_inr": 6724800000.0,
+    "start_date": "2023-02-15",
+    "planned_end_date": "2025-03-14",
+    "revised_end_date": "2026-02-28",
+    "reported_progress_pct": 48.0,
+    "spend_to_date_inr": 3800000000.0,
+    "official_delay_date": "2024-11-20",
+    "source_url": "https://sansad.in/getFile/loksabhaquestions/annex/18/AU1285.pdf",
+    "coords": [
+      [
+        77.7154291,
+        13.8903357
+      ],
+      [
+        77.7159598,
+        13.8912645
+      ],
+      [
+        77.7164786,
+        13.8918348
+      ],
+      [
+        77.7176355,
+        13.8927947
+      ],
+      [
+        77.7181953,
+        13.893158
+      ],
+      [
+        77.7189643,
+        13.8935392
+      ],
+      [
+        77.7205779,
+        13.8943054
+      ],
+      [
+        77.7212843,
+        13.8946973
+      ],
+      [
+        77.7224502,
+        13.8954484
+      ],
+      [
+        77.7245969,
+        13.8968088
+      ],
+      [
+        77.7292486,
+        13.8997562
+      ],
+      [
+        77.7337213,
+        13.902457
+      ],
+      [
+        77.7369843,
+        13.9043876
+      ],
+      [
+        77.7385073,
+        13.9053434
+      ],
+      [
+        77.7396782,
+        13.9061891
+      ],
+      [
+        77.7413157,
+        13.9075107
+      ],
+      [
+        77.7436397,
+        13.9096854
+      ],
+      [
+        77.7453832,
+        13.9112182
+      ],
+      [
+        77.7493958,
+        13.9153422
+      ],
+      [
+        77.7566914,
+        13.9226318
+      ],
+      [
+        77.769051,
+        13.9348363
+      ],
+      [
+        77.779973,
+        13.9450409
+      ],
+      [
+        77.7853159,
+        13.9500181
+      ],
+      [
+        77.7864961,
+        13.9513092
+      ],
+      [
+        77.7885775,
+        13.9537457
+      ],
+      [
+        77.7905516,
+        13.9561821
+      ],
+      [
+        77.7926544,
+        13.9582229
+      ],
+      [
+        77.7937273,
+        13.9590975
+      ],
+      [
+        77.7964954,
+        13.9612007
+      ],
+      [
+        77.8005938,
+        13.9638037
+      ],
+      [
+        77.8044133,
+        13.9664691
+      ],
+      [
+        77.808104,
+        13.9694468
+      ],
+      [
+        77.8089623,
+        13.9703006
+      ],
+      [
+        77.810121,
+        13.9713833
+      ],
+      [
+        77.8132324,
+        13.974715
+      ],
+      [
+        77.8148846,
+        13.9763391
+      ],
+      [
+        77.8191761,
+        13.9794
+      ],
+      [
+        77.8236608,
+        13.9826066
+      ],
+      [
+        77.8264074,
+        13.9849386
+      ],
+      [
+        77.828124,
+        13.9863337
+      ],
+      [
+        77.8305916,
+        13.9877287
+      ],
+      [
+        77.838016,
+        13.9922261
+      ],
+      [
+        77.8420071,
+        13.9950577
+      ],
+      [
+        77.8452901,
+        13.9975562
+      ],
+      [
+        77.8506116,
+        14.0019077
+      ],
+      [
+        77.854238,
+        14.0047392
+      ]
+    ],
+    "tunnel_points": []
+  },
+  "bbox": [
+    77.74983,
+    13.91254,
+    77.81983,
+    13.98254
+  ],
+  "chip_bbox": [
+    77.7785,
+    13.94331,
+    77.7945,
+    13.95931
+  ],
+  "context": {
+    "worldcover": {
+      "scene_id": "ESA_WorldCover_10m_2021_v200_N12E075",
+      "summary": {
+        "tree_cover_frac": 0.0317,
+        "shrub_grass_frac": 0.082,
+        "cropland_frac": 0.8667,
+        "built_up_baseline_frac": 0.0133,
+        "bare_sparse_frac": 0.0033,
+        "water_frac": 0.0032
+      }
+    },
+    "dem": {
+      "scene_id": "Copernicus_DSM_COG_10_N13_00_E077_00_DEM",
+      "elevation_min_m": 625.4,
+      "elevation_max_m": 745.7,
+      "mean_slope_deg": 1.49,
+      "max_slope_deg": 15.43
+    },
+    "landsat_baseline": {
+      "error": "InvalidCredentials: No valid AWS credentials found. For authenticated requests, you need to set AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID or other configuration options, or create a C:\\Users\\LOQ\\.aws\\credentials file. Consult https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files for more details. For unauthenticated requests on public resources, set the AWS_NO_SIGN_REQUEST configuration option to YES."
+    }
+  },
+  "epochs": [
+    {
+      "epoch_start": "2023-01-01",
+      "epoch_end": "2023-03-15",
+      "is_baseline": true,
+      "observed_date": "2023-03-04",
+      "optical_scene_id": "S2A_43PGR_20230304_0_L2A",
+      "optical_stac_item": {
+        "id": "S2A_43PGR_20230304_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2023-03-04T05:25:01.947000Z",
+        "cloud_cover_pct": 0.000221,
+        "bbox": [
+          76.9035829124855,
+          13.463735246207047,
+          77.87307071383344,
+          14.463231997420419
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20230304T003959_20230304T004024_047487_05B399_rtc",
+      "geotiff_path": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-03-04_S2A_43PGR_20230304_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2023-03-04_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2023-03-04_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 600544,
+        "total_pixels": 600544,
+        "ndvi_median": 0.25259631872177124,
+        "ndvi_std": 0.17465879023075104,
+        "bsi_median": 0.21500474214553833,
+        "bsi_std": 0.11867211759090424,
+        "ndbi_median": 0.16852238774299622,
+        "ndbi_std": 0.129496231675148,
+        "brightness_median": 0.10816667228937149,
+        "brightness_std": 0.02920747920870781,
+        "vv_median_db": -11.234248161315918,
+        "vv_std_db": 2.3797833919525146,
+        "vh_median_db": -17.489784240722656,
+        "vh_std_db": 2.4537904262542725
+      },
+      "rainfall": {
+        "start_date": "2023-02-18",
+        "end_date": "2023-03-04",
+        "rainfall_mm": 0.0,
+        "nasa_power_imerg_mm": 0.0,
+        "open_meteo_mm": 0.0,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2023-10-01",
+      "epoch_end": "2023-12-15",
+      "is_baseline": false,
+      "observed_date": "2023-10-25",
+      "optical_scene_id": "S2B_43PGR_20231025_0_L2A",
+      "optical_stac_item": {
+        "id": "S2B_43PGR_20231025_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2023-10-25T05:25:06.064000Z",
+        "cloud_cover_pct": 0.000166,
+        "bbox": [
+          76.90616857251504,
+          13.463735246207047,
+          77.87307071383344,
+          14.463205191919913
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20231205T004007_20231205T004032_051512_0637C8_rtc",
+      "geotiff_path": "data\\real_cache\\NHAI-NH544G-PKG1\\2023-10-25_S2B_43PGR_20231025_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2023-10-25_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2023-10-25_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 600544,
+        "total_pixels": 600544,
+        "ndvi_median": 0.4179036021232605,
+        "ndvi_std": 0.14675085246562958,
+        "bsi_median": 0.08415596187114716,
+        "bsi_std": 0.0999620109796524,
+        "ndbi_median": 0.01928556337952614,
+        "ndbi_std": 0.1059199795126915,
+        "brightness_median": 0.10620000213384628,
+        "brightness_std": 0.02969813346862793,
+        "vv_median_db": -9.173105239868164,
+        "vv_std_db": 1.9224649667739868,
+        "vh_median_db": -15.176198959350586,
+        "vh_std_db": 1.846317172050476
+      },
+      "rainfall": {
+        "start_date": "2023-10-11",
+        "end_date": "2023-10-25",
+        "rainfall_mm": 4.01,
+        "nasa_power_imerg_mm": 4.01,
+        "open_meteo_mm": 1.2,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2024-01-15",
+      "epoch_end": "2024-03-15",
+      "is_baseline": false,
+      "observed_date": "2024-03-08",
+      "optical_scene_id": "S2A_43PHR_20240308_0_L2A",
+      "optical_stac_item": {
+        "id": "S2A_43PHR_20240308_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2024-03-08T05:25:02.735000Z",
+        "cloud_cover_pct": 0.000564,
+        "bbox": [
+          77.77057503854773,
+          13.45153788437235,
+          78.79949871858118,
+          14.456370371812048
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20240310T004004_20240310T004029_052912_06678C_rtc",
+      "geotiff_path": "data\\real_cache\\NHAI-NH544G-PKG1\\2024-03-08_S2A_43PHR_20240308_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2024-03-08_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2024-03-08_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.6240208877284595,
+        "valid_pixels": 374752,
+        "total_pixels": 600544,
+        "ndvi_median": 0.19518034160137177,
+        "ndvi_std": 0.13639339804649353,
+        "bsi_median": 0.24675530195236206,
+        "bsi_std": 0.09561807662248611,
+        "ndbi_median": 0.1994180679321289,
+        "ndbi_std": 0.101763516664505,
+        "brightness_median": 0.1273999959230423,
+        "brightness_std": 0.03042353130877018,
+        "vv_median_db": -11.465482711791992,
+        "vv_std_db": 2.2068939208984375,
+        "vh_median_db": -17.987234115600586,
+        "vh_std_db": 2.483917713165283
+      },
+      "rainfall": {
+        "start_date": "2024-02-23",
+        "end_date": "2024-03-08",
+        "rainfall_mm": 0.0,
+        "nasa_power_imerg_mm": 0.0,
+        "open_meteo_mm": 0.1,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2024-06-15",
+      "epoch_end": "2024-08-30",
+      "is_baseline": false,
+      "observed_date": "2024-06-16",
+      "optical_scene_id": "S2A_43PHR_20240616_0_L2A",
+      "optical_stac_item": {
+        "id": "S2A_43PHR_20240616_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2024-06-16T05:25:08.058000Z",
+        "cloud_cover_pct": 16.198738,
+        "bbox": [
+          77.77057503854773,
+          13.45153788437235,
+          78.79949871858118,
+          14.456370371812048
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20240825T004003_20240825T004028_055362_06C06B_rtc",
+      "geotiff_path": "data\\real_cache\\NHAI-NH544G-PKG1\\2024-06-16_S2A_43PHR_20240616_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2024-06-16_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2024-06-16_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.6103932434592636,
+        "valid_pixels": 366568,
+        "total_pixels": 600544,
+        "ndvi_median": 0.39034199714660645,
+        "ndvi_std": 0.21426327526569366,
+        "bsi_median": 0.13361531496047974,
+        "bsi_std": 0.13689318299293518,
+        "ndbi_median": 0.07192704826593399,
+        "ndbi_std": 0.13113446533679962,
+        "brightness_median": 0.11553332954645157,
+        "brightness_std": 0.04950486868619919,
+        "vv_median_db": -9.506373405456543,
+        "vv_std_db": 1.7104229927062988,
+        "vh_median_db": -15.443638801574707,
+        "vh_std_db": 1.693928837776184
+      },
+      "rainfall": {
+        "start_date": "2024-06-02",
+        "end_date": "2024-06-16",
+        "rainfall_mm": 106.14,
+        "nasa_power_imerg_mm": 106.14,
+        "open_meteo_mm": 58.5,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2025-01-01",
+      "epoch_end": "2025-03-15",
+      "is_baseline": false,
+      "observed_date": "2025-03-15",
+      "optical_scene_id": "S2A_43PGR_20250315_0_L2A",
+      "optical_stac_item": {
+        "id": "S2A_43PGR_20250315_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2025-03-15T05:25:17.844000Z",
+        "cloud_cover_pct": 0.000526,
+        "bbox": [
+          76.905245,
+          13.463735,
+          77.873071,
+          14.463222
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20250305T003957_20250305T004022_058162_072F64_rtc",
+      "geotiff_path": "data\\real_cache\\NHAI-NH544G-PKG1\\2025-03-15_S2A_43PGR_20250315_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2025-03-15_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\NHAI-NH544G-PKG1\\chips\\chip_2025-03-15_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 600544,
+        "total_pixels": 600544,
+        "ndvi_median": 0.24515534937381744,
+        "ndvi_std": 0.15209342539310455,
+        "bsi_median": 0.2120889127254486,
+        "bsi_std": 0.11133112758398056,
+        "ndbi_median": 0.16267843544483185,
+        "ndbi_std": 0.12251175194978714,
+        "brightness_median": 0.11239999532699585,
+        "brightness_std": 0.03269771859049797,
+        "vv_median_db": -11.122602462768555,
+        "vv_std_db": 2.27606201171875,
+        "vh_median_db": -17.279830932617188,
+        "vh_std_db": 2.3274362087249756
+      },
+      "rainfall": {
+        "start_date": "2025-03-01",
+        "end_date": "2025-03-15",
+        "rainfall_mm": 0.04,
+        "nasa_power_imerg_mm": 0.04,
+        "open_meteo_mm": 0.0,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    }
+  ]
+}

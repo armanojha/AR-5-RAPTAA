@@ -31,6 +31,8 @@ class AnalysisRecord:
     low_activity_streak: int
     state: str
     reasons: tuple[str, ...]
+    spend_to_date_pct: float | None = None
+    spend_vs_activity_ratio: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -49,6 +51,12 @@ class AnalysisRecord:
                 else None
             ),
             "reported_progress_pct": self.reported_progress_pct,
+            "spend_to_date_pct": self.spend_to_date_pct,
+            "spend_vs_activity_ratio": (
+                round(self.spend_vs_activity_ratio, 4)
+                if self.spend_vs_activity_ratio is not None
+                else None
+            ),
             "confidence": round(self.confidence, 4),
             "observability": self.observability,
             "rainfall_mm": round(self.rainfall_mm, 4),
@@ -162,6 +170,15 @@ class StallDivergenceDetector:
                 reported_progress = float(reported_value) if reported_value is not None else None
                 if reported_progress is not None and not 0 <= reported_progress <= 100:
                     raise ValueError("reported_progress_pct must be between 0 and 100")
+                spend_value = reporting.get("spend_to_date_pct")
+                spend_pct = float(spend_value) if spend_value is not None else None
+                if spend_pct is not None and not 0 <= spend_pct <= 200:
+                    raise ValueError("spend_to_date_pct must be between 0 and 200")
+                spend_ratio = (
+                    spend_pct / max(activity_index, 1.0)
+                    if spend_pct is not None
+                    else None
+                )
 
                 results.append(
                     AnalysisRecord(
@@ -179,6 +196,8 @@ class StallDivergenceDetector:
                         low_activity_streak=low_streak,
                         state=state,
                         reasons=tuple(reasons),
+                        spend_to_date_pct=spend_pct,
+                        spend_vs_activity_ratio=spend_ratio,
                     )
                 )
                 previous_activity = activity_index

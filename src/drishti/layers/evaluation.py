@@ -17,9 +17,12 @@ def evaluate_stall_performance(
     analysis_records = analysis_payload.get("records", [])
     gt_labels = gt_payload.get("labels", [])
 
-    # Index analysis by (segment_id, observed_at)
+    def _ts(v: Any) -> str:
+        return str(v).replace("Z", "+00:00")
+
+    # Index analysis by (segment_id, normalized observed_at)
     analysis_index = {
-        (rec["segment_id"], rec["observed_at"]): rec
+        (rec["segment_id"], _ts(rec["observed_at"])): rec
         for rec in analysis_records
     }
 
@@ -33,7 +36,7 @@ def evaluate_stall_performance(
     evaluated_samples = []
 
     for item in gt_labels:
-        key = (item["segment_id"], item["observed_at"])
+        key = (item["segment_id"], _ts(item["observed_at"]))
         analysis_rec = analysis_index.get(key)
         if not analysis_rec:
             continue

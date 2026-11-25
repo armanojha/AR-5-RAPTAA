@@ -8,4 +8,6 @@ output/
 *.egg-info/
 .env
 .DS_Store
+data/real_cache/*/*.tif
+data/real_cache/*/*.npy
 

@@ -13,7 +13,8 @@ class TrackCAndCalibrationTests(unittest.TestCase):
     def test_track_c_detection(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             out_dir = Path(tmpdir)
-            events = detect_track_c_events("data/real_segments.geojson", out_dir)
+            cache_dir = Path("data/real_cache") if Path("data/real_cache/all_corridors_ingested.json").exists() else None
+            events = detect_track_c_events("output/real_case/data/segments.geojson", out_dir, real_cache_dir=cache_dir)
             self.assertEqual(len(events), 2)
             self.assertEqual(events[0]["event_type"], "right_of_way_encroachment")
             self.assertEqual(events[1]["event_type"], "illegal_sand_mining_near_piers")

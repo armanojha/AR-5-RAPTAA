@@ -1,0 +1,392 @@
+{
+  "project": {
+    "project_id": "BSRDC-KDB-BRIDGE",
+    "name": "Kacchi Dargah-Bidupur 6-Lane Extradosed Ganga Bridge (Nitish Setu)",
+    "sector": "bridge_elevated",
+    "ministry": "MoRTH / BSRDC (ADB Co-financed)",
+    "sanctioned_cost_inr": 49880000000.0,
+    "latest_cost_inr": 49880000000.0,
+    "start_date": "2017-07-01",
+    "planned_end_date": "2021-12-31",
+    "revised_end_date": "2025-12-31",
+    "reported_progress_pct": 76.0,
+    "spend_to_date_inr": 41000000000.0,
+    "official_delay_date": "2023-12-01",
+    "source_url": "https://www.adb.org/projects/48434-002/main",
+    "coords": [
+      [
+        85.3462454,
+        25.6231846
+      ],
+      [
+        85.3428256,
+        25.6206256
+      ],
+      [
+        85.3391144,
+        25.6177894
+      ],
+      [
+        85.3355439,
+        25.6151735
+      ],
+      [
+        85.3319733,
+        25.612542
+      ],
+      [
+        85.3266432,
+        25.6086334
+      ],
+      [
+        85.3219054,
+        25.6050962
+      ],
+      [
+        85.3177512,
+        25.6020001
+      ],
+      [
+        85.3124898,
+        25.5980912
+      ],
+      [
+        85.3079064,
+        25.5947007
+      ],
+      [
+        85.3032544,
+        25.591287
+      ],
+      [
+        85.2970574,
+        25.5866964
+      ],
+      [
+        85.2928362,
+        25.5835383
+      ],
+      [
+        85.2871342,
+        25.5792821
+      ],
+      [
+        85.2805549,
+        25.5744452
+      ],
+      [
+        85.2767523,
+        25.5715983
+      ],
+      [
+        85.2703338,
+        25.5668668
+      ],
+      [
+        85.2673048,
+        25.5646182
+      ],
+      [
+        85.2656211,
+        25.5633625
+      ],
+      [
+        85.2614853,
+        25.5603144
+      ]
+    ],
+    "tunnel_points": []
+  },
+  "bbox": [
+    85.26887,
+    25.55675,
+    85.33887,
+    25.62675
+  ],
+  "chip_bbox": [
+    85.29525,
+    25.58329,
+    85.31125,
+    25.59929
+  ],
+  "context": {
+    "worldcover": {
+      "scene_id": "ESA_WorldCover_10m_2021_v200_N24E084",
+      "summary": {
+        "tree_cover_frac": 0.025,
+        "shrub_grass_frac": 0.1186,
+        "cropland_frac": 0.5436,
+        "built_up_baseline_frac": 0.0369,
+        "bare_sparse_frac": 0.0539,
+        "water_frac": 0.2221
+      }
+    },
+    "dem": {
+      "scene_id": "Copernicus_DSM_COG_10_N25_00_E085_00_DEM",
+      "elevation_min_m": 39.5,
+      "elevation_max_m": 60.8,
+      "mean_slope_deg": 0.69,
+      "max_slope_deg": 20.03
+    },
+    "landsat_baseline": {
+      "error": "InvalidCredentials: No valid AWS credentials found. For authenticated requests, you need to set AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID or other configuration options, or create a C:\\Users\\LOQ\\.aws\\credentials file. Consult https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files for more details. For unauthenticated requests on public resources, set the AWS_NO_SIGN_REQUEST configuration option to YES."
+    }
+  },
+  "epochs": [
+    {
+      "epoch_start": "2021-01-01",
+      "epoch_end": "2021-03-31",
+      "is_baseline": true,
+      "observed_date": "2021-03-28",
+      "optical_scene_id": "S2A_45RUJ_20210328_1_L2A",
+      "optical_stac_item": {
+        "id": "S2A_45RUJ_20210328_1_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2021-03-28T05:01:34.798000Z",
+        "cloud_cover_pct": 0.106018,
+        "bbox": [
+          84.99830806921727,
+          25.21508866264745,
+          86.1045021733208,
+          26.217084961861953
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20210328T002012_20210328T002037_037191_046137_rtc",
+      "geotiff_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2021-03-28_S2A_45RUJ_20210328_1_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2021-03-28_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2021-03-28_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.9970768812433809,
+        "valid_pixels": 557358,
+        "total_pixels": 558992,
+        "ndvi_median": 0.2530728578567505,
+        "ndvi_std": 0.22849535942077637,
+        "bsi_median": 0.12797722220420837,
+        "bsi_std": 0.07187724858522415,
+        "ndbi_median": 0.051560401916503906,
+        "ndbi_std": 0.10063628107309341,
+        "brightness_median": 0.1033666729927063,
+        "brightness_std": 0.06953974813222885,
+        "vv_median_db": -12.186005592346191,
+        "vv_std_db": 3.2792296409606934,
+        "vh_median_db": -18.358657836914062,
+        "vh_std_db": 2.4602859020233154
+      },
+      "rainfall": {
+        "start_date": "2021-03-14",
+        "end_date": "2021-03-28",
+        "rainfall_mm": 0.0,
+        "nasa_power_imerg_mm": 0.0,
+        "open_meteo_mm": 0.0,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2023-01-15",
+      "epoch_end": "2023-03-31",
+      "is_baseline": false,
+      "observed_date": "2023-03-03",
+      "optical_scene_id": "S2B_45RUJ_20230303_0_L2A",
+      "optical_stac_item": {
+        "id": "S2B_45RUJ_20230303_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2023-03-03T05:01:38.288000Z",
+        "cloud_cover_pct": 0.002031,
+        "bbox": [
+          84.99830806921727,
+          25.21508866264745,
+          86.1045021733208,
+          26.217084961861953
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20230330T002027_20230330T002052_047866_05C070_rtc",
+      "geotiff_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2023-03-03_S2B_45RUJ_20230303_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2023-03-03_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2023-03-03_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.9997137705011878,
+        "valid_pixels": 558832,
+        "total_pixels": 558992,
+        "ndvi_median": 0.46450284123420715,
+        "ndvi_std": 0.4304088354110718,
+        "bsi_median": 0.0033221887424588203,
+        "bsi_std": 0.19055107235908508,
+        "ndbi_median": -0.06757126748561859,
+        "ndbi_std": 0.27641957998275757,
+        "brightness_median": 0.06583333015441895,
+        "brightness_std": 0.0745222270488739,
+        "vv_median_db": -11.43968391418457,
+        "vv_std_db": 3.2564027309417725,
+        "vh_median_db": -18.160785675048828,
+        "vh_std_db": 2.5735220909118652
+      },
+      "rainfall": {
+        "start_date": "2023-02-17",
+        "end_date": "2023-03-03",
+        "rainfall_mm": 0.0,
+        "nasa_power_imerg_mm": 0.0,
+        "open_meteo_mm": 0.0,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2024-01-15",
+      "epoch_end": "2024-03-31",
+      "is_baseline": false,
+      "observed_date": "2024-03-07",
+      "optical_scene_id": "S2B_45RUJ_20240307_0_L2A",
+      "optical_stac_item": {
+        "id": "S2B_45RUJ_20240307_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2024-03-07T05:01:31.277000Z",
+        "cloud_cover_pct": 0.001589,
+        "bbox": [
+          84.99830806921727,
+          25.21508866264745,
+          86.1045021733208,
+          26.217084961861953
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20240331T001225_20240331T001250_053218_0672F8_rtc",
+      "geotiff_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2024-03-07_S2B_45RUJ_20240307_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2024-03-07_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2024-03-07_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.9997781721384206,
+        "valid_pixels": 558868,
+        "total_pixels": 558992,
+        "ndvi_median": 0.518539547920227,
+        "ndvi_std": 0.385042279958725,
+        "bsi_median": -0.09260982275009155,
+        "bsi_std": 0.19029177725315094,
+        "ndbi_median": -0.12845194339752197,
+        "ndbi_std": 0.2143194079399109,
+        "brightness_median": 0.06509999185800552,
+        "brightness_std": 0.0726332738995552,
+        "vv_median_db": -12.043137550354004,
+        "vv_std_db": 3.7824110984802246,
+        "vh_median_db": -18.312299728393555,
+        "vh_std_db": 3.574836015701294
+      },
+      "rainfall": {
+        "start_date": "2024-02-22",
+        "end_date": "2024-03-07",
+        "rainfall_mm": 9.68,
+        "nasa_power_imerg_mm": 9.68,
+        "open_meteo_mm": 7.5,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2024-07-15",
+      "epoch_end": "2024-09-30",
+      "is_baseline": false,
+      "observed_date": "2024-09-23",
+      "optical_scene_id": "S2B_45RUJ_20240923_0_L2A",
+      "optical_stac_item": {
+        "id": "S2B_45RUJ_20240923_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2024-09-23T05:01:34.464000Z",
+        "cloud_cover_pct": 19.896238,
+        "bbox": [
+          84.99830806921727,
+          25.21508866264745,
+          86.1045021733208,
+          26.217084961861953
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20240927T001224_20240927T001249_055843_06D317_rtc",
+      "geotiff_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2024-09-23_S2B_45RUJ_20240923_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2024-09-23_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2024-09-23_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.9984972951312362,
+        "valid_pixels": 558152,
+        "total_pixels": 558992,
+        "ndvi_median": -0.20855927467346191,
+        "ndvi_std": 0.2847338318824768,
+        "bsi_median": -0.061942681670188904,
+        "bsi_std": 0.07909519225358963,
+        "ndbi_median": -0.7510745525360107,
+        "ndbi_std": 0.3047696352005005,
+        "brightness_median": 0.13760000467300415,
+        "brightness_std": 0.02662445604801178,
+        "vv_median_db": -9.155532836914062,
+        "vv_std_db": 4.167811870574951,
+        "vh_median_db": -16.419876098632812,
+        "vh_std_db": 5.167888164520264
+      },
+      "rainfall": {
+        "start_date": "2024-09-09",
+        "end_date": "2024-09-23",
+        "rainfall_mm": 35.82,
+        "nasa_power_imerg_mm": 35.82,
+        "open_meteo_mm": 65.0,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2025-01-15",
+      "epoch_end": "2025-03-31",
+      "is_baseline": false,
+      "observed_date": "2025-03-12",
+      "optical_scene_id": "S2B_45RUJ_20250312_0_L2A",
+      "optical_stac_item": {
+        "id": "S2B_45RUJ_20250312_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2025-03-12T05:01:38.927000Z",
+        "cloud_cover_pct": 0.002147,
+        "bbox": [
+          84.998308,
+          25.215089,
+          86.104502,
+          26.217085
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20250331T002025_20250331T002050_058541_rtc",
+      "geotiff_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\2025-03-12_S2B_45RUJ_20250312_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2025-03-12_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\BSRDC-KDB-BRIDGE\\chips\\chip_2025-03-12_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.9999212868878267,
+        "valid_pixels": 558948,
+        "total_pixels": 558992,
+        "ndvi_median": 0.3774705231189728,
+        "ndvi_std": 0.3722429573535919,
+        "bsi_median": 0.059575632214546204,
+        "bsi_std": 0.17302800714969635,
+        "ndbi_median": -0.017572369426488876,
+        "ndbi_std": 0.24064882099628448,
+        "brightness_median": 0.07466667145490646,
+        "brightness_std": 0.07719395309686661,
+        "vv_median_db": -11.53484058380127,
+        "vv_std_db": 3.5881693363189697,
+        "vh_median_db": -18.78464126586914,
+        "vh_std_db": 2.569898843765259
+      },
+      "rainfall": {
+        "start_date": "2025-02-26",
+        "end_date": "2025-03-12",
+        "rainfall_mm": 0.92,
+        "nasa_power_imerg_mm": 0.92,
+        "open_meteo_mm": 0.8,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    }
+  ]
+}

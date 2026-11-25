@@ -1,0 +1,461 @@
+{
+  "project": {
+    "project_id": "RVNL-RK-RAIL",
+    "name": "Rishikesh-Karnaprayag New Broad Gauge Rail Line (Devprayag-Srinagar)",
+    "sector": "railway",
+    "ministry": "Ministry of Railways / RVNL",
+    "sanctioned_cost_inr": 162160000000.0,
+    "latest_cost_inr": 371190000000.0,
+    "start_date": "2020-01-15",
+    "planned_end_date": "2024-12-31",
+    "revised_end_date": "2029-12-31",
+    "reported_progress_pct": 79.0,
+    "spend_to_date_inr": 265000000000.0,
+    "official_delay_date": "2024-06-15",
+    "source_url": "https://www.mospi.gov.in/flash-report-delayed-infrastructure-projects",
+    "coords": [
+      [
+        78.6025985,
+        30.1269653
+      ],
+      [
+        78.6085081,
+        30.1333251
+      ],
+      [
+        78.6248587,
+        30.153143
+      ],
+      [
+        78.626232,
+        30.1558148
+      ],
+      [
+        78.6291502,
+        30.1748119
+      ],
+      [
+        78.6306952,
+        30.1771863
+      ],
+      [
+        78.6341284,
+        30.1798574
+      ],
+      [
+        78.6471157,
+        30.1872941
+      ],
+      [
+        78.6591839,
+        30.1942039
+      ],
+      [
+        78.6610792,
+        30.1952891
+      ]
+    ],
+    "tunnel_points": [
+      [
+        78.6025985,
+        30.1269653
+      ],
+      [
+        78.6085081,
+        30.1333251
+      ],
+      [
+        78.6248587,
+        30.153143
+      ],
+      [
+        78.626232,
+        30.1558148
+      ],
+      [
+        78.6291502,
+        30.1748119
+      ],
+      [
+        78.6306952,
+        30.1771863
+      ],
+      [
+        78.6341284,
+        30.1798574
+      ],
+      [
+        78.6471157,
+        30.1872941
+      ],
+      [
+        78.6591839,
+        30.1942039
+      ],
+      [
+        78.6610792,
+        30.1952891
+      ],
+      [
+        78.6807303,
+        30.208127
+      ],
+      [
+        78.6828802,
+        30.2095315
+      ],
+      [
+        78.6868284,
+        30.2132402
+      ],
+      [
+        78.6924933,
+        30.2213987
+      ],
+      [
+        78.6933731,
+        30.2288668
+      ],
+      [
+        78.6932445,
+        30.2297389
+      ],
+      [
+        78.7839085,
+        30.2229328
+      ],
+      [
+        78.7842786,
+        30.2221912
+      ],
+      [
+        78.7849063,
+        30.2217369
+      ],
+      [
+        78.7867784,
+        30.220694
+      ],
+      [
+        78.796606,
+        30.2153169
+      ],
+      [
+        78.7987517,
+        30.2147977
+      ],
+      [
+        78.8014125,
+        30.2150202
+      ],
+      [
+        78.8055324,
+        30.2161327
+      ],
+      [
+        78.8464736,
+        30.2279249
+      ],
+      [
+        78.848791,
+        30.2291115
+      ],
+      [
+        78.8619003,
+        30.2419485
+      ]
+    ]
+  },
+  "bbox": [
+    78.59684,
+    30.12613,
+    78.66684,
+    30.19613
+  ],
+  "chip_bbox": [
+    78.6227,
+    30.16919,
+    78.6387,
+    30.18519
+  ],
+  "context": {
+    "worldcover": {
+      "scene_id": "ESA_WorldCover_10m_2021_v200_N30E078",
+      "summary": {
+        "tree_cover_frac": 0.6686,
+        "shrub_grass_frac": 0.2666,
+        "cropland_frac": 0.0307,
+        "built_up_baseline_frac": 0.0151,
+        "bare_sparse_frac": 0.0056,
+        "water_frac": 0.0135
+      }
+    },
+    "dem": {
+      "scene_id": "Copernicus_DSM_COG_10_N30_00_E078_00_DEM",
+      "elevation_min_m": 443.0,
+      "elevation_max_m": 1751.5,
+      "mean_slope_deg": 21.55,
+      "max_slope_deg": 62.11
+    },
+    "landsat_baseline": {
+      "error": "InvalidCredentials: No valid AWS credentials found. For authenticated requests, you need to set AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID or other configuration options, or create a C:\\Users\\LOQ\\.aws\\credentials file. Consult https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files for more details. For unauthenticated requests on public resources, set the AWS_NO_SIGN_REQUEST configuration option to YES."
+    }
+  },
+  "epochs": [
+    {
+      "epoch_start": "2021-01-01",
+      "epoch_end": "2021-03-31",
+      "is_baseline": true,
+      "observed_date": "2021-03-27",
+      "optical_scene_id": "S2A_44RKU_20210327_2_L2A",
+      "optical_stac_item": {
+        "id": "S2A_44RKU_20210327_2_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2021-03-27T05:30:33.522000Z",
+        "cloud_cover_pct": 0.084273,
+        "bbox": [
+          78.206898,
+          29.712736,
+          79.033276,
+          30.717857
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20210331T004341_20210331T004406_037235_0462B7_rtc",
+      "geotiff_path": "data\\real_cache\\RVNL-RK-RAIL\\2021-03-27_S2A_44RKU_20210327_2_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2021-03-27_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2021-03-27_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.999831223628692,
+        "valid_pixels": 545008,
+        "total_pixels": 545100,
+        "ndvi_median": 0.3069876432418823,
+        "ndvi_std": 0.14199872314929962,
+        "bsi_median": 0.14616236090660095,
+        "bsi_std": 0.09596553444862366,
+        "ndbi_median": 0.09320889413356781,
+        "ndbi_std": 0.11464469879865646,
+        "brightness_median": 0.08980000019073486,
+        "brightness_std": 0.03612004220485687,
+        "vv_median_db": -8.951458930969238,
+        "vv_std_db": 3.1408746242523193,
+        "vh_median_db": -14.502416610717773,
+        "vh_std_db": 2.9602303504943848
+      },
+      "rainfall": {
+        "start_date": "2021-03-13",
+        "end_date": "2021-03-27",
+        "rainfall_mm": 1.52,
+        "nasa_power_imerg_mm": 1.52,
+        "open_meteo_mm": 2.6,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2023-02-01",
+      "epoch_end": "2023-04-30",
+      "is_baseline": false,
+      "observed_date": "2023-04-14",
+      "optical_scene_id": "S2B_44RKU_20230414_0_L2A",
+      "optical_stac_item": {
+        "id": "S2B_44RKU_20230414_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2023-04-14T05:40:31.888000Z",
+        "cloud_cover_pct": 2.185238,
+        "bbox": [
+          77.86799322919028,
+          29.706783376168538,
+          79.01839632680388,
+          30.71785724249536
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20230426T004357_20230426T004422_048260_05CDA2_rtc",
+      "geotiff_path": "data\\real_cache\\RVNL-RK-RAIL\\2023-04-14_S2B_44RKU_20230414_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2023-04-14_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2023-04-14_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 545100,
+        "total_pixels": 545100,
+        "ndvi_median": 0.4779285192489624,
+        "ndvi_std": 0.17125073075294495,
+        "bsi_median": 0.10465356707572937,
+        "bsi_std": 0.10589895397424698,
+        "ndbi_median": 0.05199051648378372,
+        "ndbi_std": 0.1218937486410141,
+        "brightness_median": 0.05660000443458557,
+        "brightness_std": 0.027487747371196747,
+        "vv_median_db": -8.880462646484375,
+        "vv_std_db": 2.943058729171753,
+        "vh_median_db": -14.664989471435547,
+        "vh_std_db": 2.859186887741089
+      },
+      "rainfall": {
+        "start_date": "2023-03-31",
+        "end_date": "2023-04-14",
+        "rainfall_mm": 35.59,
+        "nasa_power_imerg_mm": 35.59,
+        "open_meteo_mm": 27.6,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2024-01-01",
+      "epoch_end": "2024-03-31",
+      "is_baseline": false,
+      "observed_date": "2024-03-14",
+      "optical_scene_id": "S2A_44RKU_20240314_0_L2A",
+      "optical_stac_item": {
+        "id": "S2A_44RKU_20240314_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2024-03-14T05:40:31.021000Z",
+        "cloud_cover_pct": 4.992442,
+        "bbox": [
+          77.86799322919028,
+          29.706783371884192,
+          79.01772782060692,
+          30.71785724249536
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20240327T004401_20240327T004426_053160_0670C3_rtc",
+      "geotiff_path": "data\\real_cache\\RVNL-RK-RAIL\\2024-03-14_S2A_44RKU_20240314_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2024-03-14_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2024-03-14_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 545100,
+        "total_pixels": 545100,
+        "ndvi_median": 0.524997889995575,
+        "ndvi_std": 0.19713428616523743,
+        "bsi_median": 0.09807471185922623,
+        "bsi_std": 0.12623892724514008,
+        "ndbi_median": 0.028654322028160095,
+        "ndbi_std": 0.14255161583423615,
+        "brightness_median": 0.04543333128094673,
+        "brightness_std": 0.02810067869722843,
+        "vv_median_db": -8.802999496459961,
+        "vv_std_db": 2.9224064350128174,
+        "vh_median_db": -14.310382843017578,
+        "vh_std_db": 2.8122096061706543
+      },
+      "rainfall": {
+        "start_date": "2024-02-29",
+        "end_date": "2024-03-14",
+        "rainfall_mm": 60.64,
+        "nasa_power_imerg_mm": 60.64,
+        "open_meteo_mm": 72.3,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2024-07-01",
+      "epoch_end": "2024-09-30",
+      "is_baseline": false,
+      "observed_date": "2024-08-31",
+      "optical_scene_id": "S2A_44RKU_20240831_0_L2A",
+      "optical_stac_item": {
+        "id": "S2A_44RKU_20240831_0_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2024-08-31T05:40:30.390000Z",
+        "cloud_cover_pct": 8.556469,
+        "bbox": [
+          77.86799322919028,
+          29.706783376119198,
+          79.01869480529867,
+          30.71785724249536
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20240927T124739_20240927T124804_055851_06D36D_rtc",
+      "geotiff_path": "data\\real_cache\\RVNL-RK-RAIL\\2024-08-31_S2A_44RKU_20240831_0_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2024-08-31_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2024-08-31_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 0.9696202531645569,
+        "valid_pixels": 528540,
+        "total_pixels": 545100,
+        "ndvi_median": 0.8448308706283569,
+        "ndvi_std": 0.15861541032791138,
+        "bsi_median": -0.27104294300079346,
+        "bsi_std": 0.08687249571084976,
+        "ndbi_median": -0.3054457902908325,
+        "ndbi_std": 0.08030426502227783,
+        "brightness_median": 0.04230000078678131,
+        "brightness_std": 0.026921000331640244,
+        "vv_median_db": -8.04632568359375,
+        "vv_std_db": 2.313988447189331,
+        "vh_median_db": -13.914396286010742,
+        "vh_std_db": 2.125035524368286
+      },
+      "rainfall": {
+        "start_date": "2024-08-17",
+        "end_date": "2024-08-31",
+        "rainfall_mm": 133.72,
+        "nasa_power_imerg_mm": 133.72,
+        "open_meteo_mm": 189.4,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    },
+    {
+      "epoch_start": "2025-01-01",
+      "epoch_end": "2025-03-31",
+      "is_baseline": false,
+      "observed_date": "2025-03-31",
+      "optical_scene_id": "S2A_44RKU_20250331_1_L2A",
+      "optical_stac_item": {
+        "id": "S2A_44RKU_20250331_1_L2A",
+        "collection": "sentinel-2-l2a",
+        "datetime": "2025-03-31T05:40:41.228000Z",
+        "cloud_cover_pct": 0.476002,
+        "bbox": [
+          77.867993,
+          29.706783,
+          79.016904,
+          30.717841
+        ]
+      },
+      "sar_scene_id": "S1A_IW_GRDH_1SDV_20250326T124732_20250326T124757_058476_073BD9_rtc",
+      "geotiff_path": "data\\real_cache\\RVNL-RK-RAIL\\2025-03-31_S2A_44RKU_20250331_1_L2A.tif",
+      "chip_rgb_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2025-03-31_rgb.png",
+      "chip_falsecolor_path": "data\\real_cache\\RVNL-RK-RAIL\\chips\\chip_2025-03-31_falsecolor.png",
+      "stats": {
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 545100,
+        "total_pixels": 545100,
+        "ndvi_median": 0.5310853719711304,
+        "ndvi_std": 0.18416672945022583,
+        "bsi_median": 0.06823670864105225,
+        "bsi_std": 0.10713311284780502,
+        "ndbi_median": -0.0033366249408572912,
+        "ndbi_std": 0.12221700698137283,
+        "brightness_median": 0.053333330899477005,
+        "brightness_std": 0.02939862571656704,
+        "vv_median_db": -8.61708927154541,
+        "vv_std_db": 2.356492519378662,
+        "vh_median_db": -14.306205749511719,
+        "vh_std_db": 2.3275773525238037
+      },
+      "rainfall": {
+        "start_date": "2025-03-17",
+        "end_date": "2025-03-31",
+        "rainfall_mm": 0.12,
+        "nasa_power_imerg_mm": 0.12,
+        "open_meteo_mm": 2.0,
+        "sources": [
+          "NASA POWER PRECTOTCORR (GPM IMERG)",
+          "Open-Meteo ERA5/CHIRPS Archive"
+        ]
+      }
+    }
+  ]
+}

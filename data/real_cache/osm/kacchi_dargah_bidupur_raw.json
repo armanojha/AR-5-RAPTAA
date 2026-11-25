@@ -1,0 +1,171 @@
+{
+  "ways": [
+    {
+      "id": 477642220,
+      "tags": {
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "coords": [
+        [
+          85.254232,
+          25.5714735
+        ],
+        [
+          85.2548091,
+          25.5715718
+        ]
+      ]
+    },
+    {
+      "id": 606426408,
+      "tags": {
+        "bridge": "yes",
+        "highway": "trunk",
+        "layer": "1",
+        "oneway": "yes",
+        "ref": "NH31"
+      },
+      "coords": [
+        [
+          85.2591918,
+          25.5471367
+        ],
+        [
+          85.2591252,
+          25.54665
+        ]
+      ]
+    },
+    {
+      "id": 606426440,
+      "tags": {
+        "bridge": "yes",
+        "highway": "trunk",
+        "layer": "1",
+        "oneway": "yes",
+        "ref": "NH31"
+      },
+      "coords": [
+        [
+          85.2590141,
+          25.5467525
+        ],
+        [
+          85.2590908,
+          25.5473231
+        ]
+      ]
+    },
+    {
+      "id": 697806975,
+      "tags": {
+        "bridge": "yes",
+        "highway": "trunk",
+        "layer": "1",
+        "oneway": "yes",
+        "ref": "NH31"
+      },
+      "coords": [
+        [
+          85.2519652,
+          25.5674883
+        ],
+        [
+          85.25268,
+          25.5669383
+        ]
+      ]
+    },
+    {
+      "id": 697806978,
+      "tags": {
+        "bridge": "yes",
+        "highway": "trunk",
+        "layer": "1",
+        "oneway": "yes",
+        "ref": "NH31"
+      },
+      "coords": [
+        [
+          85.252584,
+          25.5668712
+        ],
+        [
+          85.2519218,
+          25.5673581
+        ]
+      ]
+    },
+    {
+      "id": 999871350,
+      "tags": {
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "motorroad": "no",
+        "name": "Ashok Raj Path",
+        "name:en": "Ashok Raj Path",
+        "name:etymology:wikidata": "Q8589",
+        "name:hi": "\u0905\u0936\u094b\u0915 \u0930\u093e\u091c \u092a\u0925",
+        "oneway": "yes",
+        "ref:old": "NH30",
+        "surface": "paved"
+      },
+      "coords": [
+        [
+          85.273287,
+          25.5533594
+        ],
+        [
+          85.2731822,
+          25.5531377
+        ]
+      ]
+    },
+    {
+      "id": 1213220373,
+      "tags": {
+        "bridge": "yes",
+        "highway": "primary",
+        "layer": "1",
+        "oneway": "yes"
+      },
+      "coords": [
+        [
+          85.2731179,
+          25.5531767
+        ],
+        [
+          85.2732148,
+          25.5533699
+        ]
+      ]
+    },
+    {
+      "id": 1298969093,
+      "tags": {
+        "bridge": "yes",
+        "highway": "primary",
+        "layer": "1",
+        "oneway": "yes"
+      },
+      "coords": [
+        [
+          85.2548458,
+          25.5714837
+        ],
+        [
+          85.2542699,
+          25.5713827
+        ]
+      ]
+    }
+  ],
+  "source": "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
+}

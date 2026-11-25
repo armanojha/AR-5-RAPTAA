@@ -105,7 +105,7 @@ table{{width:100%;border-collapse:collapse}} th,td{{padding:10px;border-bottom:1
 </style></head><body><main>
 <p class="badge">{html.escape(alert['severity'])} alert · {html.escape(alert.get('data_classification', 'real'))}</p>
 <h1>Segment {html.escape(alert['segment_id'])}</h1>
-<p>{html.escape(alert['recommended_action'])}</p>
+<p>{html.escape(alert['recommended_action'])} · <a href="report.pdf" style="color:#38bdf8;font-weight:700">Download PDF Report</a></p>
 <div class="notice"><strong>Responsible-use notice:</strong> This alert requests field verification. It is not an allegation or an automated enforcement decision.</div>
 {chips_section}
 <section class="card"><h2>Why it fired</h2>
@@ -136,6 +136,7 @@ def build_evidence_packages(
     segments_path: str | Path,
     output_directory: str | Path,
     scenes_path: str | Path | None = None,
+    chips_by_project: dict[str, list[Path]] | None = None,
 ) -> list[dict[str, Any]]:
     source_paths = {
         "analysis": Path(analysis_path),
@@ -180,19 +181,31 @@ def build_evidence_packages(
         alert_id = "ALT-" + hashlib.sha256(f"{segment_id}|{observed_at}|delay-risk".encode()).hexdigest()[:12].upper()
         source_scene_ids = list(features.get("optical_scene_ids", [])) + list(features.get("sar_scene_ids", []))
         matched_scenes = [scene_lookup[scene_id] for scene_id in source_scene_ids if scene_id in scene_lookup]
-        # Check for image chips in evidence repository
-        chips_source_dir = Path("data/evidence_chips/ALT-NH544G-SEG13-STALL")
-        has_chips = chips_source_dir.exists()
+        import shutil
+
         package_directory = output_root / "alerts" / alert_id
         package_directory.mkdir(parents=True, exist_ok=True)
+        seg_meta = segment_lookup.get(segment_id) or {}
+        proj_id = str((seg_meta.get("properties") or {}).get("project_id") or "")
 
-        if has_chips:
+        proj_chips = (chips_by_project or {}).get(proj_id, [])
+        chips_source_dir = Path("data/evidence_chips/ALT-NH544G-SEG13-STALL")
+        has_chips = False
+
+        if len(proj_chips) >= 3 and all(Path(p).exists() for p in proj_chips[:3]):
             pkg_chips = package_directory / "chips"
             pkg_chips.mkdir(parents=True, exist_ok=True)
-            import shutil
+            shutil.copyfile(proj_chips[0], pkg_chips / "chip_before.png")
+            shutil.copyfile(proj_chips[1], pkg_chips / "chip_during.png")
+            shutil.copyfile(proj_chips[2], pkg_chips / "chip_stalled.png")
+            has_chips = True
+        elif chips_source_dir.exists() and any("real" in str(c).lower() for c in loaded["backtest"].get("cases", [])):
+            pkg_chips = package_directory / "chips"
+            pkg_chips.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(chips_source_dir / "chip_before_baseline_20230215.png", pkg_chips / "chip_before.png")
             shutil.copyfile(chips_source_dir / "chip_during_active_20240218.png", pkg_chips / "chip_during.png")
             shutil.copyfile(chips_source_dir / "chip_alert_stalled_20240728.png", pkg_chips / "chip_stalled.png")
+            has_chips = True
 
         missing: list[str] = []
         if not matched_scenes and not has_chips:
@@ -231,6 +244,17 @@ def build_evidence_packages(
         (package_directory / "report.html").write_text(
             _report_html(alert, timelines.get(segment_id, []), has_chips=has_chips), encoding="utf-8"
         )
+        from drishti.layers.pdf_report import export_alert_pdf
+
+        chip_list: list[tuple[str, Path]] = []
+        if has_chips:
+            pkg_chips = package_directory / "chips"
+            chip_list = [
+                ("Before / Baseline", pkg_chips / "chip_before.png"),
+                ("During / Active", pkg_chips / "chip_during.png"),
+                ("Alert / Latest", pkg_chips / "chip_stalled.png"),
+            ]
+        export_alert_pdf(alert, package_directory / "report.pdf", chip_paths=chip_list)
         alerts.append(alert)
 
     index = {

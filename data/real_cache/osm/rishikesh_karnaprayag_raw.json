@@ -1,0 +1,1045 @@
+{
+  "ways": [
+    {
+      "id": 630577153,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 01 (10850 m)",
+        "note": "Rough Alignment",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.2821474,
+          30.1278256
+        ],
+        [
+          78.2833685,
+          30.1292075
+        ],
+        [
+          78.2852489,
+          30.130646
+        ],
+        [
+          78.288574,
+          30.1320633
+        ],
+        [
+          78.3386992,
+          30.1427522
+        ],
+        [
+          78.3435057,
+          30.143346
+        ],
+        [
+          78.3496855,
+          30.1426037
+        ],
+        [
+          78.37816,
+          30.1331581
+        ],
+        [
+          78.3811211,
+          30.1332323
+        ],
+        [
+          78.382945,
+          30.1338076
+        ],
+        [
+          78.3833533,
+          30.1340991
+        ],
+        [
+          78.3842969,
+          30.1347726
+        ],
+        [
+          78.3848762,
+          30.1361273
+        ],
+        [
+          78.3848011,
+          30.1380758
+        ],
+        [
+          78.3845832,
+          30.1389147
+        ]
+      ]
+    },
+    {
+      "id": 630600218,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel no 05 (9760m)",
+        "note": "Rough Alignment\nhttps://themetrorailguy.com/rishikesh-karnaprayag-rail-project-route-map-stations-tenders-updates/",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.472906,
+          30.0703397
+        ],
+        [
+          78.5729066,
+          30.1114035
+        ],
+        [
+          78.5767348,
+          30.1129752
+        ],
+        [
+          78.5852519,
+          30.1164404
+        ]
+      ]
+    },
+    {
+      "id": 630600220,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No. 11 (9000m)",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.7839085,
+          30.2229328
+        ],
+        [
+          78.7842786,
+          30.2221912
+        ],
+        [
+          78.7849063,
+          30.2217369
+        ],
+        [
+          78.7867784,
+          30.220694
+        ],
+        [
+          78.796606,
+          30.2153169
+        ],
+        [
+          78.7987517,
+          30.2147977
+        ],
+        [
+          78.8014125,
+          30.2150202
+        ],
+        [
+          78.8055324,
+          30.2161327
+        ],
+        [
+          78.8464736,
+          30.2279249
+        ],
+        [
+          78.848791,
+          30.2291115
+        ],
+        [
+          78.8619003,
+          30.2419485
+        ]
+      ]
+    },
+    {
+      "id": 825078070,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.7639957,
+          30.2288518
+        ],
+        [
+          78.7732172,
+          30.2303999
+        ],
+        [
+          78.7733188,
+          30.2304042
+        ],
+        [
+          78.7747621,
+          30.2304648
+        ],
+        [
+          78.7760067,
+          30.2302794
+        ],
+        [
+          78.7779808,
+          30.2298159
+        ],
+        [
+          78.7793863,
+          30.2293802
+        ],
+        [
+          78.780663,
+          30.2288564
+        ]
+      ]
+    },
+    {
+      "id": 825078071,
+      "tags": {
+        "bridge": "yes",
+        "construction": "rail",
+        "layer": "1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.780663,
+          30.2288564
+        ],
+        [
+          78.7809205,
+          30.2287035
+        ],
+        [
+          78.7812155,
+          30.2284347
+        ],
+        [
+          78.781929,
+          30.2277209
+        ],
+        [
+          78.7821865,
+          30.2273316
+        ],
+        [
+          78.7824416,
+          30.2268809
+        ],
+        [
+          78.7826693,
+          30.2264787
+        ],
+        [
+          78.7828731,
+          30.2259503
+        ],
+        [
+          78.7831843,
+          30.2250325
+        ]
+      ]
+    },
+    {
+      "id": 825078072,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 08 (15100m)",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.6025985,
+          30.1269653
+        ],
+        [
+          78.6085081,
+          30.1333251
+        ],
+        [
+          78.6248587,
+          30.153143
+        ],
+        [
+          78.626232,
+          30.1558148
+        ],
+        [
+          78.6291502,
+          30.1748119
+        ],
+        [
+          78.6306952,
+          30.1771863
+        ],
+        [
+          78.6341284,
+          30.1798574
+        ],
+        [
+          78.6471157,
+          30.1872941
+        ],
+        [
+          78.6591839,
+          30.1942039
+        ],
+        [
+          78.6610792,
+          30.1952891
+        ],
+        [
+          78.6807303,
+          30.208127
+        ],
+        [
+          78.6828802,
+          30.2095315
+        ],
+        [
+          78.6868284,
+          30.2132402
+        ],
+        [
+          78.6924933,
+          30.2213987
+        ],
+        [
+          78.6933731,
+          30.2288668
+        ],
+        [
+          78.6932445,
+          30.2297389
+        ]
+      ]
+    },
+    {
+      "id": 1057427440,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.7831843,
+          30.2250325
+        ],
+        [
+          78.7832808,
+          30.2246895
+        ],
+        [
+          78.7839085,
+          30.2229328
+        ]
+      ]
+    },
+    {
+      "id": 1057427448,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.6916882,
+          30.2371089
+        ],
+        [
+          78.6921286,
+          30.2387887
+        ],
+        [
+          78.6942315,
+          30.2416065
+        ],
+        [
+          78.6971497,
+          30.2435343
+        ],
+        [
+          78.6986666,
+          30.2442285
+        ],
+        [
+          78.7006259,
+          30.2447949
+        ],
+        [
+          78.7043166,
+          30.2449061
+        ],
+        [
+          78.7069773,
+          30.2446651
+        ],
+        [
+          78.710947,
+          30.2431636
+        ],
+        [
+          78.7158984,
+          30.2393819
+        ]
+      ]
+    },
+    {
+      "id": 1057427449,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.6932445,
+          30.2297389
+        ],
+        [
+          78.6924134,
+          30.233197
+        ]
+      ]
+    },
+    {
+      "id": 1057427450,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel no 05 (9760m)",
+        "note": "Rough Alignment https://themetrorailguy.com/rishikesh-karnaprayag-rail-project-route-map-stations-tenders-updates/",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.5876759,
+          30.1172941
+        ],
+        [
+          78.5976022,
+          30.1224867
+        ],
+        [
+          78.5995725,
+          30.123656
+        ],
+        [
+          78.6001988,
+          30.1242292
+        ]
+      ]
+    },
+    {
+      "id": 1057427451,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel no 05 (9760m)",
+        "note": "Rough Alignment https://themetrorailguy.com/rishikesh-karnaprayag-rail-project-route-map-stations-tenders-updates/",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.4447572,
+          30.1178519
+        ],
+        [
+          78.4526393,
+          30.0926108
+        ],
+        [
+          78.4590768,
+          30.0719909
+        ],
+        [
+          78.4611797,
+          30.0699482
+        ],
+        [
+          78.4621161,
+          30.0695163
+        ],
+        [
+          78.4631323,
+          30.0690476
+        ],
+        [
+          78.4646558,
+          30.0690384
+        ]
+      ]
+    },
+    {
+      "id": 1057427453,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.4434168,
+          30.119306
+        ],
+        [
+          78.4447572,
+          30.1178519
+        ]
+      ]
+    },
+    {
+      "id": 1057427454,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 02 (6460m),",
+        "note": "Rough Alignment",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.383342,
+          30.1479383
+        ],
+        [
+          78.38552,
+          30.1531429
+        ],
+        [
+          78.3873868,
+          30.1552024
+        ],
+        [
+          78.3894467,
+          30.1570207
+        ],
+        [
+          78.3919787,
+          30.1579669
+        ],
+        [
+          78.3943391,
+          30.1582452
+        ],
+        [
+          78.3967423,
+          30.1580968
+        ],
+        [
+          78.3992958,
+          30.1572062
+        ],
+        [
+          78.4011411,
+          30.1558332
+        ],
+        [
+          78.4305184,
+          30.1262783
+        ]
+      ]
+    },
+    {
+      "id": 1057427455,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.3845832,
+          30.1389147
+        ],
+        [
+          78.3836424,
+          30.1422232
+        ],
+        [
+          78.3828807,
+          30.1445612
+        ],
+        [
+          78.3828646,
+          30.1449092
+        ],
+        [
+          78.3828485,
+          30.1458833
+        ]
+      ]
+    },
+    {
+      "id": 1057428446,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.2798817,
+          30.1211468
+        ],
+        [
+          78.2798448,
+          30.121353
+        ],
+        [
+          78.279817,
+          30.1215602
+        ],
+        [
+          78.2797984,
+          30.1217683
+        ],
+        [
+          78.279789,
+          30.1219768
+        ],
+        [
+          78.2797889,
+          30.1221854
+        ],
+        [
+          78.279798,
+          30.1223939
+        ],
+        [
+          78.2798182,
+          30.1226184
+        ],
+        [
+          78.2798491,
+          30.1228421
+        ],
+        [
+          78.2798907,
+          30.1230644
+        ],
+        [
+          78.2799429,
+          30.123285
+        ],
+        [
+          78.2800056,
+          30.1235036
+        ],
+        [
+          78.2801229,
+          30.1238591
+        ],
+        [
+          78.2802491,
+          30.1242124
+        ],
+        [
+          78.280384,
+          30.1245632
+        ],
+        [
+          78.2805277,
+          30.1249114
+        ],
+        [
+          78.28068,
+          30.1252568
+        ],
+        [
+          78.280841,
+          30.1255993
+        ],
+        [
+          78.2810104,
+          30.1259388
+        ],
+        [
+          78.2811809,
+          30.1262615
+        ],
+        [
+          78.2813591,
+          30.1265811
+        ],
+        [
+          78.281545,
+          30.1268975
+        ],
+        [
+          78.2817384,
+          30.1272104
+        ],
+        [
+          78.2819392,
+          30.1275198
+        ],
+        [
+          78.2821474,
+          30.1278256
+        ]
+      ]
+    },
+    {
+      "id": 1078882595,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel no 05 (9760m)",
+        "note": "Rough Alignment https://themetrorailguy.com/rishikesh-karnaprayag-rail-project-route-map-stations-tenders-updates/",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.5852519,
+          30.1164404
+        ],
+        [
+          78.585966,
+          30.1166919
+        ]
+      ]
+    },
+    {
+      "id": 1078882597,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 08 (15100m)",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.6014109,
+          30.125549
+        ],
+        [
+          78.6025985,
+          30.1269653
+        ]
+      ]
+    },
+    {
+      "id": 1078882598,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.6001988,
+          30.1242292
+        ],
+        [
+          78.6014109,
+          30.125549
+        ]
+      ]
+    },
+    {
+      "id": 1078882605,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.7158984,
+          30.2393819
+        ],
+        [
+          78.7178564,
+          30.2378155
+        ],
+        [
+          78.7190366,
+          30.236972
+        ],
+        [
+          78.7202275,
+          30.2362397
+        ],
+        [
+          78.7232637,
+          30.2347288
+        ]
+      ]
+    },
+    {
+      "id": 1078882606,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.7232637,
+          30.2347288
+        ],
+        [
+          78.7256562,
+          30.2339316
+        ],
+        [
+          78.7411354,
+          30.2317708
+        ],
+        [
+          78.7537027,
+          30.2300165
+        ],
+        [
+          78.7617802,
+          30.2288889
+        ],
+        [
+          78.7628531,
+          30.2288333
+        ],
+        [
+          78.7639957,
+          30.2288518
+        ]
+      ]
+    },
+    {
+      "id": 1078888227,
+      "tags": {
+        "construction": "rail",
+        "layer": "-1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 02 (6460m),",
+        "note": "Rough Alignment",
+        "railway": "construction",
+        "tunnel": "yes"
+      },
+      "coords": [
+        [
+          78.4355808,
+          30.1220088
+        ],
+        [
+          78.4434168,
+          30.119306
+        ]
+      ]
+    },
+    {
+      "id": 1078888228,
+      "tags": {
+        "bridge": "yes",
+        "construction": "rail",
+        "layer": "1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 02 (6460m),",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.4307152,
+          30.1260803
+        ],
+        [
+          78.4315386,
+          30.1253449
+        ]
+      ]
+    },
+    {
+      "id": 1078888229,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 02 (6460m),",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.4315386,
+          30.1253449
+        ],
+        [
+          78.4332418,
+          30.1238044
+        ],
+        [
+          78.4349799,
+          30.1224867
+        ],
+        [
+          78.4355808,
+          30.1220088
+        ]
+      ]
+    },
+    {
+      "id": 1173613423,
+      "tags": {
+        "bridge": "yes",
+        "construction": "rail",
+        "layer": "1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.3828485,
+          30.1458833
+        ],
+        [
+          78.3831275,
+          30.147108
+        ]
+      ]
+    },
+    {
+      "id": 1173613424,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.3831275,
+          30.147108
+        ],
+        [
+          78.383342,
+          30.1479383
+        ]
+      ]
+    },
+    {
+      "id": 1218770556,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.6918638,
+          30.235548
+        ],
+        [
+          78.6916512,
+          30.2365502
+        ],
+        [
+          78.6916566,
+          30.2368329
+        ],
+        [
+          78.6916882,
+          30.2371089
+        ]
+      ]
+    },
+    {
+      "id": 1218770557,
+      "tags": {
+        "bridge": "yes",
+        "construction": "rail",
+        "layer": "1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.6924134,
+          30.233197
+        ],
+        [
+          78.6918638,
+          30.235548
+        ]
+      ]
+    },
+    {
+      "id": 1445982490,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel No 02 (6460m),",
+        "note": "Rough Alignment",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.4305184,
+          30.1262783
+        ],
+        [
+          78.4307152,
+          30.1260803
+        ]
+      ]
+    },
+    {
+      "id": 1445982491,
+      "tags": {
+        "construction": "rail",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel no 05 (9760m)",
+        "note": "Rough Alignment https://themetrorailguy.com/rishikesh-karnaprayag-rail-project-route-map-stations-tenders-updates/",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.5873932,
+          30.1171945
+        ],
+        [
+          78.5876759,
+          30.1172941
+        ]
+      ]
+    },
+    {
+      "id": 1445982492,
+      "tags": {
+        "bridge": "yes",
+        "construction": "rail",
+        "layer": "1",
+        "name": "Rishikesh-Devprayag-Karnaprayag New Line, Tunnel no 05 (9760m)",
+        "note": "Rough Alignment https://themetrorailguy.com/rishikesh-karnaprayag-rail-project-route-map-stations-tenders-updates/",
+        "railway": "construction"
+      },
+      "coords": [
+        [
+          78.585966,
+          30.1166919
+        ],
+        [
+          78.5873932,
+          30.1171945
+        ]
+      ]
+    }
+  ],
+  "source": "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
+}
