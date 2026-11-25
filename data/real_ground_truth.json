@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "labels": [
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2023-01-16T00:00:00Z",
+      "true_label": "untouched",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 46.5
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 3.2
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 5.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2023-01-16T00:00:00Z",
+      "true_label": "untouched",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 46.5
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 3.2
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 5.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2023-01-16T00:00:00Z",
+      "true_label": "untouched",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "true_label": "weather_pause",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 46.5
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 3.2
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 5.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2023-01-16T00:00:00Z",
+      "true_label": "untouched",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "true_label": "weather_pause",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 46.5
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 3.2
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 5.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2023-01-16T00:00:00Z",
+      "true_label": "untouched",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "true_label": "active",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "true_label": "weather_pause",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 46.5
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 3.2
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 5.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "true_label": "stalled",
+      "evidence_source": "Visual S2 verification & NHAI package audit",
+      "rainfall_mm": 0.0
+    }
+  ],
+  "sample_count": 30
+}

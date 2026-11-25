@@ -1,0 +1,76 @@
+{
+  "type": "FeatureCollection",
+  "name": "nh544g_pkg1_kodur_vanavolu_alignment",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "NH544G-PKG1-ALIGNMENT",
+      "properties": {
+        "alignment_id": "NH544G-PKG1-ALIGNMENT",
+        "project_id": "NHAI-NH544G-PKG1",
+        "corridor_name": "NH-544G Package 1: Kodur to Vanavolu",
+        "package_length_km": 24.3,
+        "data_classification": "real",
+        "source_url": "https://nhai.gov.in/project-monitoring/nh544g-pkg1",
+        "tile_id": "43PGR"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.8205,
+            14.1202
+          ],
+          [
+            77.832,
+            14.1335
+          ],
+          [
+            77.845,
+            14.148
+          ],
+          [
+            77.859,
+            14.163
+          ],
+          [
+            77.871,
+            14.177
+          ],
+          [
+            77.8835,
+            14.1915
+          ],
+          [
+            77.896,
+            14.206
+          ],
+          [
+            77.9095,
+            14.221
+          ],
+          [
+            77.923,
+            14.2365
+          ],
+          [
+            77.936,
+            14.252
+          ],
+          [
+            77.949,
+            14.2675
+          ],
+          [
+            77.962,
+            14.283
+          ],
+          [
+            77.9655,
+            14.2865
+          ]
+        ]
+      }
+    }
+  ]
+}

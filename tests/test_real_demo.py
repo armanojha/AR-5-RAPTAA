@@ -1,0 +1,29 @@
+from __future__ import annotations
+
+import tempfile
+import unittest
+from pathlib import Path
+
+from drishti.layers.calibration import run_weight_sensitivity_analysis
+from drishti.layers.evaluation import evaluate_stall_performance
+from drishti.layers.track_c import detect_track_c_events
+from drishti.real_case import build_real_corridor_demonstration
+
+
+class RealDemoTests(unittest.TestCase):
+    def test_full_real_pipeline(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            out_root = Path(tmpdir)
+            result = build_real_corridor_demonstration(out_root)
+            self.assertEqual(result["status"], "success")
+            self.assertEqual(result["segments"], 25)
+            self.assertGreater(result["alerts_count"], 0)
+            self.assertEqual(result["track_c_count"], 2)
+            self.assertEqual(result["lead_time_days"], 145)
+            self.assertEqual(result["precision"], 1.0)
+            self.assertEqual(result["recall"], 1.0)
+            self.assertTrue(Path(result["dashboard_path"]).exists())
+
+
+if __name__ == "__main__":
+    unittest.main()

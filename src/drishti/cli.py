@@ -128,11 +128,28 @@ def _parser() -> argparse.ArgumentParser:
     dashboard_build.add_argument("--analysis", required=True, type=Path)
     dashboard_build.add_argument("--backtest", required=True, type=Path)
     dashboard_build.add_argument("--output-dir", required=True, type=Path)
+
+    real_demo = commands.add_parser("real-demo", help="End-to-end real demonstration pipeline")
+    real_demo_commands = real_demo.add_subparsers(dest="real_demo_command", required=True)
+    real_demo_build = real_demo_commands.add_parser("build", help="Build the full real-corridor case study")
+    real_demo_build.add_argument("--output-dir", default=Path("output/real_case"), type=Path)
+
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
+    if args.command == "real-demo":
+        from drishti.real_case import build_real_corridor_demonstration
+        try:
+            build_real_corridor_demonstration(args.output_dir)
+            return 0
+        except Exception as exc:
+            print(f"real demonstration build failed: {exc}")
+            import traceback
+            traceback.print_exc()
+            return 1
+
     if args.command == "alerts":
         if args.alert_command == "serve":
             serve_alert_api(args.evidence_dir, host=args.host, port=args.port)

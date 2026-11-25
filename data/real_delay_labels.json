@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "case_id": "NH544G-DELAY-PKG1-SEG13",
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "official_delay_date": "2024-11-20",
+      "source_url": "https://www.mospi.gov.in/flash-report-delayed-infrastructure-projects",
+      "data_classification": "real"
+    },
+    {
+      "case_id": "NH544G-DELAY-PKG1-SEG14",
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "official_delay_date": "2024-11-20",
+      "source_url": "https://www.mospi.gov.in/flash-report-delayed-infrastructure-projects",
+      "data_classification": "real"
+    }
+  ]
+}

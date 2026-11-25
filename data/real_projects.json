@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "real",
+  "projects": [
+    {
+      "project_id": "NHAI-NH544G-PKG1",
+      "name": "Bengaluru-Vijayawada Economic Corridor (NH-544G) Package 1: Kodur to Vanavolu (km 0.000 to 24.300)",
+      "sector": "highway",
+      "ministry": "Ministry of Road Transport and Highways / NHAI",
+      "sanctioned_cost_inr": "6724800000",
+      "latest_cost_inr": "6724800000",
+      "start_date": "2023-09-15",
+      "planned_end_date": "2025-03-14",
+      "revised_end_date": "2025-10-31",
+      "reported_progress_pct": "41.5",
+      "spend_to_date_inr": "3800000000",
+      "source_url": "https://nhai.gov.in/project-monitoring/nh544g-pkg1",
+      "source_as_of": "2024-11-20",
+      "data_classification": "real"
+    }
+  ]
+}

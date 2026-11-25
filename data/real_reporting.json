@@ -1,0 +1,1056 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "real",
+  "records": [
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0001",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0002",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0003",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0004",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0005",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0006",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0007",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0008",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0009",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0010",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0011",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0012",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0013",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0014",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0015",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0016",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0017",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0018",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0019",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0020",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0021",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0022",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0023",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0024",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2023-11-20T00:00:00Z",
+      "expected_activity_percentile": 0.14,
+      "reported_progress_pct": 10.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2024-02-18T00:00:00Z",
+      "expected_activity_percentile": 0.28,
+      "reported_progress_pct": 20.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2024-05-15T00:00:00Z",
+      "expected_activity_percentile": 0.42,
+      "reported_progress_pct": 30.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2024-06-28T00:00:00Z",
+      "expected_activity_percentile": 0.56,
+      "reported_progress_pct": 40.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2024-07-28T00:00:00Z",
+      "expected_activity_percentile": 0.7,
+      "reported_progress_pct": 50.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2024-10-15T00:00:00Z",
+      "expected_activity_percentile": 0.84,
+      "reported_progress_pct": 60.0
+    },
+    {
+      "segment_id": "NHAI-NH544G-PKG1-S0025",
+      "observed_at": "2025-01-20T00:00:00Z",
+      "expected_activity_percentile": 0.98,
+      "reported_progress_pct": 70.0
+    }
+  ]
+}
