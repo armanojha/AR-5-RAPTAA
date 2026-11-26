@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import io
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 from drishti.layers.calibration import run_weight_sensitivity_analysis
@@ -14,7 +16,8 @@ class RealDemoTests(unittest.TestCase):
     def test_full_real_pipeline(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             out_root = Path(tmpdir)
-            result = build_real_corridor_demonstration(out_root)
+            with redirect_stdout(io.StringIO()):
+                result = build_real_corridor_demonstration(out_root, export_frontend=False)
             self.assertEqual(result["status"], "success")
             self.assertEqual(result["corridors"], 3)
             self.assertGreaterEqual(result["segments"], 10)

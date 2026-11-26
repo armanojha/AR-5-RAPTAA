@@ -318,6 +318,11 @@ def export_frontend_bundle(
         "chips_by_project": chips_by_project,
         "audit_files": audit_files,
         "layer12_roi": {
+            "is_illustrative": True,
+            "assumption_note": (
+                "Illustrative national portfolio scenario based on static inputs; "
+                "revalidate against the current official portfolio before using it in a decision."
+            ),
             "addressable_projects": 1862,
             "capex_lakh_cr": 38.11,
             "cost_overrun_lakh_cr": 5.79,

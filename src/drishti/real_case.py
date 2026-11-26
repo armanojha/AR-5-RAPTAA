@@ -56,7 +56,11 @@ def _slice_corridor_window_segments(
     return kept or segments[:6]
 
 
-def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
+def build_real_corridor_demonstration(
+    output_dir: str | Path,
+    *,
+    export_frontend: bool = True,
+) -> dict[str, Any]:
     """
     Execute the end-to-end 3-corridor real-data demonstration using cached real Sentinel-1/2,
     Landsat, ESA WorldCover, Copernicus DEM, OpenStreetMap alignments, and NASA POWER rainfall.
@@ -74,7 +78,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     data_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. Layer 1: Project Registry (3 real corridors + 2 clearly-labelled synthetic portfolio placeholders)
-    print("→ Layer 1: Validating 3-corridor MoSPI/NHAI/RVNL/BSRDC project registry...")
+    print("[1] Validating 3-corridor MoSPI/NHAI/RVNL/BSRDC project registry...")
     csv_rows: list[dict[str, str]] = []
     portfolio_meta: list[dict[str, Any]] = []
     for pid, cdata in ingested.items():
@@ -168,7 +172,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     registry.to_json(data_dir / "projects.json")
 
     # 2. Layer 2: Authoritative OSM Alignment & 1 km Segmentation across all 3 corridors
-    print("→ Layer 2: Segmenting 3 real OpenStreetMap alignments (with tunnel observability check)...")
+    print("[2] Segmenting 3 real OpenStreetMap alignments (with tunnel observability check)...")
     all_segment_features: list[dict[str, Any]] = []
     segments_by_project: dict[str, list[CorridorSegment]] = {}
     stac_features: list[dict[str, Any]] = []
@@ -294,7 +298,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     )
 
     # 3. Layer 3 & 4: SceneCatalog + Quality Policy Evaluation
-    print("→ Layer 3 & 4: Running SceneCatalog coverage & quality gate (SCL + cloud + RTC)...")
+    print("[3-4] Running SceneCatalog coverage & quality gate (SCL + cloud + RTC)...")
     stac_file = data_dir / "stac_items.json"
     stac_file.write_text(json.dumps({"type": "FeatureCollection", "features": stac_features}, indent=2), encoding="utf-8")
     catalog = SceneCatalog.from_stac_file(stac_file).attach_segment_coverage(seg_file)
@@ -304,7 +308,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     evaluate_manifest(scenes_file, quality_file, max_cloud_pct=45.0, min_valid_pixel_fraction=0.50)
 
     # 4. Layer 5: Extract Real Segment-Level Features directly from cached GeoTIFF windows
-    print("→ Layer 5: Reading real GeoTIFF segment windows & computing per-segment baselines...")
+    print("[5] Reading real GeoTIFF segment windows & computing per-segment baselines...")
     observations: list[dict[str, Any]] = []
     reporting_records: list[dict[str, Any]] = []
     ground_truth_labels: list[dict[str, Any]] = []
@@ -488,12 +492,12 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     build_feature_manifest(obs_file, feat_file)
 
     # 5. Layer 6: Satellite Activity Index
-    print("→ Layer 6: Scoring Satellite Activity Index (SAI) across all 3 corridors...")
+    print("[6] Scoring Satellite Activity Index (SAI) across all 3 corridors...")
     act_file = out_root / "activity.json"
     score_feature_manifest(feat_file, seg_file, act_file)
 
     # 6. Layer 7: Stall, Divergence & Spend-vs-Activity Ratio
-    print("→ Layer 7: Running stall detector, spend-vs-activity ratio, & tunnel not_assessable gating...")
+    print("[7] Running stall detector, spend-vs-activity ratio, & tunnel not_assessable gating...")
     detector = StallDivergenceDetector(
         low_activity_threshold=35.0,
         consecutive_observations=2,
@@ -535,7 +539,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     gt_file.write_text(json.dumps({"schema_version": "1.0", "labels": ground_truth_labels, "sample_count": len(ground_truth_labels)}, indent=2), encoding="utf-8")
 
     # 7. Layer 8: Monotonic Calibrated HistGradientBoosting + CUSUM + Chronological 3-Corridor Back-Test
-    print("→ Layer 8: Training monotonic calibrated HistGradientBoosting & running 3-corridor backtest...")
+    print("[8] Training monotonic calibrated HistGradientBoosting & running 3-corridor backtest...")
     nh_segs = segments_by_project["NHAI-NH544G-PKG1"]
     nh_primary_id = nh_segs[len(nh_segs) // 2].segment_id
     nh_bsi_series = [float(r["bsi_mean"]) for r in feat_payload["records"] if r["segment_id"] == nh_primary_id and r.get("bsi_mean") is not None]
@@ -572,7 +576,7 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
         pm["risk_score"] = round(max((float(r["risk_score"]) for r in pid_risk), default=0.0), 3)
 
     # 8. Layer 9: Evidence Packages (HTML + ReportLab PDF + SHA-256 + Real Chips)
-    print("→ Layer 9: Generating HTML + ReportLab PDF evidence packages with real Sentinel-2 chips...")
+    print("[9] Generating HTML + ReportLab PDF evidence packages with real Sentinel-2 chips...")
     ev_dir = out_root / "evidence"
     alerts = build_evidence_packages(
         analysis_path=an_file,
@@ -586,17 +590,17 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     )
 
     # 9. Layer 11: Pixel-Level Track C Detection on Real Cached GeoTIFFs
-    print("→ Layer 11: Running pixel-level Track C (WorldCover-masked RoW & Ganga sand mining)...")
+    print("[11] Running pixel-level Track C (WorldCover-masked RoW & Ganga sand mining)...")
     trkc_dir = out_root / "track_c"
     trkc_events = detect_track_c_events(seg_file, trkc_dir, real_cache_dir=CACHE_DIR)
 
     # 10. Validation & Weight Sensitivity Calibration
-    print("→ Validation: Computing evaluation metrics & SAI weight sensitivity...")
+    print("[validation] Computing evaluation metrics & SAI weight sensitivity...")
     eval_metrics = evaluate_stall_performance(an_file, gt_file, out_root / "evaluation_metrics.json")
     run_weight_sensitivity_analysis(feat_file, out_root / "weight_sensitivity.json")
 
     # 11. Layer 10: Interactive Offline Judge Dashboard
-    print("→ Layer 10: Building interactive offline dashboard (time slider, swipe, portfolio, S-curve)...")
+    print("[10] Building interactive offline dashboard (time slider, swipe, portfolio, S-curve)...")
     dash_dir = out_root / "dashboard"
     nh_chips = chips_by_project.get("NHAI-NH544G-PKG1", [])
     before_rel = (
@@ -621,8 +625,8 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     )
 
     frontend_public = BASE_DIR / "frontend" / "public"
-    if (BASE_DIR / "frontend").is_dir():
-        print("→ Exporting consolidated real-case bundle & local assets to frontend/public/...")
+    if export_frontend and (BASE_DIR / "frontend").is_dir():
+        print("[export] Writing consolidated real-case bundle & local assets to frontend/public/...")
         export_frontend_bundle(
             output_dir=out_root,
             frontend_public_dir=frontend_public,
@@ -634,12 +638,12 @@ def build_real_corridor_demonstration(output_dir: str | Path) -> dict[str, Any]:
     lead_times = [c.lead_time_days for c in bt_cases if c.lead_time_days is not None]
     med_lead = int(sorted(lead_times)[len(lead_times) // 2]) if lead_times else 0
 
-    print("\n✅ 3-CORRIDOR REAL SATELLITE BUILD COMPLETE!")
-    print(f"• Corridors: 3 Real (NH-544G Highway, Rishikesh-Karnaprayag Rail, Kacchi Dargah-Bidupur Bridge) | Segments: {len(all_segment_features)}")
-    print(f"• Back-test: {detected_cases}/{len(bt_cases)} delayed corridors flagged early | Median Lead: {med_lead} days")
-    print(f"• Alerts: {len(alerts)} (HTML + ReportLab PDF + SHA-256) | Track C Events: {len(trkc_events)}")
-    print(f"• Evaluation: Precision {eval_metrics['precision']*100:.1f}%, Recall {eval_metrics['recall']*100:.1f}%, Not Assessable {eval_metrics['not_assessable_percentage']:.1f}%")
-    print(f"• Dashboard: {dash_dir / 'index.html'}")
+    print("\n3-CORRIDOR REAL SATELLITE BUILD COMPLETE")
+    print(f"- Corridors: 3 Real (NH-544G Highway, Rishikesh-Karnaprayag Rail, Kacchi Dargah-Bidupur Bridge) | Segments: {len(all_segment_features)}")
+    print(f"- Back-test: {detected_cases}/{len(bt_cases)} delayed corridors flagged early | Median Lead: {med_lead} days")
+    print(f"- Alerts: {len(alerts)} (HTML + ReportLab PDF + SHA-256) | Track C Events: {len(trkc_events)}")
+    print(f"- Evaluation: Precision {eval_metrics['precision']*100:.1f}%, Recall {eval_metrics['recall']*100:.1f}%, Not Assessable {eval_metrics['not_assessable_percentage']:.1f}%")
+    print(f"- Dashboard: {dash_dir / 'index.html'}")
 
     return {
         "status": "success",

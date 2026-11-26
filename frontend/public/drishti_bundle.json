@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-25T23:12:40.635083+00:00",
+  "generated_at": "2026-11-26T00:06:32.536716+00:00",
   "data_classification": "real_plus_labelled_synthetic_portfolio",
   "latest_observed_at": "2025-03-31T00:00:00+00:00",
   "timeline_dates": [
@@ -31008,6 +31008,8 @@
     "track_c_events.json": "/drishti_assets/audit/track_c_events.json"
   },
   "layer12_roi": {
+    "is_illustrative": true,
+    "assumption_note": "Illustrative national portfolio scenario based on static inputs; revalidate against the current official portfolio before using it in a decision.",
     "addressable_projects": 1862,
     "capex_lakh_cr": 38.11,
     "cost_overrun_lakh_cr": 5.79,

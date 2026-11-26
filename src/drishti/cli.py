@@ -116,6 +116,11 @@ def _parser() -> argparse.ArgumentParser:
     alert_verify.add_argument("--manifest", required=True, type=Path)
     alert_serve = alert_commands.add_parser("serve", help="Serve the local alert JSON API")
     alert_serve.add_argument("--evidence-dir", required=True, type=Path)
+    alert_serve.add_argument(
+        "--bundle",
+        type=Path,
+        help="Optional generated frontend bundle. Exposes the same source-of-truth at /bundle.",
+    )
     alert_serve.add_argument("--host", default="127.0.0.1")
     alert_serve.add_argument("--port", type=int, default=8765)
 
@@ -152,7 +157,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "alerts":
         if args.alert_command == "serve":
-            serve_alert_api(args.evidence_dir, host=args.host, port=args.port)
+            serve_alert_api(args.evidence_dir, bundle_path=args.bundle, host=args.host, port=args.port)
             return 0
         if args.alert_command == "verify":
             valid = verify_evidence_manifest(args.manifest)

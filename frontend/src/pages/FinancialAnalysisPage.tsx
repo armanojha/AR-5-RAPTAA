@@ -56,7 +56,7 @@ export const FinancialAnalysisPage: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
         <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-space-lg shadow-sm">
           <span className="text-[11px] font-label-sm uppercase text-on-surface-variant">
-            NATIONAL ADDRESSABLE CAPEX
+            ILLUSTRATIVE NATIONAL CAPEX
           </span>
           <div className="mt-1 text-2xl font-bold text-on-surface">
             ₹{data.layer12_roi.capex_lakh_cr}L Cr
@@ -75,7 +75,7 @@ export const FinancialAnalysisPage: React.FC = () => {
             ₹{data.layer12_roi.cost_overrun_lakh_cr}L Cr
           </div>
           <div className="text-xs text-on-surface-variant">
-            Platform ROI: {data.layer12_roi.roi_multiple} at ₹{data.layer12_roi.annual_platform_cost_cr} Cr/yr
+            Illustrative platform ROI: {data.layer12_roi.roi_multiple} at ₹{data.layer12_roi.annual_platform_cost_cr} Cr/yr
           </div>
         </div>
 

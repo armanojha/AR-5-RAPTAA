@@ -2,12 +2,19 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export interface ProjectRecord {
   project_id: string;
-  project_name: string;
+  project_name?: string;
+  name?: string;
+  sector?: string;
+  ministry?: string;
   corridor_type?: string;
   agency?: string;
   state?: string;
   total_length_km?: number;
   budget_cr?: number;
+  sanctioned_cost_inr?: number;
+  latest_cost_inr?: number;
+  spend_to_date_inr?: number;
+  reported_progress_pct?: number;
   data_classification: 'real' | 'synthetic' | string;
   is_synthetic: boolean;
   segment_count?: number;
@@ -76,27 +83,49 @@ export interface AlertRecord {
   recommended_action: string;
   responsible_use: string;
   risk: {
-    delay_risk_score: number;
+    delay_risk_score?: number;
+    risk_score?: number;
     ml_delay_probability?: number;
     score_components?: Record<string, number>;
+    confidence?: number;
+    state?: string;
   };
   analysis: {
-    status: string;
+    status?: string;
+    state?: string;
     spend_to_date_pct: number;
     reported_progress_pct: number;
     spend_vs_activity_ratio?: number;
     activity_reporting_divergence: number;
     stall_duration_days?: number;
+    observability?: string;
+    rainfall_mm?: number;
+    rainfall_confounded?: boolean;
+    reasons?: string[];
   };
   activity: {
     activity_index: number | null;
     confidence: number | null;
+    model_version?: string;
+    components?: Array<{
+      name: string;
+      raw_value: number;
+      normalized_value: number;
+      configured_weight: number;
+      contribution: number;
+    }>;
   };
   segment: {
     project_id?: string;
     corridor_name?: string;
     km_start?: number;
     km_end?: number;
+    properties?: {
+      project_id?: string;
+      start_m?: number;
+      end_m?: number;
+      observability?: string;
+    };
   };
   data_classification: string;
   evidence_sha256: string;
@@ -105,6 +134,9 @@ export interface AlertRecord {
   manifest_url?: string;
   chip_urls?: string[];
 }
+
+export const alertProjectId = (alert: AlertRecord) =>
+  alert.segment?.project_id ?? alert.segment?.properties?.project_id;
 
 export interface TrackCEvent {
   event_id: string;
@@ -138,13 +170,14 @@ export interface MLSummary {
   brier_score: number;
   monotonic_constraints: Record<string, number>;
   feature_importances: Record<string, number>;
-  cusum_nh544g_bsi_breaks: Array<{
-    observed_at: string;
-    value: number;
-    cusum_pos?: number;
-    cusum_neg?: number;
-    direction?: string;
-  }>;
+  cusum_nh544g_bsi_breaks: {
+    baseline_mean: number;
+    baseline_std: number;
+    upward_break_index: number | null;
+    downward_break_index: number | null;
+    cusum_pos: number[];
+    cusum_neg: number[];
+  };
   predictions: Array<{
     segment_id: string;
     project_id: string;
@@ -216,6 +249,8 @@ export interface DrishtiBundle {
   chips_by_project: Record<string, ChipEpoch[]>;
   audit_files: Record<string, string>;
   layer12_roi: {
+    is_illustrative?: boolean;
+    assumption_note?: string;
     addressable_projects: number;
     capex_lakh_cr: number;
     cost_overrun_lakh_cr: number;
@@ -249,6 +284,8 @@ interface DrishtiContextValue {
 
 const DrishtiContext = createContext<DrishtiContextValue | undefined>(undefined);
 const DISPATCH_STORAGE_KEY = 'drishti_dispatched_segments_v1';
+const API_BASE_URL = String(import.meta.env.VITE_DRISHTI_API_BASE ?? '').replace(/\/$/, '');
+const DATA_SOURCE_URL = API_BASE_URL ? `${API_BASE_URL}/bundle` : '/drishti_bundle.json';
 
 export const DrishtiDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [data, setData] = useState<DrishtiBundle | null>(null);
@@ -267,9 +304,9 @@ export const DrishtiDataProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/drishti_bundle.json')
+    fetch(DATA_SOURCE_URL)
       .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status} loading drishti_bundle.json`);
+        if (!res.ok) throw new Error(`HTTP ${res.status} loading Drishti data from ${DATA_SOURCE_URL}`);
         return res.json();
       })
       .then((bundle: DrishtiBundle) => {

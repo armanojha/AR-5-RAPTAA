@@ -13,7 +13,7 @@ export const MilestoneVerificationPage: React.FC = () => {
       const assessable = segs.filter((s) => s.is_assessable && s.activity_index !== null);
       const avgSaiPct =
         assessable.length > 0
-          ? (assessable.reduce((acc, s) => acc + (s.activity_index ?? 0), 0) / assessable.length) * 100
+          ? assessable.reduce((acc, s) => acc + (s.activity_index ?? 0), 0) / assessable.length
           : 0;
       const avgSpend =
         segs.length > 0
@@ -49,7 +49,25 @@ export const MilestoneVerificationPage: React.FC = () => {
       .join(' ');
   };
 
-  const cusumBreaks = data.ml_summary.cusum_nh544g_bsi_breaks ?? [];
+  const cusum = data.ml_summary.cusum_nh544g_bsi_breaks;
+  const cusumBreaks = [
+    cusum?.downward_break_index !== null && cusum?.downward_break_index !== undefined
+      ? {
+          index: cusum.downward_break_index,
+          direction: 'downward',
+          value: cusum.cusum_neg[cusum.downward_break_index] ?? 0,
+        }
+      : null,
+    cusum?.upward_break_index !== null && cusum?.upward_break_index !== undefined
+      ? {
+          index: cusum.upward_break_index,
+          direction: 'upward',
+          value: cusum.cusum_pos[cusum.upward_break_index] ?? 0,
+        }
+      : null,
+  ]
+    .filter((item): item is { index: number; direction: string; value: number } => item !== null)
+    .sort((a, b) => a.index - b.index);
 
   return (
     <div className="space-y-space-lg">
@@ -181,19 +199,20 @@ export const MilestoneVerificationPage: React.FC = () => {
         </h2>
         <p className="text-xs text-on-surface-variant">
           Non-parametric change-point breaks detected in Sentinel-2 BSI series ({cusumBreaks.length} break points)
+          {cusum ? ` · baseline ${cusum.baseline_mean.toFixed(3)} ± ${cusum.baseline_std.toFixed(3)}` : ''}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
           {cusumBreaks.length === 0 ? (
             <span className="text-xs text-outline">No structural break points above threshold.</span>
           ) : (
-            cusumBreaks.map((b, i) => (
+            cusumBreaks.map((b) => (
               <div
-                key={`${b.observed_at}-${i}`}
+                key={`${b.direction}-${b.index}`}
                 className="px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant/30 text-xs"
               >
-                <div className="font-mono font-semibold text-primary">{b.observed_at.slice(0, 10)}</div>
+                <div className="font-mono font-semibold text-primary">Observation {b.index + 1}</div>
                 <div className="text-on-surface-variant">
-                  BSI {b.value?.toFixed(3)} · {b.direction ?? 'shift'}
+                  CUSUM {b.value.toFixed(3)} · {b.direction} shift
                 </div>
               </div>
             ))

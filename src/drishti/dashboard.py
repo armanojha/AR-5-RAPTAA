@@ -235,15 +235,16 @@ def build_dashboard(
     median_lead = backtest.get("summary", {}).get("median_lead_time_days")
     if median_lead is None:
         lead_times = [case["lead_time_days"] for case in backtest.get("cases", []) if case.get("lead_time_days") is not None]
-        median_lead = int(sorted(lead_times)[len(lead_times) // 2]) if lead_times else 145
+        median_lead = int(sorted(lead_times)[len(lead_times) // 2]) if lead_times else None
+    lead_markup = f"{html.escape(str(median_lead))}<small> days</small>" if median_lead is not None else "—"
 
     assessable = sum(state != "not_assessable" for state in latest_states.values())
     not_assessable_count = sum(state == "not_assessable" for state in latest_states.values())
     segment_count = len(segments.get("features", []))
     coverage = (assessable / len(latest_states) * 100) if latest_states else 100.0
 
-    precision_txt = f"{float(eval_metrics['precision']) * 100:.0f}" if eval_metrics else "100"
-    false_ctrl_txt = str(eval_metrics.get("false_alerts_on_negative_controls", 0)) if eval_metrics else "0"
+    precision_txt = f"{float(eval_metrics['precision']) * 100:.0f}" if eval_metrics else "—"
+    false_ctrl_txt = str(eval_metrics.get("false_alerts_on_negative_controls", "—")) if eval_metrics else "—"
 
     alert_cards: list[str] = []
     for alert in alerts[:15]:
@@ -380,9 +381,9 @@ button.active{{background:var(--accent);color:#032033}}
 <section class="metrics">
   <div class="metric"><span>Monitored segments</span><strong>{segment_count}</strong><span class="muted">{not_assessable_count} not assessable (tunnels)</span></div>
   <div class="metric"><span>Active alerts</span><strong style="color:var(--orange)">{len(alerts)}</strong><span class="muted">Verification queue</span></div>
-  <div class="metric"><span>Median lead time</span><strong style="color:var(--accent)">{html.escape(str(median_lead or '—'))}<small> days</small></strong><span class="muted">Before official notice</span></div>
-  <div class="metric"><span>Assessable coverage</span><strong>{coverage:.0f}<small>%</small></strong><span class="muted">Precision {precision_txt}% · Ctrl FP {false_ctrl_txt}</span></div>
-  <div class="metric"><span>Portfolio Value</span><strong style="color:var(--green)">₹38.11<small>L Cr</small></strong><span class="muted">1,862 MoSPI projects</span></div>
+  <div class="metric"><span>Median lead time</span><strong style="color:var(--accent)">{lead_markup}</strong><span class="muted">Before official notice</span></div>
+  <div class="metric"><span>Assessable coverage</span><strong>{coverage:.0f}<small>%</small></strong><span class="muted">Precision {precision_txt}{'%' if eval_metrics else ''} · Ctrl FP {false_ctrl_txt}</span></div>
+  <div class="metric"><span>Illustrative portfolio scenario</span><strong style="color:var(--green)">₹38.11<small>L Cr</small></strong><span class="muted">1,862 static-input projects</span></div>
 </section>
 
 <section class="panel">
@@ -457,8 +458,8 @@ button.active{{background:var(--accent);color:#032033}}
   <h2 style="margin:8px 0 4px;font-size:22px;color:#fff;">Economic Value & Business Model</h2>
   <div class="business-grid">
     <div style="background:#081729;padding:18px;border-radius:14px;border:1px solid #1e3a5f;"><strong style="color:var(--accent)">Payer & Decision</strong><p class="muted" style="font-size:13px;">MoSPI IPMD, NHAI, RVNL, CAG auditors. Decides which 1 km segment receives field verification first.</p></div>
-    <div style="background:#081729;padding:18px;border-radius:14px;border:1px solid #1e3a5f;"><strong style="color:var(--green)">National Scale Cost</strong><p class="muted" style="font-size:13px;">Sentinel/Landsat free. At ₹3L/project/yr, monitoring all 1,862 projects (₹38.11L Cr) costs ₹56 Cr/yr.</p></div>
-    <div style="background:#081729;padding:18px;border-radius:14px;border:1px solid #1e3a5f;"><strong style="color:var(--orange)">Illustrative ROI</strong><p class="muted" style="font-size:13px;">Avoiding 0.1% overrun on ₹38.11L Cr saves ₹3,811 Cr; early stall flagging on one ₹672 Cr package yields >180x ROI.</p></div>
+    <div style="background:#081729;padding:18px;border-radius:14px;border:1px solid #1e3a5f;"><strong style="color:var(--green)">Illustrative National Scale Cost</strong><p class="muted" style="font-size:13px;">Static-input scenario: ₹3L/project/yr across 1,862 projects (₹38.11L Cr) implies ₹56 Cr/yr. Revalidate against the current official portfolio.</p></div>
+    <div style="background:#081729;padding:18px;border-radius:14px;border:1px solid #1e3a5f;"><strong style="color:var(--orange)">Illustrative ROI</strong><p class="muted" style="font-size:13px;">Scenario only: avoiding 0.1% overrun on ₹38.11L Cr saves ₹3,811 Cr; early stall flagging on one ₹672 Cr package yields &gt;180x ROI. Validate assumptions before any decision.</p></div>
   </div>
 </section>
 

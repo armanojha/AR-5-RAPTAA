@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { TimelineSegmentSnapshot, useDrishtiData } from '../data/DrishtiContext';
+import { alertProjectId, TimelineSegmentSnapshot, useDrishtiData } from '../data/DrishtiContext';
+import indiaBoundary from '../data/indiaBoundary.json';
 
 type MapLayer = 'hybrid' | 'sentinel2' | 'worldcover' | 'sar';
 type AlertTab = 'all' | 'stall' | 'track_c';
@@ -10,6 +11,35 @@ function projectIndia(lon: number, lat: number): [number, number] {
   const x = 235 + ((lon - 68.0) / (97.5 - 68.0)) * 585;
   const y = 720 - ((lat - 7.5) / (36.5 - 7.5)) * 630;
   return [x, y];
+}
+
+function indiaBoundaryPaths(): string[] {
+  const geometry = (indiaBoundary as { features?: Array<{ geometry?: { type?: string; coordinates?: unknown } }> })
+    .features?.[0]?.geometry;
+  if (!geometry || !Array.isArray(geometry.coordinates)) return [];
+  const polygons = geometry.type === 'MultiPolygon'
+    ? (geometry.coordinates as number[][][][])
+    : [geometry.coordinates as number[][][]];
+  return polygons.flatMap((polygon) =>
+    polygon.map((ring) =>
+      ring
+        .map(([lon, lat], index) => {
+          const [x, y] = projectIndia(lon, lat);
+          return `${index === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`;
+        })
+        .join(' ') + ' Z'
+    )
+  );
+}
+
+const INDIA_BOUNDARY_PATHS = indiaBoundaryPaths();
+
+function geometryCoordinatePairs(value: unknown): number[][] {
+  if (!Array.isArray(value)) return [];
+  if (value.length >= 2 && typeof value[0] === 'number' && typeof value[1] === 'number') {
+    return [value as number[]];
+  }
+  return value.flatMap(geometryCoordinatePairs);
 }
 
 const CORRIDOR_ANCHORS: Record<string, { lat: number; lon: number; label: string; region: string }> = {
@@ -81,6 +111,15 @@ export const OverviewPage: React.FC = () => {
 
   const realProjects = data.projects.filter((p) => !p.is_synthetic);
   const synthProjects = data.projects.filter((p) => p.is_synthetic);
+  const nationalSegmentLines = data.segments.map((segment) => ({
+    segment,
+    points: geometryCoordinatePairs(segment.geometry?.coordinates)
+      .map(([lon, lat]) => {
+        const [x, y] = projectIndia(lon, lat);
+        return `${x.toFixed(1)},${y.toFixed(1)}`;
+      })
+      .join(' '),
+  }));
 
   const assessableSegs = data.segments.filter((s) => s.is_assessable);
   const tunnelSegs = data.segments.filter((s) => !s.is_assessable);
@@ -99,7 +138,7 @@ export const OverviewPage: React.FC = () => {
   const latestChip = chipsForFocused[chipsForFocused.length - 1];
 
   const alertsList = data.alerts.filter((a) =>
-    selectedProjectId === 'ALL' ? true : a.segment?.project_id === selectedProjectId
+    selectedProjectId === 'ALL' ? true : alertProjectId(a) === selectedProjectId
   );
 
   // Donut circumference = 2 * pi * 48 ≈ 301.59
@@ -312,7 +351,7 @@ export const OverviewPage: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary text-[18px]">travel_explore</span>
                 <span className="font-headline-sm text-headline-sm font-semibold text-on-surface">
-                  National Infrastructure Vector Grid
+                  India Infrastructure Operations Map
                 </span>
                 <span className="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed uppercase font-semibold">
                   S1+S2 LIVE
@@ -322,10 +361,10 @@ export const OverviewPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-1 bg-surface-container-low p-0.5 rounded-lg border border-outline-variant/30">
                 {(
                   [
-                    ['hybrid', 'Hybrid Vector'],
-                    ['sentinel2', 'Sentinel-2 True Color'],
-                    ['worldcover', 'WorldCover / DEM'],
-                    ['sar', 'SAR Radar'],
+                    ['hybrid', 'National Vector'],
+                    ['sentinel2', 'EO Coverage'],
+                    ['worldcover', 'Land Cover Context'],
+                    ['sar', 'SAR Coverage'],
                   ] as [MapLayer, string][]
                 ).map(([layer, label]) => (
                   <button
@@ -383,17 +422,13 @@ export const OverviewPage: React.FC = () => {
           </div>
 
           {/* Map Canvas Graphic Area */}
-          <div className="relative w-full h-[440px] sm:h-[500px] bg-gradient-to-b from-[#eaf2fb] via-[#f0f6ff] to-[#e4eef9] overflow-hidden select-none">
-            {/* Optional real Sentinel-2 chip backdrop when Sentinel-2 / SAR tab selected */}
-            {mapLayer !== 'hybrid' && latestChip?.rgb_url && (
-              <img
-                src={mapLayer === 'sentinel2' ? latestChip.rgb_url : latestChip.falsecolor_url ?? latestChip.rgb_url}
-                alt={`${activeCorridorId} real Sentinel-2 imagery`}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-                  mapLayer === 'sar' ? 'grayscale contrast-125 opacity-70' : 'opacity-80'
-                }`}
-              />
-            )}
+          <div className={`relative w-full h-[500px] sm:h-[560px] overflow-hidden select-none transition-colors ${
+            mapLayer === 'sar'
+              ? 'bg-[#0d1b2a]'
+              : mapLayer === 'worldcover'
+              ? 'bg-gradient-to-br from-[#e4f1ea] via-[#edf5ef] to-[#dcebe2]'
+              : 'bg-gradient-to-br from-[#e8f1f8] via-[#f4f8fb] to-[#dfeaf3]'
+          }`}>
 
             <svg
               className="relative z-10 w-full h-full object-contain filter drop-shadow-sm transition-transform duration-200"
@@ -409,15 +444,54 @@ export const OverviewPage: React.FC = () => {
                     strokeWidth="0.8"
                   />
                 </pattern>
+                <linearGradient id="india-terrain" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stopColor={mapLayer === 'sar' ? '#334155' : mapLayer === 'worldcover' ? '#d2ead8' : '#ffffff'} />
+                  <stop offset="58%" stopColor={mapLayer === 'sar' ? '#1e293b' : mapLayer === 'worldcover' ? '#b9dcc7' : '#eef5fa'} />
+                  <stop offset="100%" stopColor={mapLayer === 'sar' ? '#0f172a' : mapLayer === 'worldcover' ? '#a7ceb6' : '#dce9f2'} />
+                </linearGradient>
+                <filter id="india-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#0f2940" floodOpacity="0.18" />
+                </filter>
               </defs>
               <rect fill="url(#grid-pattern)" height="800" width="1000" />
-              {/* India Silhouette */}
-              <path
-                d="M 450,90 C 480,120 540,110 570,140 C 600,170 560,200 580,230 C 600,260 670,250 710,240 C 740,240 790,260 810,290 C 830,320 810,340 770,350 C 740,360 700,340 680,350 C 660,370 650,400 630,420 C 600,450 610,500 590,540 C 570,580 540,640 510,690 C 490,720 480,720 460,680 C 440,640 400,560 380,500 C 360,450 330,420 310,400 C 280,380 250,370 240,350 C 230,320 270,300 290,280 C 320,250 350,220 380,180 C 410,140 430,90 450,90 Z"
-                fill={mapLayer === 'hybrid' ? '#fbfdff' : 'rgba(251,253,255,0.22)'}
-                stroke="#94a3b8"
-                strokeWidth="1.8"
-              />
+              {[70, 75, 80, 85, 90, 95].map((lon) => {
+                const [x] = projectIndia(lon, 20);
+                return <line key={`lon-${lon}`} x1={x} x2={x} y1="70" y2="735" stroke={mapLayer === 'sar' ? '#334155' : '#b9ccda'} strokeWidth="0.8" strokeDasharray="4 7" />;
+              })}
+              {[10, 15, 20, 25, 30, 35].map((lat) => {
+                const [, y] = projectIndia(80, lat);
+                return <line key={`lat-${lat}`} x1="220" x2="845" y1={y} y2={y} stroke={mapLayer === 'sar' ? '#334155' : '#b9ccda'} strokeWidth="0.8" strokeDasharray="4 7" />;
+              })}
+              {/* Natural Earth 1:10m India boundary, projected from real lon/lat. */}
+              <g fillRule="evenodd" filter="url(#india-shadow)">
+                {INDIA_BOUNDARY_PATHS.map((path, index) => (
+                  <path
+                    key={index}
+                    d={path}
+                    fill="url(#india-terrain)"
+                    stroke={mapLayer === 'sar' ? '#94a3b8' : '#55748b'}
+                    strokeWidth="1.35"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                ))}
+              </g>
+
+              {/* Actual OSM corridor buffer geometry, projected at national scale. */}
+              <g opacity={selectedProjectId === 'ALL' ? 0.78 : 0.96}>
+                {nationalSegmentLines.map(({ segment, points }) => {
+                  if (!points || (selectedProjectId !== 'ALL' && segment.project_id !== selectedProjectId)) return null;
+                  const color = !segment.is_assessable
+                    ? '#64748b'
+                    : segment.alert_triggered
+                    ? '#dc2626'
+                    : segment.project_id === 'RVNL-RK-RAIL'
+                    ? '#7c3aed'
+                    : segment.project_id === 'BSRDC-KDB-BRIDGE'
+                    ? '#0f766e'
+                    : '#0369a1';
+                  return <polyline key={segment.segment_id} points={points} fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />;
+                })}
+              </g>
 
               {/* Real Corridor Markers & Connecting Arcs */}
               {realProjects.map((p) => {
@@ -449,13 +523,16 @@ export const OverviewPage: React.FC = () => {
                         className="animate-pulse"
                       />
                     )}
-                    <circle cx={cx} cy={cy} r={isSelected ? '9' : '7'} fill={color} stroke="#fff" strokeWidth="2" />
+                    <circle cx={cx} cy={cy} r={isSelected ? '9' : '7'} fill={color} stroke="#fff" strokeWidth="2.5" />
                     <text
                       x={cx + 14}
                       y={cy + 4}
-                      fontSize="13"
-                      fontWeight="600"
-                      fill="#031c35"
+                      fontSize="12"
+                      fontWeight="700"
+                      fill={mapLayer === 'sar' ? '#e2e8f0' : '#0f2940'}
+                      paintOrder="stroke"
+                      stroke={mapLayer === 'sar' ? '#0d1b2a' : '#f8fbfd'}
+                      strokeWidth="4"
                       className="font-sans"
                     >
                       {anchor.label}
@@ -464,6 +541,23 @@ export const OverviewPage: React.FC = () => {
                 );
               })}
             </svg>
+
+            {mapLayer !== 'hybrid' && latestChip?.rgb_url && (
+              <div className="absolute bottom-4 right-4 z-20 w-56 bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-lg overflow-hidden">
+                <div className="px-3 py-2 flex items-center justify-between text-[9px] uppercase tracking-wider border-b border-outline-variant/20">
+                  <span className="font-semibold text-on-surface">Selected corridor EO</span>
+                  <span className="font-mono text-primary">{latestChip.date}</span>
+                </div>
+                <img
+                  src={mapLayer === 'sentinel2' ? latestChip.rgb_url : latestChip.falsecolor_url ?? latestChip.rgb_url}
+                  alt={`${activeCorridorId} real satellite observation`}
+                  className={`w-full h-28 object-cover ${mapLayer === 'sar' ? 'grayscale contrast-125' : ''}`}
+                />
+                <div className="px-3 py-1.5 text-[9px] text-on-surface-variant">
+                  Real cached observation · corridor scale
+                </div>
+              </div>
+            )}
 
             {/* Floating Corridor Inspection Popover Card */}
             {focusedProject && (
@@ -477,7 +571,7 @@ export const OverviewPage: React.FC = () => {
                   <span className="font-mono text-outline">{focusedProject.project_id.split('-')[0]}</span>
                 </div>
                 <div className="font-headline-sm text-sm font-bold text-on-surface">
-                  {focusedProject.project_name}
+                  {focusedProject.project_name ?? focusedProject.name ?? focusedProject.project_id}
                 </div>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
                   {focusedProject.segment_count} OSM segments ({focusedProject.not_assessable_count ?? 0} tunnel{' '}
@@ -556,7 +650,7 @@ export const OverviewPage: React.FC = () => {
           <div className="px-space-lg py-space-sm bg-surface-container-low/60 border-t border-outline-variant/20 space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-on-surface-variant">
               <span>
-                Swath Sensor: <strong>Sentinel-2 MSI + Sentinel-1 SAR RTC</strong> · Resolution: <strong>10m GSD</strong> · Geometry: <strong>OpenStreetMap</strong>
+                Map: <strong>Natural Earth 1:10m</strong> · EO: <strong>Sentinel-2 MSI + Sentinel-1 SAR RTC</strong> · Corridor Geometry: <strong>OpenStreetMap</strong>
               </span>
               <span>Active Epoch: {activeDate.slice(0, 10)}</span>
             </div>
@@ -677,7 +771,7 @@ export const OverviewPage: React.FC = () => {
                       Spend <strong>{al.analysis.spend_to_date_pct}%</strong> vs SAI{' '}
                       <strong>
                         {al.activity.activity_index !== null
-                          ? `${(al.activity.activity_index * 100).toFixed(0)}%`
+                          ? `${toSaiPct(al.activity.activity_index)}%`
                           : 'N/A'}
                       </strong>{' '}
                       · Delay Risk <strong className="text-error">{(riskVal * 100).toFixed(0)}%</strong>.
@@ -892,10 +986,13 @@ export const OverviewPage: React.FC = () => {
             <span className="text-xs text-on-surface-variant">Verify-First Governance (No Contractor Blame)</span>
           </div>
           <div className="font-headline-sm text-base font-bold text-on-surface">
-            Addressable Portfolio: ₹{data.layer12_roi.capex_lakh_cr}L Cr across{' '}
+            Illustrative Portfolio Scenario: ₹{data.layer12_roi.capex_lakh_cr}L Cr across{' '}
             {data.layer12_roi.addressable_projects.toLocaleString()} MoSPI Projects ({data.layer12_roi.roi_multiple}{' '}
             ROI at ₹{data.layer12_roi.annual_platform_cost_cr} Cr/yr)
           </div>
+          <p className="text-xs text-on-surface-variant">
+            {data.layer12_roi.assumption_note ?? 'Illustrative national portfolio scenario; revalidate against the current official portfolio before using it in a decision.'}
+          </p>
         </div>
         <div className="flex flex-wrap gap-1.5">
           {data.layer12_roi.target_agencies.map((ag) => (

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { useDrishtiData } from '../data/DrishtiContext';
+import { alertProjectId, useDrishtiData } from '../data/DrishtiContext';
 
 export const ProjectAlertsPage: React.FC = () => {
   const { data, loading, selectedProjectId } = useDrishtiData();
@@ -8,7 +8,7 @@ export const ProjectAlertsPage: React.FC = () => {
 
   const alerts = useMemo(() => {
     return (data?.alerts ?? []).filter((a) => {
-      if (selectedProjectId !== 'ALL' && a.segment?.project_id !== selectedProjectId) return false;
+      if (selectedProjectId !== 'ALL' && alertProjectId(a) !== selectedProjectId) return false;
       if (severityFilter !== 'all' && a.severity !== severityFilter) return false;
       if (
         search &&

@@ -8,8 +8,9 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 
 class AlertRepository:
-    def __init__(self, evidence_directory: str | Path) -> None:
+    def __init__(self, evidence_directory: str | Path, bundle_path: str | Path | None = None) -> None:
         self.evidence_directory = Path(evidence_directory)
+        self.bundle_path = Path(bundle_path) if bundle_path else None
 
     def _payload(self) -> dict[str, Any]:
         return json.loads((self.evidence_directory / "alerts.json").read_text(encoding="utf-8"))
@@ -26,6 +27,11 @@ class AlertRepository:
     def segment_timeline(self, segment_id: str) -> list[dict[str, Any]]:
         return list(self._payload().get("timelines", {}).get(segment_id, []))
 
+    def bundle(self) -> dict[str, Any] | None:
+        if self.bundle_path is None or not self.bundle_path.is_file():
+            return None
+        return json.loads(self.bundle_path.read_text(encoding="utf-8"))
+
 
 class AlertApplication:
     def __init__(self, repository: AlertRepository) -> None:
@@ -35,7 +41,14 @@ class AlertApplication:
         parsed = urlparse(raw_path)
         parts = [unquote(part) for part in parsed.path.split("/") if part]
         if not parts or parts == ["health"]:
-            return 200, {"status": "ok", "service": "drishti-alert-api"}
+            return 200, {
+                "status": "ok",
+                "service": "drishti-alert-api",
+                "bundle_available": self.repository.bundle() is not None,
+            }
+        if parts == ["bundle"]:
+            bundle = self.repository.bundle()
+            return (200, bundle) if bundle is not None else (404, {"error": "frontend bundle not configured"})
         if parts == ["alerts"]:
             severity = parse_qs(parsed.query).get("severity", [None])[0]
             alerts = self.repository.list_alerts(severity=severity)
@@ -52,10 +65,11 @@ class AlertApplication:
 def create_alert_server(
     evidence_directory: str | Path,
     *,
+    bundle_path: str | Path | None = None,
     host: str = "127.0.0.1",
     port: int = 8765,
 ) -> ThreadingHTTPServer:
-    repository = AlertRepository(evidence_directory)
+    repository = AlertRepository(evidence_directory, bundle_path=bundle_path)
     application = AlertApplication(repository)
 
     class Handler(BaseHTTPRequestHandler):
@@ -78,8 +92,14 @@ def create_alert_server(
     return ThreadingHTTPServer((host, port), Handler)
 
 
-def serve_alert_api(evidence_directory: str | Path, *, host: str = "127.0.0.1", port: int = 8765) -> None:
-    server = create_alert_server(evidence_directory, host=host, port=port)
+def serve_alert_api(
+    evidence_directory: str | Path,
+    *,
+    bundle_path: str | Path | None = None,
+    host: str = "127.0.0.1",
+    port: int = 8765,
+) -> None:
+    server = create_alert_server(evidence_directory, bundle_path=bundle_path, host=host, port=port)
     print(f"Drishti alert API listening on http://{host}:{server.server_port}")
     try:
         server.serve_forever()
