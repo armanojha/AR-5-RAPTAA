@@ -14,6 +14,9 @@ from drishti.real_case import build_real_corridor_demonstration
 
 class RealDemoTests(unittest.TestCase):
     def test_full_real_pipeline(self) -> None:
+        raster_dir = Path("data/real_cache/NHAI-NH544G-PKG1")
+        if not any(raster_dir.glob("*.tif")):
+            self.skipTest("full demo requires ingested raster cache; see README")
         with tempfile.TemporaryDirectory() as tmpdir:
             out_root = Path(tmpdir)
             with redirect_stdout(io.StringIO()):

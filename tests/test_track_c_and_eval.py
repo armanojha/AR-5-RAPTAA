@@ -10,6 +10,12 @@ from drishti.layers.calibration import run_weight_sensitivity_analysis
 
 
 class TrackCAndCalibrationTests(unittest.TestCase):
+    def setUp(self) -> None:
+        if not Path("output/real_case/analysis.json").exists():
+            self.skipTest("integration outputs require a real-demo build; see README")
+        if not any(Path("data/real_cache/NHAI-NH544G-PKG1").glob("*.tif")):
+            self.skipTest("Track C integration requires ingested raster cache; see README")
+
     def test_track_c_detection(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             out_dir = Path(tmpdir)
